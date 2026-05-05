@@ -1,0 +1,32 @@
+2101|Benjamin Correa Salas|7|1|101|1:2.5,1.0,5.0,2.0|14|Javier Correa Diaz|benja.correa@gmail.com|3152223344|NONE|NONE
+2111|Abigail Lopez Pena|6|1|102|1:4.0,3.6,4.8,4.0|1|Diana Pena Jimenez|abigail.lopez.p@gmail.com|3204445566|NONE|NONE
+2201|Thiago Ruiz Cano|8|2|201|1:3.0,3.3,3.8,3.0,2.0,1.0,3.0,4.0|8|Luis Ruiz Carmel|Luisruiz09q@gmail.com|3112345678|Matemáticas@1:2.0,1.0,3.0,4.0|NONE
+2211|Sara Sofia Meza Rivas|8|2|202|1:3.0,4.0,3.0,2.0,3.0,4.0,5.0,3.0,2.5,3.0,1.0|0|Claudia Rivas Cabarcas|Claudicabarcasq@gmail.com|3017654321|Lengua Castellana@1:2.5,3.0,1.0|NONE
+2301|Miguel Pava Soler|8|3|301|NONE|0|Andres Pava Montes|Andres12322@gmail.com|3015830582|NONE|NONE
+2311|Valeria Jimena Ortiz|8|3|302|NONE|0|Esperanza Ortiz Castillo|esperanza.ortiz.j@gmail.com|3149698898|NONE|NONE
+2401|Daniel Felipe Castro|9|4|401|NONE|0|Mario Castro Pineda|mario.castro.f@gmail.com|3171110090|NONE|NONE
+2411|Gabriela Maria Suarez|8|4|402|NONE|0|Lucia Suarez Minota|luciasuarezm@gmail.com|3025846592|NONE|NONE
+2501|Alejandro Mesa Giraldo|10|5|501|NONE|0|Gustavo Mesa Rios|gustavomesari@gmail.com|3115692577|NONE|NONE
+2511|Juliana Andrea Caicedo Mendez|10|5|502|NONE|0|Patricia Caicedo Melendes|patriciacaicedomm@gmail.com|3122323232|NONE|NONE
+3601|Mateo Alexander Flores|11|6|601|NONE|0|Orlando Florez Barrios|orlandofloreza@gmail.com|3003434343|NONE|NONE
+3640|Paula Ximena Rincon|11|6|602|NONE|0|Gladys Rincon Licona|gladysrinconx@gmail.com|3154545454|NONE|NONE
+3701|Emanuel David Beltran|12|7|701|NONE|0|Samuel Beltran Ayola|samuelbeltrand@gmail.com|3205656565|NONE|NONE
+3714|Laura Victoria Ospina|12|7|702|NONE|0|Clemencia Ospina Berrios|clemenciaospinav@gmail.com|3116767676|NONE|NONE
+3803|Tomas Enrique Bernal|13|8|801|NONE|0|Enrique Bernal Guerrero|enriquebernalp@gmail.com|3148989898|NONE|NONE
+3823|Manuela Fernanda Soler|13|8|802|NONE|0|Angela Soler Rivera|angelasolerf01@gmail.com|3148989898|NONE|NONE
+3901|Kevin Andres Guzman Martinez|14|9|901|NONE|0|Alvaro Guzman Barrios|alvaroguzmana@gmail.com|3179090909|NONE|NONE
+3911|Allison Dayana Murillo Garcias|14|9|902|NONE|0|Rosa Murillo Llamas|rosamurillod@gmailcom|3040101010|NONE|NONE
+4001|Jorge Luis Henao Gomez|15|10|1001|NONE|0|Carlos Henao Blanco|carloshenaoacudiente@gmailcom|3007778899|NONE|NONE
+4011|Mayerly Paola Ortiz Manjarres|15|10|1002|NONE|0|Cecilia Ortiz Manrrique|ceciliaortizmadre@gmail.com|3150001122|NONE|NONE
+5101|Santiago Jose Marin Gutierres|17|11|1101|NONE|0|Claudia Duarte Perez|claudiaduartem@gmail.com|3123332222|NONE|NONE
+5111|Isabella Moreno Duarte Duarte|16|11|1102|NONE|0|Andres Duarte Marin|andresduartemarin@gmail.com|3102221111|NONE|NONE
+1036|Lissa Navarro Quintero|5|Jardin|1|NONE|0|Luis Navarro Rojas|Navarro0930@gmail.com|3025679440|NONE|NONE
+1055|Mateo Pinzon Duarte|4|Jardin|2|NONE|0|Carlos Pinzon Cardona|carlospinzoncardona882@gmail.com|3228590367|NONE|NONE
+2655|Juan Esteban Perez Gomez|6|1|101|NONE|0|Maria Gomez Llamas|mariagomez01@email.com|3001234567|NONE|NONE
+1221|Valentina Rojas Diaz|5|1|101|NONE|0|Carlos Rojas Barrios|carlosrojas22@email.com|3012345678|NONE|NONE
+2425|Santiago Torres Leon|6|1|102|NONE|0|Ana Leon Castillo|analeon@email.com|3023456789|NONE|NONE
+2722|Camila Martinez Ruiz|6|1|102|NONE|0|Luis Martinez Martinez|luismartinez@email.com|3034567890|NONE|NONE
+5594|Sebastian Herrera Castro|7|2|201|1:2.0,2.4,3.2,4.2|0|Patricia Castro Mendez|patriciacastro@email.com|3045678901|Matemáticas@1:2.0,2.4,3.2,4.2|NONE
+2461|Daniela Vargas Ortiz|7|2|201|1:1.7,2.5,1.0,5.0|0|Jorge Vargas Villalba|jorgevargas@email.com|3056789012|Matemáticas@1:1.7,2.5,1.0,5.0|NONE
+3132|Nicolas Ramirez Silva|7|2|202|1:2.0,4.0,3.0,4.0,1.0,5.0,5.0|0|Sandra Silva Gonzales|sandrasilva@email.com|3067890123|Lengua Castellana@1:1.0,5.0,5.0|NONE
+7777|Jefferson Jose Barrios|7|2|202|1:5.0,4.0,4.0,3.0,3.0,4.0,4.0|0|Juliana Maria Hernandez|JuliMaria@email.com|300514612|Lengua Castellana@1:3.0,4.0,4.0|NONE

@@ -1,0 +1,9 @@
+{
+  "java.debug.settings.onBuildFailureProceed": true,
+  "java.autobuild.enabled": true,
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.project.sourcePaths": [
+    "."
+  ],
+  "java.project.outputPath": "bin"
+}
