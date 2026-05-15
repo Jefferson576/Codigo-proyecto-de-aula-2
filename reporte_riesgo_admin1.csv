@@ -1,2 +1,6 @@
 ID;Nombre;Grado;Curso;Nota1;Nota2;Nota3;Nota4;Nota5;Nota6;Nota7;Nota8;Promedio;Faltas;Estado;NombreAcudiente;CorreoAcudiente;TelefonoAcudiente
+2101;Benjamin Correa Salas;1;101;2,50;1,00;5,00;2,00;4,00;3,00;4,00;0.00;3,67;19;ALERTA DE ASISTENCIA;Javier Correa Diaz;benja.correa@gmail.com;3152223344
 2201;Thiago Ruiz Cano;2;201;3,00;3,30;3,80;3,00;2,00;1,00;3,00;4,00;2,50;8;ALERTA DE DESERCIÓN;Luis Ruiz Carmel;Luisruiz09q@gmail.com;3112345678
+1221;Valentina Rojas Diaz;1;101;5,00;2,00;5,00;0.00;0.00;0.00;0.00;0.00;3,33;4;ALERTA DE ASISTENCIA;Carlos Rojas Barrios;carlosrojas22@email.com;3012345678
+5594;Sebastian Herrera Castro;2;201;2,00;2,40;3,20;4,20;0.00;0.00;0.00;0.00;2,95;0;ALERTA ACADÉMICA;Patricia Castro Mendez;patriciacastro@email.com;3045678901
+2461;Daniela Vargas Ortiz;2;201;1,70;2,50;1,00;5,00;0.00;0.00;0.00;0.00;2,55;0;ALERTA ACADÉMICA;Jorge Vargas Villalba;jorgevargas@email.com;3056789012

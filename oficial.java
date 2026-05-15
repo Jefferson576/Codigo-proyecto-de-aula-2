@@ -664,10 +664,15 @@ public class oficial {
   }
 
   private static final class AppFrame extends JFrame {
-    private static final Color BG = new Color(245, 247, 250);
-    private static final Color SIDEBAR = new Color(44, 62, 80);
-    private static final Color BTN = new Color(52, 152, 219);
-    private static final Color BTN2 = new Color(52, 73, 94);
+    private static final Color azulOscuro = new Color(0x708090);
+    private static final Color azulReal = new Color(0x283593);
+    private static final Color turquesaSuave = new Color(0x4DB6AC);
+    private static final Color grisazulado = new Color(0xF0F2F5);
+
+    private static final Color BG = grisazulado;
+    private static final Color SIDEBAR = new Color(100, 116, 139);
+    private static final Color BTN = turquesaSuave;
+    private static final Color BTN2 = azulReal;
 
     private final JPanel root = new JPanel(new BorderLayout());
     private final JPanel content = new JPanel(new BorderLayout());
@@ -790,7 +795,7 @@ public class oficial {
     }
 
     private AppFrame() {
-      setTitle("Sistema de Gestión Académica y Alertas Estudiantiles");
+      setTitle("Estudio Integral de Permanencia Estudiantil");
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setSize(1100, 700);
       setLocationRelativeTo(null);
@@ -848,12 +853,12 @@ public class oficial {
       left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));
       left.setBorder(BorderFactory.createEmptyBorder(28, 24, 28, 24));
 
-      JLabel brand = new JLabel("Gestion Escolar");
+      JLabel brand = new JLabel("E.I.P.I");
       brand.setForeground(Color.WHITE);
       brand.setFont(new Font("Segoe UI", Font.BOLD, 26));
       brand.setAlignmentX(JComponent.LEFT_ALIGNMENT);
 
-      JLabel sub = new JLabel("<html>Control academico<br/>y prevencion de desercion</html>");
+      JLabel sub = new JLabel("<html>Estudio integral de <br/>permanencia estudiantil</html>");
       sub.setForeground(new Color(236, 240, 241));
       sub.setFont(new Font("Segoe UI", Font.PLAIN, 13));
       sub.setAlignmentX(JComponent.LEFT_ALIGNMENT);
@@ -1031,13 +1036,37 @@ public class oficial {
 
       JPanel title = new JPanel(new BorderLayout());
       title.setBackground(BG);
-      JLabel l = new JLabel("🏫");
-      l.setFont(new Font("Segoe UI", Font.PLAIN, 32));
-      title.add(l, BorderLayout.WEST);
+
+      JLabel logoLabel = new JLabel();
+      try {
+        String logoPath = "logo.png";
+        java.awt.image.BufferedImage originalImage = ImageIO.read(new File(logoPath));
+
+        int newWidth = 120;
+        int newHeight = 120;
+
+        java.awt.image.BufferedImage bufferedImage = new java.awt.image.BufferedImage(
+            newWidth, newHeight, java.awt.image.BufferedImage.TYPE_INT_ARGB);
+
+        java.awt.Graphics2D g2d = bufferedImage.createGraphics();
+        g2d.setRenderingHint(java.awt.RenderingHints.KEY_INTERPOLATION,
+            java.awt.RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+        g2d.setRenderingHint(java.awt.RenderingHints.KEY_RENDERING, java.awt.RenderingHints.VALUE_RENDER_QUALITY);
+        g2d.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
+
+        g2d.drawImage(originalImage, 0, 0, newWidth, newHeight, null);
+        g2d.dispose();
+
+        logoLabel.setIcon(new javax.swing.ImageIcon(bufferedImage));
+      } catch (Exception e) {
+        logoLabel.setText("logo");
+        logoLabel.setFont(new Font("Segoe UI", Font.PLAIN, 32));
+      }
+      title.add(logoLabel, BorderLayout.WEST);
 
       JPanel info = new JPanel(new BorderLayout());
       info.setBackground(BG);
-      JLabel h1 = new JLabel("Sistema de Gestión de Deserción Estudiantil");
+      JLabel h1 = new JLabel("Estudio Integral de Permanencia Estudiantil");
       h1.setFont(new Font("Segoe UI", Font.BOLD, 18));
       h1.setForeground(new Color(41, 128, 185));
       lblSesion.setText(institucionActual != null ? ("Institución: " + institucionActual.nombre) : "Sin sesión");
@@ -1051,7 +1080,6 @@ public class oficial {
       bLogout.addActionListener(e -> logout());
       title.add(bLogout, BorderLayout.EAST);
       top.add(title, BorderLayout.CENTER);
-
       content.add(top, BorderLayout.NORTH);
 
       final JTabbedPane tabbedPane = new JTabbedPane();
@@ -1090,13 +1118,13 @@ public class oficial {
 
       JPanel center = new JPanel(new BorderLayout());
       center.setBackground(BG);
-      center.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
+      center.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
       JPanel sidebar = new JPanel();
       sidebar.setLayout(new BoxLayout(sidebar, BoxLayout.Y_AXIS));
       sidebar.setBackground(SIDEBAR);
       sidebar.setPreferredSize(new Dimension(240, 0));
-      sidebar.setBorder(BorderFactory.createEmptyBorder(18, 12, 18, 12));
+      sidebar.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
 
       JLabel brand = new JLabel("DIRECTIVA");
       brand.setForeground(Color.WHITE);
@@ -1112,9 +1140,11 @@ public class oficial {
       JButton b5 = crearBoton("Editar", BTN2);
       JButton b6 = crearBoton("Eliminar", BTN2);
       JButton b7 = crearBoton("Buscar", BTN2);
+      JButton b8 = crearBoton("Exportar Lista", BTN);
 
-      for (JButton b : new JButton[] { b1, b2, b3, b4, b5, b6, b7 }) {
+      for (JButton b : new JButton[] { b1, b2, b3, b4, b5, b6, b7, b8 }) {
         b.setMaximumSize(new Dimension(Integer.MAX_VALUE, 44));
+        b.setAlignmentX(JComponent.CENTER_ALIGNMENT);
         sidebar.add(b);
         sidebar.add(Box.createVerticalStrut(10));
       }
@@ -1147,9 +1177,11 @@ public class oficial {
 
       JButton bAplicar = crearBoton("Filtrar", BTN);
       JButton bReset = crearBoton("Reset", BTN2);
+      JButton bExportar = crearBoton("Exportar", BTN);
 
       bAplicar.setBorder(BorderFactory.createEmptyBorder(8, 12, 8, 12));
       bReset.setBorder(BorderFactory.createEmptyBorder(8, 12, 8, 12));
+      bExportar.setBorder(BorderFactory.createEmptyBorder(8, 12, 8, 12));
 
       filtrosStudents.add(new JLabel("Buscar: "));
       filtrosStudents.add(Box.createHorizontalStrut(6));
@@ -1166,6 +1198,8 @@ public class oficial {
       filtrosStudents.add(bAplicar);
       filtrosStudents.add(Box.createHorizontalStrut(8));
       filtrosStudents.add(bReset);
+      filtrosStudents.add(Box.createHorizontalStrut(8));
+      filtrosStudents.add(bExportar);
 
       headerStudents.add(filtrosStudents, BorderLayout.EAST);
 
@@ -1173,6 +1207,8 @@ public class oficial {
 
       final JTable tablaDirectiva = new JTable();
       final DefaultTableModel modeloDirectiva = new DefaultTableModel();
+      final List<Estudiante>[] listaActualFiltrada = new List[1];
+
       tablaDirectiva.setModel(modeloDirectiva);
       tablaDirectiva.setRowHeight(24);
       tablaDirectiva.setFont(new Font("Segoe UI", Font.PLAIN, 12));
@@ -1209,6 +1245,50 @@ public class oficial {
       b7.addActionListener(e -> {
         mostrarPanelEnDialogo(crearPanelBuscar(), "Buscar Estudiante");
       });
+      b8.addActionListener(e -> {
+        JComboBox<String> cbGradoExport = new JComboBox<>();
+        actualizarCombosGrado(cbGradoExport);
+
+        JTextField txtCursoExport = new JTextField(10);
+
+        JPanel pExport = new JPanel(new GridLayout(0, 2, 10, 10));
+        pExport.add(new JLabel("Grado:"));
+        pExport.add(cbGradoExport);
+        pExport.add(new JLabel("Curso:"));
+        pExport.add(txtCursoExport);
+
+        int option = JOptionPane.showConfirmDialog(this, pExport, "Seleccionar Curso para Exportar",
+            JOptionPane.OK_CANCEL_OPTION);
+        if (option == JOptionPane.OK_OPTION) {
+          String grado = (String) cbGradoExport.getSelectedItem();
+          String cursoStr = txtCursoExport.getText().trim();
+
+          List<Estudiante> listaExport = estudiantes.stream()
+              .filter(est -> grado == null || grado.equals("Todos") || est.getGrado().equalsIgnoreCase(grado))
+              .filter(est -> {
+                if (cursoStr.isEmpty())
+                  return true;
+                try {
+                  int curso = Integer.parseInt(cursoStr);
+                  return est.getCurso() == curso;
+                } catch (Exception ex) {
+                  return true;
+                }
+              })
+              .collect(Collectors.toList());
+
+          if (listaExport.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No hay estudiantes en ese curso.", "Info",
+                JOptionPane.INFORMATION_MESSAGE);
+            return;
+          }
+
+          String nom = "lista_" + (grado != null ? grado : "todos") + "_curso_"
+              + (cursoStr.isEmpty() ? "todos" : cursoStr) + "_" + institucionActual.usuario + ".csv";
+          exportarGenericoCSV(listaExport, nom);
+          JOptionPane.showMessageDialog(this, "Exportado: " + nom, "OK", JOptionPane.INFORMATION_MESSAGE);
+        }
+      });
 
       bAplicar.addActionListener(ev -> {
         List<Estudiante> filtrados = estudiantes.stream()
@@ -1234,17 +1314,30 @@ public class oficial {
               }
             })
             .collect(Collectors.toList());
+        listaActualFiltrada[0] = filtrados;
         refrescarTablaEnTabla(filtrados, modeloDirectiva, tablaDirectiva);
       });
       bReset.addActionListener(e -> {
         txtBuscar.setText("");
         cbFiltroGrado.setSelectedIndex(0);
         txtFiltroCurso.setText("");
-        refrescarTablaEnTabla(estudiantesVisibles(), modeloDirectiva, tablaDirectiva);
+        listaActualFiltrada[0] = estudiantesVisibles();
+        refrescarTablaEnTabla(listaActualFiltrada[0], modeloDirectiva, tablaDirectiva);
+      });
+      bExportar.addActionListener(e -> {
+        if (listaActualFiltrada[0] != null && !listaActualFiltrada[0].isEmpty()) {
+          String nom = "lista_estudiantes_" + institucionActual.usuario + ".csv";
+          exportarGenericoCSV(listaActualFiltrada[0], nom);
+          JOptionPane.showMessageDialog(this, "Exportado: " + nom, "OK", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+          JOptionPane.showMessageDialog(this, "No hay estudiantes para exportar.", "Info",
+              JOptionPane.INFORMATION_MESSAGE);
+        }
       });
 
       panel.add(center, BorderLayout.CENTER);
-      refrescarTablaEnTabla(estudiantesVisibles(), modeloDirectiva, tablaDirectiva);
+      listaActualFiltrada[0] = estudiantesVisibles();
+      refrescarTablaEnTabla(listaActualFiltrada[0], modeloDirectiva, tablaDirectiva);
 
       return panel;
     }
@@ -1255,13 +1348,13 @@ public class oficial {
 
       JPanel center = new JPanel(new BorderLayout());
       center.setBackground(BG);
-      center.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
+      center.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
       JPanel sidebar = new JPanel();
       sidebar.setLayout(new BoxLayout(sidebar, BoxLayout.Y_AXIS));
       sidebar.setBackground(SIDEBAR);
       sidebar.setPreferredSize(new Dimension(240, 0));
-      sidebar.setBorder(BorderFactory.createEmptyBorder(18, 12, 18, 12));
+      sidebar.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
 
       JLabel brand = new JLabel("PSICOSOCIAL");
       brand.setForeground(Color.WHITE);
@@ -1276,6 +1369,7 @@ public class oficial {
 
       for (JButton b : new JButton[] { b1, b2, b3 }) {
         b.setMaximumSize(new Dimension(Integer.MAX_VALUE, 44));
+        b.setAlignmentX(JComponent.CENTER_ALIGNMENT);
         sidebar.add(b);
         sidebar.add(Box.createVerticalStrut(10));
       }
@@ -1308,8 +1402,7 @@ public class oficial {
 
       b1.addActionListener(e -> {
         List<Estudiante> riesgo = estudiantes.stream()
-            .filter(est -> est.getNivelRiesgo().equals("RIESGO DE DESERCIÓN") ||
-                est.getNivelRiesgo().equals("ALERTA DE DESERCIÓN"))
+            .filter(est -> !est.getNivelRiesgo().equals("NORMAL"))
             .collect(Collectors.toList());
         refrescarTablaEnTabla(riesgo, modeloPsico, tablaPsico);
       });
@@ -1317,8 +1410,7 @@ public class oficial {
       b3.addActionListener(e -> mostrarDialogoCorreo());
 
       refrescarTablaEnTabla(estudiantes.stream()
-          .filter(est -> est.getNivelRiesgo().equals("RIESGO DE DESERCIÓN") ||
-              est.getNivelRiesgo().equals("ALERTA DE DESERCIÓN"))
+          .filter(est -> !est.getNivelRiesgo().equals("NORMAL"))
           .collect(Collectors.toList()), modeloPsico, tablaPsico);
 
       return panel;
@@ -1981,6 +2073,11 @@ public class oficial {
     }
 
     private void actualizarCombosGrado() {
+      actualizarCombosGrado(cbFiltroGrado);
+      actualizarCombosGrado(cbGrafGrado);
+    }
+
+    private void actualizarCombosGrado(JComboBox<String> combo) {
       List<String> grados = estudiantes.stream()
           .map(Estudiante::getGrado)
           .filter(Objects::nonNull)
@@ -1994,13 +2091,9 @@ public class oficial {
           })
           .collect(Collectors.toList());
 
-      cbFiltroGrado.removeAllItems();
-      cbFiltroGrado.addItem("Todos");
-      grados.forEach(cbFiltroGrado::addItem);
-
-      cbGrafGrado.removeAllItems();
-      cbGrafGrado.addItem("Todos");
-      grados.forEach(cbGrafGrado::addItem);
+      combo.removeAllItems();
+      combo.addItem("Todos");
+      grados.forEach(combo::addItem);
     }
 
     private List<Estudiante> filtrarParaGraficas() {
@@ -2029,7 +2122,6 @@ public class oficial {
       p.setBackground(BG);
       p.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
 
-      // Simple header just with the panel title
       JPanel header = new JPanel(new BorderLayout());
       header.setBackground(BG);
 
@@ -2037,8 +2129,9 @@ public class oficial {
       t.setFont(new Font("Segoe UI", Font.BOLD, 18));
       t.setForeground(new Color(41, 128, 185));
       t.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+      t.setHorizontalAlignment(SwingConstants.CENTER);
 
-      header.add(t, BorderLayout.WEST);
+      header.add(t, BorderLayout.CENTER);
 
       p.add(header, BorderLayout.NORTH);
       return p;
@@ -2051,10 +2144,10 @@ public class oficial {
       body.setLayout(new BoxLayout(body, BoxLayout.Y_AXIS));
       body.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
 
-      JLabel l1 = new JLabel("👋 Bienvenido al Sistema de Gestión Académica");
+      JLabel l1 = new JLabel("Estudio Integral de Permanencia Estudiantil");
       l1.setFont(new Font("Segoe UI", Font.BOLD, 20));
       l1.setForeground(new Color(41, 128, 185));
-      l1.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+      l1.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 
       body.add(l1);
       body.add(Box.createVerticalStrut(20));
@@ -2062,23 +2155,23 @@ public class oficial {
       JLabel l2 = new JLabel("Use el menú izquierdo para navegar por las diferentes secciones del sistema:");
       l2.setFont(new Font("Segoe UI", Font.PLAIN, 14));
       l2.setForeground(new Color(52, 73, 94));
-      l2.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+      l2.setAlignmentX(JComponent.CENTER_ALIGNMENT);
       body.add(l2);
       body.add(Box.createVerticalStrut(25));
 
       String[] items = {
-          "📊 Estadísticas y reportes",
-          "👨‍🏫 Gestión de profesores",
-          "📚 Asignación de materias",
-          "👦 Registro y edición de estudiantes",
-          "📈 Gráficas y análisis de riesgo"
+          " Estadísticas y reportes",
+          " Gestión de profesores",
+          " Asignación de materias",
+          " Registro y edición de estudiantes",
+          " Gráficas y análisis de riesgo"
       };
 
       for (String item : items) {
         JLabel label = new JLabel("• " + item);
         label.setFont(new Font("Segoe UI", Font.PLAIN, 13));
         label.setForeground(new Color(75, 85, 99));
-        label.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+        label.setAlignmentX(JComponent.CENTER_ALIGNMENT);
         body.add(label);
         body.add(Box.createVerticalStrut(8));
       }
@@ -2985,8 +3078,7 @@ public class oficial {
 
     private void accionExportarRiesgo() {
       List<Estudiante> riesgo = estudiantes.stream()
-          .filter(es -> es.getNivelRiesgo().equals("RIESGO DE DESERCIÓN")
-              || es.getNivelRiesgo().equals("ALERTA DE DESERCIÓN"))
+          .filter(es -> !es.getNivelRiesgo().equals("NORMAL"))
           .toList();
       if (riesgo.isEmpty()) {
         JOptionPane.showMessageDialog(this, "No hay estudiantes en riesgo para exportar.", "Info",
@@ -3001,7 +3093,11 @@ public class oficial {
     private void actualizarStats() {
       long total = estudiantes.size();
       long rRiesgo = estudiantes.stream().filter(e -> e.getNivelRiesgo().equals("RIESGO DE DESERCIÓN")).count();
-      long rAlerta = estudiantes.stream().filter(e -> e.getNivelRiesgo().equals("ALERTA DE DESERCIÓN")).count();
+      long rAlertaDesercion = estudiantes.stream().filter(e -> e.getNivelRiesgo().equals("ALERTA DE DESERCIÓN"))
+          .count();
+      long rAlertaAcademica = estudiantes.stream().filter(e -> e.getNivelRiesgo().equals("ALERTA ACADÉMICA")).count();
+      long rAlertaAsistencia = estudiantes.stream().filter(e -> e.getNivelRiesgo().equals("ALERTA DE ASISTENCIA"))
+          .count();
       long rNormal = estudiantes.stream().filter(e -> e.getNivelRiesgo().equals("NORMAL")).count();
 
       // Calculate acceleration for ALL students
@@ -3013,8 +3109,7 @@ public class oficial {
 
       // Calculate acceleration for AT RISK students
       List<Estudiante> estudiantesRiesgo = estudiantes.stream()
-          .filter(
-              e -> e.getNivelRiesgo().equals("RIESGO DE DESERCIÓN") || e.getNivelRiesgo().equals("ALERTA DE DESERCIÓN"))
+          .filter(e -> !e.getNivelRiesgo().equals("NORMAL"))
           .toList();
       long registrosMarzoRiesgo = estudiantesRiesgo.stream().filter(e -> e.getMesRegistro() == 3).count();
       long registrosMayoRiesgo = estudiantesRiesgo.stream().filter(e -> e.getMesRegistro() == 5).count();
@@ -3022,7 +3117,9 @@ public class oficial {
       double aceleracionRiesgo = deltaVRiesgo / deltaT;
 
       lblStats.setText("<html>Total: " + total + "<br/>RIESGO DE DESERCIÓN: " + rRiesgo + "<br/>ALERTA DE DESERCIÓN: "
-          + rAlerta + "<br/>NORMAL: " + rNormal + "<br/><br/><b>Análisis de Aceleración (Total de Estudiantes):</b>"
+          + rAlertaDesercion + "<br/>ALERTA ACADÉMICA: " + rAlertaAcademica + "<br/>ALERTA DE ASISTENCIA: "
+          + rAlertaAsistencia
+          + "<br/>NORMAL: " + rNormal + "<br/><br/><b>Análisis de Aceleración (Total de Estudiantes):</b>"
           + "<br/>Registros Marzo: " + registrosMarzoTotal + "<br/>Registros Mayo: " + registrosMayoTotal
           + "<br/>Aceleración: " + String.format("%.2f", aceleracionTotal) + " registros/mes"
           + "<br/><br/><b>Análisis de Aceleración (Estudiantes en Riesgo/Alerta):</b>" + "<br/>Registros Marzo: "
@@ -3102,7 +3199,7 @@ public class oficial {
       JComboBox<String> cbEstudiantes = new JComboBox<>();
       cbEstudiantes.setPreferredSize(new Dimension(300, 30));
       for (Estudiante e : estudiantes) {
-        if (e.getNivelRiesgo().equals("RIESGO DE DESERCIÓN") || e.getNivelRiesgo().equals("ALERTA DE DESERCIÓN")) {
+        if (!e.getNivelRiesgo().equals("NORMAL")) {
           cbEstudiantes.addItem(e.getId() + " - " + e.getNombre());
         }
       }
@@ -3316,7 +3413,7 @@ public class oficial {
   private static void inicializarSistema() {
     instituciones.add(new Institucion("I.E. Técnica Industrial", "admin1", "1234"));
     instituciones.add(new Institucion("Colegio San José", "sanjose", "admin2024"));
-    instituciones.add(new Institucion("Liceo Moderno", "liceo", "pass789"));
+    instituciones.add(new Institucion("Liceo Moderno", "liceo", "1112"));
   }
 
   private static void guardarDatos() {
