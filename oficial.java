@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.Stack;
 import java.util.stream.Collectors;
 import java.text.Normalizer;
 import java.io.BufferedReader;
@@ -21,35 +22,45 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GradientPaint;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.RenderingHints;
+import java.awt.Toolkit;
+import java.awt.Window;
+import java.awt.image.BufferedImage;
 import java.util.Objects;
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 import javax.swing.plaf.basic.BasicButtonUI;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.UIManager;
-
-import java.util.Properties;
-import javax.mail.*;
-import javax.mail.internet.*;
 import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
 
@@ -71,6 +82,7 @@ class Estudiante {
   private String nombreAcudiente;
   private String correoAcudiente;
   private String telefonoAcudiente;
+  private int mesRegistro;
 
   public Estudiante(int id, String nombre, int edad, String grado, int curso, String nombreAcudiente,
       String correoAcudiente, String telefonoAcudiente) {
@@ -87,12 +99,13 @@ class Estudiante {
     this.faltasPorMes = new HashMap<>();
     this.totalFaltas = 0;
     this.nivelRiesgo = "NORMAL";
+    this.mesRegistro = java.time.LocalDate.now().getMonthValue();
   }
 
   public Estudiante(int id, String nombre, int edad, String grado, int curso, Map<Integer, List<Double>> notas,
       Map<String, Map<Integer, List<Double>>> notasPorMateria, Map<Integer, Integer> faltasPorMes, int totalFaltas,
       String nombreAcudiente,
-      String correoAcudiente, String telefonoAcudiente) {
+      String correoAcudiente, String telefonoAcudiente, int mesRegistro) {
     this.id = id;
     this.nombre = nombre;
     this.edad = edad;
@@ -117,6 +130,7 @@ class Estudiante {
     this.nombreAcudiente = nombreAcudiente;
     this.correoAcudiente = correoAcudiente;
     this.telefonoAcudiente = telefonoAcudiente;
+    this.mesRegistro = mesRegistro;
     actualizarRiesgo();
   }
 
@@ -475,6 +489,14 @@ class Estudiante {
         id, nombre, grado, curso, getPromedioGeneral(), totalFaltas, nivelRiesgo, nombreAcudiente);
   }
 
+  public int getMesRegistro() {
+    return mesRegistro;
+  }
+
+  public void setMesRegistro(int mes) {
+    this.mesRegistro = mes;
+  }
+
   public String toDataString() {
     StringBuilder sb = new StringBuilder();
     sb.append(id).append("|").append(nombre).append("|").append(edad).append("|")
@@ -507,7 +529,8 @@ class Estudiante {
         .sorted((a, b) -> Integer.compare(a.getKey(), b.getKey()))
         .map(e -> e.getKey() + "=" + e.getValue())
         .collect(Collectors.joining(";"));
-    sb.append(faltasMesData.isEmpty() ? "NONE" : faltasMesData);
+    sb.append(faltasMesData.isEmpty() ? "NONE" : faltasMesData).append("|");
+    sb.append(mesRegistro);
 
     return sb.toString();
   }
@@ -653,6 +676,7 @@ public class oficial {
     private final CardLayout rightLayout = new CardLayout();
     private final JPanel right = new JPanel(rightLayout);
     private final JPanel panelGraficas = new JPanel(new BorderLayout());
+    private final java.util.Stack<String> navigationHistory = new java.util.Stack<>();
 
     private final JPanel loginPanel = new JPanel(new BorderLayout());
     private final JComboBox<String> cbInst = new JComboBox<>();
@@ -675,6 +699,7 @@ public class oficial {
     private final JTextField fRegEdad = new JTextField();
     private final JTextField fRegGrado = new JTextField();
     private final JTextField fRegCurso = new JTextField();
+    private final JComboBox<String> cbRegMateria = new JComboBox<>();
     private final JTextField fRegAcud = new JTextField();
     private final JTextField fRegCorreo = new JTextField();
     private final JTextField fRegTel = new JTextField();
@@ -730,8 +755,42 @@ public class oficial {
     private final JComboBox<String> cbDirAsigMateria = new JComboBox<>();
     private final JComboBox<String> cbDirAsigProfesor = new JComboBox<>();
 
+    private void navigateTo(String panelName) {
+      if (right != null && right.isShowing()) {
+        navigationHistory.push(panelName);
+        rightLayout.show(right, panelName);
+      }
+    }
+
+    private void goBack() {
+      if (right != null && right.isShowing()) {
+        if (!navigationHistory.isEmpty()) {
+          navigationHistory.pop();
+          if (!navigationHistory.isEmpty()) {
+            String previous = navigationHistory.peek();
+            rightLayout.show(right, previous);
+          } else {
+            rightLayout.show(right, "HOME");
+          }
+        } else {
+          rightLayout.show(right, "HOME");
+        }
+      } else {
+        cerrarDialogoSiExiste();
+      }
+    }
+
+    private void cerrarDialogoSiExiste() {
+      for (Window w : Window.getWindows()) {
+        if (w instanceof JDialog && w.isVisible()) {
+          w.dispose();
+          return;
+        }
+      }
+    }
+
     private AppFrame() {
-      setTitle("Sistema de Gestion Escolar");
+      setTitle("Sistema de Gestión Académica y Alertas Estudiantiles");
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setSize(1100, 700);
       setLocationRelativeTo(null);
@@ -962,53 +1021,116 @@ public class oficial {
         construirAplicacionProfesor();
         return;
       }
-      content.removeAll();
+
+      // JTabbedPane structure exactly as requested!
+      content.setLayout(new BorderLayout());
+
+      JPanel top = new JPanel(new BorderLayout());
+      top.setBackground(BG);
+      top.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
+
+      JPanel title = new JPanel(new BorderLayout());
+      title.setBackground(BG);
+      JLabel l = new JLabel("🏫");
+      l.setFont(new Font("Segoe UI", Font.PLAIN, 32));
+      title.add(l, BorderLayout.WEST);
+
+      JPanel info = new JPanel(new BorderLayout());
+      info.setBackground(BG);
+      JLabel h1 = new JLabel("Sistema de Gestión de Deserción Estudiantil");
+      h1.setFont(new Font("Segoe UI", Font.BOLD, 18));
+      h1.setForeground(new Color(41, 128, 185));
+      lblSesion.setText(institucionActual != null ? ("Institución: " + institucionActual.nombre) : "Sin sesión");
+      lblSesion.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+      lblSesion.setForeground(new Color(52, 73, 94));
+      info.add(h1, BorderLayout.NORTH);
+      info.add(lblSesion, BorderLayout.SOUTH);
+      title.add(info, BorderLayout.CENTER);
+
+      JButton bLogout = crearBoton("CERRAR SESION", new Color(231, 76, 60));
+      bLogout.addActionListener(e -> logout());
+      title.add(bLogout, BorderLayout.EAST);
+      top.add(title, BorderLayout.CENTER);
+
+      content.add(top, BorderLayout.NORTH);
+
+      final JTabbedPane tabbedPane = new JTabbedPane();
+      tabbedPane.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+
+      // Tab 1: Directiva (complete menu + students)
+      JPanel tabDirectiva = crearTabDirectiva();
+      tabbedPane.addTab("Directiva", tabDirectiva);
+
+      // Tab 2: Reportar Alerta
+      JPanel tabReportar = crearTabReportarAlerta();
+      tabbedPane.addTab("Reportar Alerta", tabReportar);
+
+      // Tab 3: Análisis y Estadísticas
+      JPanel tabAnalisis = crearTabAnalisisEstadisticas();
+      tabbedPane.addTab("Análisis y Estadísticas", tabAnalisis);
+
+      // History for "Volver" functionality
+      final Stack<Integer> tabHistory = new Stack<>();
+      tabHistory.push(0);
+
+      tabbedPane.addChangeListener(e -> {
+        int newIndex = tabbedPane.getSelectedIndex();
+        if (newIndex != -1 && newIndex != tabHistory.peek()) {
+          tabHistory.push(newIndex);
+        }
+      });
+
+      content.add(tabbedPane, BorderLayout.CENTER);
+      refrescarTabla(estudiantesVisibles());
+    }
+
+    private JPanel crearTabDirectiva() {
+      JPanel panel = new JPanel(new BorderLayout());
+      panel.setBackground(BG);
+
+      JPanel center = new JPanel(new BorderLayout());
+      center.setBackground(BG);
+      center.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
+
       JPanel sidebar = new JPanel();
       sidebar.setLayout(new BoxLayout(sidebar, BoxLayout.Y_AXIS));
       sidebar.setBackground(SIDEBAR);
       sidebar.setPreferredSize(new Dimension(240, 0));
       sidebar.setBorder(BorderFactory.createEmptyBorder(18, 12, 18, 12));
 
-      JLabel brand = new JLabel("MENU");
+      JLabel brand = new JLabel("DIRECTIVA");
       brand.setForeground(Color.WHITE);
       brand.setFont(new Font("Segoe UI", Font.BOLD, 18));
       brand.setAlignmentX(JComponent.CENTER_ALIGNMENT);
       sidebar.add(brand);
       sidebar.add(Box.createVerticalStrut(10));
 
-      lblSesion.setText("Institucion: " + institucionActual.nombre);
-      lblSesion.setForeground(new Color(236, 240, 241));
-      lblSesion.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-      lblSesion.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-      sidebar.add(lblSesion);
-      sidebar.add(Box.createVerticalStrut(18));
+      JButton b1 = crearBoton("Estadísticas", BTN);
+      JButton b2 = crearBoton("Gestionar Profesores", BTN2);
+      JButton b3 = crearBoton("Asignar Materias", BTN2);
+      JButton b4 = crearBoton("Registrar Estudiante", BTN2);
+      JButton b5 = crearBoton("Editar", BTN2);
+      JButton b6 = crearBoton("Eliminar", BTN2);
+      JButton b7 = crearBoton("Buscar", BTN2);
 
-      JButton bPsi = crearBoton("PSICOSOCIAL", BTN2);
-      JButton bDir = crearBoton("DIRECTIVA", BTN2);
-      JButton bTab = crearBoton("TABLA TOTAL", BTN);
-      JButton bGraf = crearBoton("GRAFICAS", BTN);
-      JButton bCsv = crearBoton("EXPORTAR CSV", BTN);
-      JButton bLogout = crearBoton("CERRAR SESION", new Color(231, 76, 60));
-
-      for (JButton b : new JButton[] { bPsi, bDir, bTab, bGraf, bCsv, bLogout }) {
+      for (JButton b : new JButton[] { b1, b2, b3, b4, b5, b6, b7 }) {
         b.setMaximumSize(new Dimension(Integer.MAX_VALUE, 44));
         sidebar.add(b);
         sidebar.add(Box.createVerticalStrut(10));
       }
 
-      JPanel main = new JPanel(new BorderLayout());
-      main.setBackground(BG);
-      main.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
+      JPanel centerStudents = new JPanel(new BorderLayout());
+      centerStudents.setBackground(BG);
 
-      JPanel header = new JPanel(new BorderLayout());
-      header.setBackground(BG);
-      JLabel h = new JLabel("Estudiantes");
-      h.setFont(new Font("Segoe UI", Font.BOLD, 18));
-      header.add(h, BorderLayout.WEST);
+      JPanel headerStudents = new JPanel(new BorderLayout());
+      headerStudents.setBackground(BG);
+      JLabel hStudents = new JLabel("Estudiantes");
+      hStudents.setFont(new Font("Segoe UI", Font.BOLD, 18));
+      headerStudents.add(hStudents, BorderLayout.WEST);
 
-      JPanel filtros = new JPanel();
-      filtros.setBackground(BG);
-      filtros.setLayout(new BoxLayout(filtros, BoxLayout.X_AXIS));
+      JPanel filtrosStudents = new JPanel();
+      filtrosStudents.setBackground(BG);
+      filtrosStudents.setLayout(new BoxLayout(filtrosStudents, BoxLayout.X_AXIS));
 
       txtBuscar.setFont(new Font("Segoe UI", Font.PLAIN, 13));
       txtBuscar.setPreferredSize(new Dimension(220, 32));
@@ -1029,54 +1151,257 @@ public class oficial {
       bAplicar.setBorder(BorderFactory.createEmptyBorder(8, 12, 8, 12));
       bReset.setBorder(BorderFactory.createEmptyBorder(8, 12, 8, 12));
 
-      filtros.add(new JLabel("Buscar: "));
-      filtros.add(Box.createHorizontalStrut(6));
-      filtros.add(txtBuscar);
-      filtros.add(Box.createHorizontalStrut(10));
-      filtros.add(new JLabel("Grado: "));
-      filtros.add(Box.createHorizontalStrut(6));
-      filtros.add(cbFiltroGrado);
-      filtros.add(Box.createHorizontalStrut(10));
-      filtros.add(new JLabel("Curso: "));
-      filtros.add(Box.createHorizontalStrut(6));
-      filtros.add(txtFiltroCurso);
-      filtros.add(Box.createHorizontalStrut(10));
-      filtros.add(bAplicar);
-      filtros.add(Box.createHorizontalStrut(8));
-      filtros.add(bReset);
+      filtrosStudents.add(new JLabel("Buscar: "));
+      filtrosStudents.add(Box.createHorizontalStrut(6));
+      filtrosStudents.add(txtBuscar);
+      filtrosStudents.add(Box.createHorizontalStrut(10));
+      filtrosStudents.add(new JLabel("Grado: "));
+      filtrosStudents.add(Box.createHorizontalStrut(6));
+      filtrosStudents.add(cbFiltroGrado);
+      filtrosStudents.add(Box.createHorizontalStrut(10));
+      filtrosStudents.add(new JLabel("Curso: "));
+      filtrosStudents.add(Box.createHorizontalStrut(6));
+      filtrosStudents.add(txtFiltroCurso);
+      filtrosStudents.add(Box.createHorizontalStrut(10));
+      filtrosStudents.add(bAplicar);
+      filtrosStudents.add(Box.createHorizontalStrut(8));
+      filtrosStudents.add(bReset);
 
-      header.add(filtros, BorderLayout.EAST);
+      headerStudents.add(filtrosStudents, BorderLayout.EAST);
 
-      main.add(header, BorderLayout.NORTH);
+      centerStudents.add(headerStudents, BorderLayout.NORTH);
 
-      tabla.setModel(modelo);
-      tabla.setRowHeight(24);
-      tabla.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-      tabla.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
-      main.add(new JScrollPane(tabla), BorderLayout.CENTER);
+      final JTable tablaDirectiva = new JTable();
+      final DefaultTableModel modeloDirectiva = new DefaultTableModel();
+      tablaDirectiva.setModel(modeloDirectiva);
+      tablaDirectiva.setRowHeight(24);
+      tablaDirectiva.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+      tablaDirectiva.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+      centerStudents.add(new JScrollPane(tablaDirectiva), BorderLayout.CENTER);
 
-      bTab.addActionListener(e -> refrescarTabla(estudiantes));
-      bGraf.addActionListener(e -> mostrarGraficasEnPantalla());
-      bCsv.addActionListener(e -> exportarCSVDesdeGUI());
+      JSplitPane fullSplit = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebar, centerStudents);
+      fullSplit.setResizeWeight(0.2);
+      fullSplit.setBorder(null);
 
-      bPsi.addActionListener(e -> rightLayout.show(right, "PSICO_MENU"));
-      bDir.addActionListener(e -> rightLayout.show(right, "DIR_MENU"));
-      bLogout.addActionListener(e -> logout());
+      center.add(fullSplit, BorderLayout.CENTER);
 
-      bAplicar.addActionListener(e -> aplicarFiltros());
+      b1.addActionListener(e -> {
+        actualizarStats();
+        JOptionPane.showMessageDialog(this, lblStats.getText(), "Estadísticas", JOptionPane.INFORMATION_MESSAGE);
+      });
+      b2.addActionListener(e -> {
+        prepararPanelDirectivaProfesores();
+        mostrarPanelEnDialogo(crearPanelGestionProfesores(), "Gestionar Profesores");
+      });
+      b3.addActionListener(e -> {
+        prepararPanelDirectivaAsignaciones();
+        mostrarPanelEnDialogo(crearPanelAsignarMaterias(), "Asignar Materias");
+      });
+      b4.addActionListener(e -> {
+        mostrarPanelEnDialogo(crearPanelRegistrarEstudiante(), "Registrar Estudiante");
+      });
+      b5.addActionListener(e -> {
+        mostrarPanelEnDialogo(crearPanelEditarEstudiante(), "Editar Estudiante");
+      });
+      b6.addActionListener(e -> {
+        mostrarPanelEnDialogo(crearPanelEliminar(), "Eliminar Estudiante");
+      });
+      b7.addActionListener(e -> {
+        mostrarPanelEnDialogo(crearPanelBuscar(), "Buscar Estudiante");
+      });
+
+      bAplicar.addActionListener(ev -> {
+        List<Estudiante> filtrados = estudiantes.stream()
+            .filter(est -> {
+              String q = txtBuscar.getText() == null ? "" : txtBuscar.getText().trim().toLowerCase();
+              return q.isEmpty()
+                  || String.valueOf(est.getId()).contains(q)
+                  || est.getNombre().toLowerCase().contains(q);
+            })
+            .filter(est -> {
+              String grado = (String) cbFiltroGrado.getSelectedItem();
+              return grado == null || grado.equals("Todos") || est.getGrado().equalsIgnoreCase(grado);
+            })
+            .filter(est -> {
+              String cursoStr = txtFiltroCurso.getText() == null ? "" : txtFiltroCurso.getText().trim();
+              if (cursoStr.isEmpty())
+                return true;
+              try {
+                int curso = Integer.parseInt(cursoStr);
+                return est.getCurso() == curso;
+              } catch (Exception ex) {
+                return true;
+              }
+            })
+            .collect(Collectors.toList());
+        refrescarTablaEnTabla(filtrados, modeloDirectiva, tablaDirectiva);
+      });
       bReset.addActionListener(e -> {
         txtBuscar.setText("");
         cbFiltroGrado.setSelectedIndex(0);
         txtFiltroCurso.setText("");
-        refrescarTabla(estudiantesVisibles());
+        refrescarTablaEnTabla(estudiantesVisibles(), modeloDirectiva, tablaDirectiva);
       });
 
-      right.setPreferredSize(new Dimension(380, 0));
-      rightLayout.show(right, "HOME");
+      panel.add(center, BorderLayout.CENTER);
+      refrescarTablaEnTabla(estudiantesVisibles(), modeloDirectiva, tablaDirectiva);
 
-      content.add(sidebar, BorderLayout.WEST);
-      content.add(main, BorderLayout.CENTER);
-      content.add(right, BorderLayout.EAST);
+      return panel;
+    }
+
+    private JPanel crearTabReportarAlerta() {
+      JPanel panel = new JPanel(new BorderLayout());
+      panel.setBackground(BG);
+
+      JPanel center = new JPanel(new BorderLayout());
+      center.setBackground(BG);
+      center.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
+
+      JPanel sidebar = new JPanel();
+      sidebar.setLayout(new BoxLayout(sidebar, BoxLayout.Y_AXIS));
+      sidebar.setBackground(SIDEBAR);
+      sidebar.setPreferredSize(new Dimension(240, 0));
+      sidebar.setBorder(BorderFactory.createEmptyBorder(18, 12, 18, 12));
+
+      JLabel brand = new JLabel("PSICOSOCIAL");
+      brand.setForeground(Color.WHITE);
+      brand.setFont(new Font("Segoe UI", Font.BOLD, 18));
+      brand.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+      sidebar.add(brand);
+      sidebar.add(Box.createVerticalStrut(10));
+
+      JButton b1 = crearBoton("Ver Estudiantes en Riesgo", BTN);
+      JButton b2 = crearBoton("Exportar Lista de Riesgo", BTN2);
+      JButton b3 = crearBoton("Enviar Correo de Alerta", BTN2);
+
+      for (JButton b : new JButton[] { b1, b2, b3 }) {
+        b.setMaximumSize(new Dimension(Integer.MAX_VALUE, 44));
+        sidebar.add(b);
+        sidebar.add(Box.createVerticalStrut(10));
+      }
+
+      JPanel centerStudents = new JPanel(new BorderLayout());
+      centerStudents.setBackground(BG);
+
+      JPanel headerStudents = new JPanel(new BorderLayout());
+      headerStudents.setBackground(BG);
+      JLabel hStudents = new JLabel("Estudiantes en Riesgo");
+      hStudents.setFont(new Font("Segoe UI", Font.BOLD, 18));
+      headerStudents.add(hStudents, BorderLayout.WEST);
+
+      centerStudents.add(headerStudents, BorderLayout.NORTH);
+
+      final JTable tablaPsico = new JTable();
+      final DefaultTableModel modeloPsico = new DefaultTableModel();
+      tablaPsico.setModel(modeloPsico);
+      tablaPsico.setRowHeight(24);
+      tablaPsico.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+      tablaPsico.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+      centerStudents.add(new JScrollPane(tablaPsico), BorderLayout.CENTER);
+
+      JSplitPane fullSplit = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebar, centerStudents);
+      fullSplit.setResizeWeight(0.2);
+      fullSplit.setBorder(null);
+
+      center.add(fullSplit, BorderLayout.CENTER);
+      panel.add(center, BorderLayout.CENTER);
+
+      b1.addActionListener(e -> {
+        List<Estudiante> riesgo = estudiantes.stream()
+            .filter(est -> est.getNivelRiesgo().equals("RIESGO DE DESERCIÓN") ||
+                est.getNivelRiesgo().equals("ALERTA DE DESERCIÓN"))
+            .collect(Collectors.toList());
+        refrescarTablaEnTabla(riesgo, modeloPsico, tablaPsico);
+      });
+      b2.addActionListener(e -> accionExportarRiesgo());
+      b3.addActionListener(e -> mostrarDialogoCorreo());
+
+      refrescarTablaEnTabla(estudiantes.stream()
+          .filter(est -> est.getNivelRiesgo().equals("RIESGO DE DESERCIÓN") ||
+              est.getNivelRiesgo().equals("ALERTA DE DESERCIÓN"))
+          .collect(Collectors.toList()), modeloPsico, tablaPsico);
+
+      return panel;
+    }
+
+    private JPanel crearTabAnalisisEstadisticas() {
+      return crearTabGraficas();
+    }
+
+    private JPanel crearTabGraficas() {
+      JPanel panel = new JPanel(new BorderLayout());
+      panel.setBackground(BG);
+      panel.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
+
+      // Create the graphs panel components
+      JPanel top = new JPanel(new GridLayout(2, 1, 8, 8));
+      top.setOpaque(false);
+
+      JPanel row1 = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 0));
+      row1.setOpaque(false);
+      row1.add(new JLabel("Grado:"));
+      actualizarCombosGrado();
+      row1.add(cbGrafGrado);
+      row1.add(new JLabel("Curso:"));
+      txtGrafCurso.setPreferredSize(new Dimension(80, 28));
+      row1.add(txtGrafCurso);
+      row1.add(new JLabel("Estado:"));
+      row1.add(cbGrafRiesgo);
+
+      JPanel row2 = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 0));
+      row2.setOpaque(false);
+      row2.add(new JLabel("Buscar:"));
+      JTextField txtGrafBuscar = new JTextField();
+      txtGrafBuscar.setPreferredSize(new Dimension(200, 28));
+      row2.add(txtGrafBuscar);
+      row2.add(new JLabel("Ancho de gráficas:"));
+      JTextField fWidth = new JTextField("800");
+      fWidth.setPreferredSize(new Dimension(100, 28));
+      row2.add(fWidth);
+      JButton bDescargar = crearBoton("Descargar Imagen", BTN);
+      bDescargar.addActionListener(e -> descargarGrafica(fWidth.getText()));
+      row2.add(bDescargar);
+      lblGrafInfo.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+      lblGrafInfo.setForeground(new Color(90, 98, 106));
+      row2.add(lblGrafInfo);
+
+      top.add(row1);
+      top.add(Box.createVerticalStrut(8));
+      top.add(row2);
+
+      panelGraficas.setOpaque(false);
+
+      // Stats panel with acceleration calculation
+      JPanel statsPanel = new JPanel(new BorderLayout());
+      statsPanel.setBackground(Color.WHITE);
+      statsPanel.setBorder(BorderFactory.createTitledBorder(
+          BorderFactory.createLineBorder(new Color(41, 128, 185), 1),
+          "Análisis de Aceleración",
+          javax.swing.border.TitledBorder.LEFT,
+          javax.swing.border.TitledBorder.TOP,
+          new Font("Segoe UI", Font.BOLD, 14),
+          new Color(41, 128, 185)));
+      statsPanel.setPreferredSize(new Dimension(350, 0));
+
+      actualizarStats();
+      lblStats.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+      statsPanel.add(lblStats, BorderLayout.CENTER);
+
+      JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, statsPanel, panelGraficas);
+      split.setResizeWeight(0.3);
+      split.setBorder(null);
+
+      JPanel body = new JPanel(new BorderLayout());
+      body.setOpaque(false);
+      body.add(top, BorderLayout.NORTH);
+      body.add(split, BorderLayout.CENTER);
+
+      panel.add(body, BorderLayout.CENTER);
+
+      // Load initial graphs
+      mostrarGraficasEnPantalla();
+
+      return panel;
     }
 
     private List<Estudiante> estudiantesVisibles() {
@@ -1175,19 +1500,19 @@ public class oficial {
       tabla.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
       main.add(new JScrollPane(tabla), BorderLayout.CENTER);
 
-      bMenu.addActionListener(e -> rightLayout.show(right, "PROF_MENU"));
-      bCursos.addActionListener(e -> rightLayout.show(right, "PROF_CURSOS"));
+      bMenu.addActionListener(e -> navigateTo("PROF_MENU"));
+      bCursos.addActionListener(e -> navigateTo("PROF_CURSOS"));
       bNotas.addActionListener(e -> {
         prepararPanelProfesorNotas();
-        rightLayout.show(right, "PROF_NOTAS");
+        navigateTo("PROF_NOTAS");
       });
       bAsis.addActionListener(e -> {
         prepararPanelProfesorAsistencia();
-        rightLayout.show(right, "PROF_ASIS");
+        navigateTo("PROF_ASIS");
       });
       bVerEst.addActionListener(e -> {
         prepararPanelProfesorVerEstudiantes();
-        rightLayout.show(right, "PROF_EST");
+        navigateTo("PROF_EST");
       });
       bLogout.addActionListener(e -> logout());
 
@@ -1200,6 +1525,7 @@ public class oficial {
       });
 
       right.setPreferredSize(new Dimension(420, 0));
+      navigationHistory.push("PROF_MENU");
       rightLayout.show(right, "PROF_MENU");
 
       content.add(sidebar, BorderLayout.WEST);
@@ -1398,31 +1724,6 @@ public class oficial {
       return 99;
     }
 
-    private void aplicarFiltros() {
-      String q = txtBuscar.getText() == null ? "" : txtBuscar.getText().trim().toLowerCase();
-      String grado = (String) cbFiltroGrado.getSelectedItem();
-      String cursoStr = txtFiltroCurso.getText() == null ? "" : txtFiltroCurso.getText().trim();
-      Integer curso = null;
-      if (!cursoStr.isEmpty()) {
-        try {
-          curso = Integer.parseInt(cursoStr);
-        } catch (Exception e) {
-          JOptionPane.showMessageDialog(this, "Curso invalido.", "Error", JOptionPane.ERROR_MESSAGE);
-          return;
-        }
-      }
-
-      Integer cursoFinal = curso;
-      List<Estudiante> filtrados = estudiantes.stream()
-          .filter(e -> q.isEmpty()
-              || String.valueOf(e.getId()).contains(q)
-              || e.getNombre().toLowerCase().contains(q))
-          .filter(e -> grado == null || grado.equals("Todos") || e.getGrado().equalsIgnoreCase(grado))
-          .filter(e -> cursoFinal == null || e.getCurso() == cursoFinal)
-          .toList();
-      refrescarTabla(filtrados);
-    }
-
     private void aplicarFiltrosProfesor() {
       String q = txtBuscar.getText() == null ? "" : txtBuscar.getText().trim().toLowerCase();
       String cursoSel = (String) cbProfCursoFiltro.getSelectedItem();
@@ -1575,7 +1876,7 @@ public class oficial {
       body.setOpaque(false);
 
       JButton back = crearBoton("Volver", BTN2);
-      back.addActionListener(e -> rightLayout.show(right, "HOME"));
+      back.addActionListener(e -> goBack());
 
       JPanel top = new JPanel();
       top.setOpaque(false);
@@ -1620,11 +1921,30 @@ public class oficial {
       row1.add(Box.createHorizontalGlue());
       row1.add(back);
 
-      JPanel row2 = new JPanel(new BorderLayout());
+      JPanel row2 = new JPanel();
       row2.setOpaque(false);
+      row2.setLayout(new BoxLayout(row2, BoxLayout.X_AXIS));
+
+      JLabel lWidth = new JLabel("Ancho de gráficas:");
+      lWidth.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+      row2.add(lWidth);
+      row2.add(Box.createHorizontalStrut(6));
+
+      JTextField txtGrafWidth = new JTextField("800");
+      txtGrafWidth.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+      txtGrafWidth.setMaximumSize(new Dimension(100, 30));
+      row2.add(txtGrafWidth);
+      row2.add(Box.createHorizontalStrut(10));
+
+      JButton bDownload = crearBoton("Descargar Imagen", new Color(34, 197, 94));
+      bDownload.setBorder(BorderFactory.createEmptyBorder(6, 10, 6, 10));
+      bDownload.addActionListener(e -> descargarGrafica(txtGrafWidth.getText()));
+      row2.add(bDownload);
+      row2.add(Box.createHorizontalGlue());
+
       lblGrafInfo.setFont(new Font("Segoe UI", Font.PLAIN, 12));
       lblGrafInfo.setForeground(new Color(90, 98, 106));
-      row2.add(lblGrafInfo, BorderLayout.WEST);
+      row2.add(lblGrafInfo);
 
       top.add(row1);
       top.add(Box.createVerticalStrut(8));
@@ -1645,10 +1965,10 @@ public class oficial {
 
       if (base.isEmpty()) {
         JLabel l = new JLabel("No hay estudiantes para graficar.");
-        l.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        panelGraficas.add(l, BorderLayout.NORTH);
+        l.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+        panelGraficas.add(l, BorderLayout.CENTER);
       } else {
-        JPanel charts = new JPanel(new GridLayout(2, 1, 12, 12));
+        JPanel charts = new JPanel(new GridLayout(2, 1, 20, 20));
         charts.setOpaque(false);
         charts.add(new PanelBarrasRiesgo(base));
         charts.add(new PanelBarrasGrados(base));
@@ -1657,7 +1977,7 @@ public class oficial {
 
       panelGraficas.revalidate();
       panelGraficas.repaint();
-      rightLayout.show(right, "GRAF");
+      navigateTo("GRAF");
     }
 
     private void actualizarCombosGrado() {
@@ -1708,25 +2028,61 @@ public class oficial {
       JPanel p = new JPanel(new BorderLayout());
       p.setBackground(BG);
       p.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
+
+      // Simple header just with the panel title
+      JPanel header = new JPanel(new BorderLayout());
+      header.setBackground(BG);
+
       JLabel t = new JLabel(titulo);
-      t.setFont(new Font("Segoe UI", Font.BOLD, 16));
-      p.add(t, BorderLayout.NORTH);
+      t.setFont(new Font("Segoe UI", Font.BOLD, 18));
+      t.setForeground(new Color(41, 128, 185));
+      t.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+      header.add(t, BorderLayout.WEST);
+
+      p.add(header, BorderLayout.NORTH);
       return p;
     }
 
     private JPanel crearPanelHome() {
-      JPanel p = crearPanelBase("Acciones");
+      JPanel p = crearPanelBase("Bienvenido");
       JPanel body = new JPanel();
       body.setBackground(BG);
       body.setLayout(new BoxLayout(body, BoxLayout.Y_AXIS));
-      JLabel l1 = new JLabel("Use el menu izquierdo para seleccionar un modulo.");
-      l1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-      JLabel l2 = new JLabel("Las acciones se muestran aqui sin ventanas emergentes.");
-      l2.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-      body.add(Box.createVerticalStrut(10));
+      body.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+
+      JLabel l1 = new JLabel("👋 Bienvenido al Sistema de Gestión Académica");
+      l1.setFont(new Font("Segoe UI", Font.BOLD, 20));
+      l1.setForeground(new Color(41, 128, 185));
+      l1.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+
       body.add(l1);
-      body.add(Box.createVerticalStrut(6));
+      body.add(Box.createVerticalStrut(20));
+
+      JLabel l2 = new JLabel("Use el menú izquierdo para navegar por las diferentes secciones del sistema:");
+      l2.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+      l2.setForeground(new Color(52, 73, 94));
+      l2.setAlignmentX(JComponent.LEFT_ALIGNMENT);
       body.add(l2);
+      body.add(Box.createVerticalStrut(25));
+
+      String[] items = {
+          "📊 Estadísticas y reportes",
+          "👨‍🏫 Gestión de profesores",
+          "📚 Asignación de materias",
+          "👦 Registro y edición de estudiantes",
+          "📈 Gráficas y análisis de riesgo"
+      };
+
+      for (String item : items) {
+        JLabel label = new JLabel("• " + item);
+        label.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        label.setForeground(new Color(75, 85, 99));
+        label.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+        body.add(label);
+        body.add(Box.createVerticalStrut(8));
+      }
+
       p.add(body, BorderLayout.CENTER);
       return p;
     }
@@ -1746,23 +2102,23 @@ public class oficial {
 
       b1.addActionListener(e -> {
         actualizarTablaCursosProfesor();
-        rightLayout.show(right, "PROF_CURSOS");
+        navigateTo("PROF_CURSOS");
       });
       b2.addActionListener(e -> {
         prepararPanelProfesorNotas();
-        rightLayout.show(right, "PROF_NOTAS");
+        navigateTo("PROF_NOTAS");
       });
       b3.addActionListener(e -> {
         prepararPanelProfesorAsistencia();
-        rightLayout.show(right, "PROF_ASIS");
+        navigateTo("PROF_ASIS");
       });
       b4.addActionListener(e -> {
         prepararPanelProfesorVerEstudiantes();
-        rightLayout.show(right, "PROF_EST");
+        navigateTo("PROF_EST");
       });
-      b5.addActionListener(e -> rightLayout.show(right, "DOC_BUSCAR"));
-      b6.addActionListener(e -> rightLayout.show(right, "DOC_EDIT_NOTAS"));
-      b7.addActionListener(e -> rightLayout.show(right, "HOME"));
+      b5.addActionListener(e -> navigateTo("DOC_BUSCAR"));
+      b6.addActionListener(e -> navigateTo("DOC_EDIT_NOTAS"));
+      b7.addActionListener(e -> goBack());
 
       for (JButton b : new JButton[] { b1, b2, b3, b4, b5, b6, b7 }) {
         grid.add(b);
@@ -1782,7 +2138,7 @@ public class oficial {
       tablaCursosProf.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
 
       JButton back = crearBoton("Volver", BTN2);
-      back.addActionListener(e -> rightLayout.show(right, "PROF_MENU"));
+      back.addActionListener(e -> goBack());
 
       body.add(new JScrollPane(tablaCursosProf), BorderLayout.CENTER);
       body.add(back, BorderLayout.SOUTH);
@@ -1794,7 +2150,7 @@ public class oficial {
       JButton submit = crearBoton("Registrar", BTN);
       JButton back = crearBoton("Volver", BTN2);
       submit.addActionListener(e -> accionProfesorRegistrarNotas());
-      back.addActionListener(e -> rightLayout.show(right, "PROF_MENU"));
+      back.addActionListener(e -> goBack());
 
       return crearFormulario("Registrar notas (Materia)",
           campoLabeled("Curso", cbProfCursoNotas),
@@ -1808,7 +2164,7 @@ public class oficial {
       JButton submit = crearBoton("Registrar", BTN);
       JButton back = crearBoton("Volver", BTN2);
       submit.addActionListener(e -> accionProfesorRegistrarAsistencia());
-      back.addActionListener(e -> rightLayout.show(right, "PROF_MENU"));
+      back.addActionListener(e -> goBack());
 
       return crearFormulario("Registrar asistencia",
           campoLabeled("Curso", cbProfCursoAsis),
@@ -1820,7 +2176,7 @@ public class oficial {
       JButton ver = crearBoton("Mostrar", BTN);
       JButton back = crearBoton("Volver", BTN2);
       ver.addActionListener(e -> accionProfesorVerEstudiantes());
-      back.addActionListener(e -> rightLayout.show(right, "PROF_MENU"));
+      back.addActionListener(e -> goBack());
 
       return crearFormulario("Ver estudiantes",
           campoLabeled("Curso", cbProfCursoVer),
@@ -1992,8 +2348,8 @@ public class oficial {
         int id = (int) tabla.getValueAt(row, 0);
         buscarPorId(id).ifPresent(this::prepararAlertaAcudiente);
       });
-      b3.addActionListener(e -> rightLayout.show(right, "PSICO_EXPORT"));
-      b4.addActionListener(e -> rightLayout.show(right, "HOME"));
+      b3.addActionListener(e -> navigateTo("PSICO_EXPORT"));
+      b4.addActionListener(e -> goBack());
 
       for (JButton b : new JButton[] { b1, b2, b3, b4 }) {
         grid.add(b);
@@ -2045,49 +2401,15 @@ public class oficial {
       JPanel content = new JPanel(new BorderLayout(10, 10));
       content.add(scroll, BorderLayout.CENTER);
 
-      JButton btnSend = crearBoton("Send E-mail", BTN);
-      btnSend.addActionListener(ev -> {
-        if (enviarCorreoReal(correo, "Alerta de Riesgo de Deserción Escolar - " + nombreEst, sb.toString())) {
-          JOptionPane.showMessageDialog(this, "Correo enviado correctamente.", "Éxito",
-              JOptionPane.INFORMATION_MESSAGE);
-        } else {
-          JOptionPane.showMessageDialog(this, "No se pudo enviar el correo. Configure sus credenciales.", "Error",
-              JOptionPane.ERROR_MESSAGE);
-        }
+      JButton btnCopy = crearBoton("Copiar al Portapapeles", BTN);
+      btnCopy.addActionListener(ev -> {
+        textArea.selectAll();
+        textArea.copy();
+        JOptionPane.showMessageDialog(this, "Texto copiado al portapapeles!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
       });
-      content.add(btnSend, BorderLayout.SOUTH);
+      content.add(btnCopy, BorderLayout.SOUTH);
 
       JOptionPane.showMessageDialog(this, content, "Alerta Psicosocial", JOptionPane.PLAIN_MESSAGE);
-    }
-
-    private boolean enviarCorreoReal(String destinatario, String asunto, String cuerpo) {
-      final String remitente = "tu_correo@gmail.com";
-      final String password = "tu_password_app";
-
-      Properties props = new Properties();
-      props.put("mail.smtp.auth", "true");
-      props.put("mail.smtp.starttls.enable", "true");
-      props.put("mail.smtp.host", "smtp.gmail.com");
-      props.put("mail.smtp.port", "587");
-
-      Session session = Session.getInstance(props, new javax.mail.Authenticator() {
-        protected PasswordAuthentication getPasswordAuthentication() {
-          return new PasswordAuthentication(remitente, password);
-        }
-      });
-
-      try {
-        Message message = new MimeMessage(session);
-        message.setFrom(new InternetAddress(remitente));
-        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
-        message.setSubject(asunto);
-        message.setText(cuerpo);
-        Transport.send(message);
-        return true;
-      } catch (Exception e) {
-        System.err.println("Error enviando correo: " + e.getMessage());
-        return false;
-      }
     }
 
     private JPanel crearPanelMenuDirectiva() {
@@ -2106,21 +2428,21 @@ public class oficial {
 
       b1.addActionListener(e -> {
         actualizarStats();
-        rightLayout.show(right, "DIR_STATS");
+        navigateTo("DIR_STATS");
       });
       b2.addActionListener(e -> {
         prepararPanelDirectivaProfesores();
-        rightLayout.show(right, "DIR_PROF");
+        navigateTo("DIR_PROF");
       });
       b3.addActionListener(e -> {
         prepararPanelDirectivaAsignaciones();
-        rightLayout.show(right, "DIR_ASIG");
+        navigateTo("DIR_ASIG");
       });
-      b4.addActionListener(e -> rightLayout.show(right, "DOC_REG"));
-      b5.addActionListener(e -> rightLayout.show(right, "DOC_EDIT_EST"));
-      b6.addActionListener(e -> rightLayout.show(right, "DOC_ELIM"));
-      b7.addActionListener(e -> rightLayout.show(right, "DOC_BUSCAR"));
-      b8.addActionListener(e -> rightLayout.show(right, "HOME"));
+      b4.addActionListener(e -> navigateTo("DOC_REG"));
+      b5.addActionListener(e -> navigateTo("DOC_EDIT_EST"));
+      b6.addActionListener(e -> navigateTo("DOC_ELIM"));
+      b7.addActionListener(e -> navigateTo("DOC_BUSCAR"));
+      b8.addActionListener(e -> goBack());
 
       for (JButton b : new JButton[] { b1, b2, b3, b4, b5, b6, b7, b8 }) {
         grid.add(b);
@@ -2133,7 +2455,7 @@ public class oficial {
       JButton submit = crearBoton("Crear Profesor", BTN);
       JButton back = crearBoton("Volver", BTN2);
       submit.addActionListener(e -> accionCrearProfesor());
-      back.addActionListener(e -> rightLayout.show(right, "DIR_MENU"));
+      back.addActionListener(e -> goBack());
 
       return crearFormulario("Gestion de Profesores",
           campoLabeled("Usuario", fDirProfUser),
@@ -2146,7 +2468,7 @@ public class oficial {
       JButton submit = crearBoton("Asignar", BTN);
       JButton back = crearBoton("Volver", BTN2);
       submit.addActionListener(e -> accionAsignarMateria());
-      back.addActionListener(e -> rightLayout.show(right, "DIR_MENU"));
+      back.addActionListener(e -> goBack());
 
       return crearFormulario("Asignar Materias",
           campoLabeled("Grado", fDirAsigGrado),
@@ -2218,11 +2540,32 @@ public class oficial {
           .findFirst()
           .orElse(materia.trim());
       String materiaN = Estudiante.normalizarTexto(materiaCanon);
-      asignaciones.removeIf(a -> a != null
-          && CursoAcademico.normalizarGrado(a.grado).equals(gradoN)
-          && a.curso == curso
-          && a.materia != null
-          && Estudiante.normalizarTexto(a.materia).equals(materiaN));
+
+      // Check for existing assignment
+      Optional<Asignacion> existingAsignacion = asignaciones.stream()
+          .filter(a -> a != null
+              && CursoAcademico.normalizarGrado(a.grado).equals(gradoN)
+              && a.curso == curso
+              && a.materia != null
+              && Estudiante.normalizarTexto(a.materia).equals(materiaN))
+          .findFirst();
+
+      if (existingAsignacion.isPresent()) {
+        // Show confirmation dialog
+        int option = JOptionPane.showConfirmDialog(
+            this,
+            "La materia " + materiaCanon + " ya está asignada al profesor " + existingAsignacion.get().usuarioProfesor +
+                " para el grado " + grado + " y curso " + curso + ".\n¿Desea reemplazar al profesor actual?",
+            "Asignación Duplicada",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.WARNING_MESSAGE);
+
+        if (option != JOptionPane.YES_OPTION) {
+          return; // Cancel
+        }
+        // Remove existing assignment
+        asignaciones.remove(existingAsignacion.get());
+      }
 
       asignaciones.add(new Asignacion(grado.trim(), curso, materiaCanon, profUser.trim()));
       guardarAsignaciones();
@@ -2234,9 +2577,11 @@ public class oficial {
       JPanel body = new JPanel();
       body.setOpaque(false);
       body.setLayout(new BoxLayout(body, BoxLayout.Y_AXIS));
+      body.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
       for (JComponent c : campos) {
         body.add(c);
-        body.add(Box.createVerticalStrut(10));
+        body.add(Box.createVerticalStrut(15));
       }
       wrap.add(body, BorderLayout.CENTER);
       return wrap;
@@ -2245,12 +2590,21 @@ public class oficial {
     private JPanel campoLabeled(String label, JComponent comp) {
       JPanel p = new JPanel(new BorderLayout());
       p.setOpaque(false);
+      p.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+
       JLabel l = new JLabel(label);
-      l.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-      comp.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-      comp.setPreferredSize(new Dimension(240, 30));
+      l.setFont(new Font("Segoe UI", Font.BOLD, 13));
+      l.setForeground(new Color(52, 73, 94));
+
+      comp.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+      comp.setPreferredSize(new Dimension(300, 38));
+      comp.setMaximumSize(new Dimension(400, 38));
+
+      styleInput(comp);
+
       p.add(l, BorderLayout.NORTH);
-      p.add(comp, BorderLayout.CENTER);
+      p.add(Box.createVerticalStrut(8), BorderLayout.CENTER);
+      p.add(comp, BorderLayout.SOUTH);
       return p;
     }
 
@@ -2258,7 +2612,11 @@ public class oficial {
       JButton submit = crearBoton("Guardar Estudiante", BTN);
       JButton back = crearBoton("Volver", BTN2);
       submit.addActionListener(e -> accionRegistrarEstudiante());
-      back.addActionListener(e -> rightLayout.show(right, "DOC_MENU"));
+      back.addActionListener(e -> goBack());
+
+      // Initialize materia combo box
+      cbRegMateria.removeAllItems();
+      oficial.MATERIAS_BASICAS.forEach(cbRegMateria::addItem);
 
       return crearFormulario("Registrar Estudiante",
           campoLabeled("ID", fRegId),
@@ -2266,6 +2624,7 @@ public class oficial {
           campoLabeled("Edad (3-100)", fRegEdad),
           campoLabeled("Grado (1-11, Transicion, Jardin)", fRegGrado),
           campoLabeled("Curso", fRegCurso),
+          campoLabeled("Materia", cbRegMateria),
           campoLabeled("Nombre Acudiente", fRegAcud),
           campoLabeled("Correo Acudiente", fRegCorreo),
           campoLabeled("Telefono Acudiente", fRegTel),
@@ -2276,7 +2635,7 @@ public class oficial {
       JButton submit = crearBoton("Registrar Notas", BTN);
       JButton back = crearBoton("Volver", BTN2);
       submit.addActionListener(e -> accionNotasMasivas());
-      back.addActionListener(e -> rightLayout.show(right, "DOC_MENU"));
+      back.addActionListener(e -> goBack());
       return crearFormulario("Notas Masivas (Curso)",
           campoLabeled("Grado", fCursoGrado),
           campoLabeled("Curso", fCursoCurso),
@@ -2289,7 +2648,7 @@ public class oficial {
       JButton submit = crearBoton("Registrar Asistencia", BTN);
       JButton back = crearBoton("Volver", BTN2);
       submit.addActionListener(e -> accionAsistenciaMasiva());
-      back.addActionListener(e -> rightLayout.show(right, "DOC_MENU"));
+      back.addActionListener(e -> goBack());
       return crearFormulario("Asistencia Masiva (Curso)",
           campoLabeled("Grado", fAsisGrado),
           campoLabeled("Curso", fAsisCurso),
@@ -2301,7 +2660,7 @@ public class oficial {
       JButton submit = crearBoton("Buscar", BTN);
       JButton back = crearBoton("Volver", BTN2);
       submit.addActionListener(e -> accionBuscar());
-      back.addActionListener(e -> rightLayout.show(right, "DOC_MENU"));
+      back.addActionListener(e -> goBack());
       return crearFormulario("Buscar Estudiante",
           campoLabeled("Tipo", cbBuscarTipo),
           campoLabeled("Texto", fBuscarQuery),
@@ -2312,7 +2671,7 @@ public class oficial {
       JButton submit = crearBoton("Actualizar Nota", BTN);
       JButton back = crearBoton("Volver", BTN2);
       submit.addActionListener(e -> accionEditarNota());
-      back.addActionListener(e -> rightLayout.show(right, "DOC_MENU"));
+      back.addActionListener(e -> goBack());
       return crearFormulario("Editar Nota (por ID)",
           campoLabeled("ID Estudiante", fEditNotasId),
           campoLabeled("Corte", fEditNotasCorte),
@@ -2327,7 +2686,7 @@ public class oficial {
       JButton back = crearBoton("Volver", BTN2);
       cargar.addActionListener(e -> accionCargarEdicion());
       guardar.addActionListener(e -> accionGuardarEdicion());
-      back.addActionListener(e -> rightLayout.show(right, "DOC_MENU"));
+      back.addActionListener(e -> goBack());
       return crearFormulario("Editar Estudiante",
           campoLabeled("ID", fEditEstId),
           botonesRow(cargar),
@@ -2344,7 +2703,7 @@ public class oficial {
       JButton submit = crearBoton("Eliminar", new Color(231, 76, 60));
       JButton back = crearBoton("Volver", BTN2);
       submit.addActionListener(e -> accionEliminar());
-      back.addActionListener(e -> rightLayout.show(right, "DOC_MENU"));
+      back.addActionListener(e -> goBack());
       return crearFormulario("Eliminar Estudiante",
           campoLabeled("ID", fEliminarId),
           botonesRow(submit, back));
@@ -2361,17 +2720,26 @@ public class oficial {
       JButton export = crearBoton("Exportar Riesgo", BTN);
       JButton back = crearBoton("Volver", BTN2);
       export.addActionListener(e -> accionExportarRiesgo());
-      back.addActionListener(e -> rightLayout.show(right, "PSICO_MENU"));
+      back.addActionListener(e -> goBack());
       return crearFormulario("Exportar CSV Riesgo",
           new JLabel("Genera reporte de ALERTA y RIESGO de desercion."),
           botonesRow(export, back));
     }
 
     private JPanel botonesRow(JButton... buttons) {
-      JPanel p = new JPanel(new GridLayout(1, buttons.length, 10, 10));
+      JPanel p = new JPanel();
       p.setOpaque(false);
-      for (JButton b : buttons) {
+      p.setLayout(new BoxLayout(p, BoxLayout.X_AXIS));
+      p.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+
+      for (int i = 0; i < buttons.length; i++) {
+        JButton b = buttons[i];
+        b.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        b.setBorder(BorderFactory.createEmptyBorder(12, 20, 12, 20));
         p.add(b);
+        if (i < buttons.length - 1) {
+          p.add(Box.createHorizontalStrut(12));
+        }
       }
       return p;
     }
@@ -2635,8 +3003,194 @@ public class oficial {
       long rRiesgo = estudiantes.stream().filter(e -> e.getNivelRiesgo().equals("RIESGO DE DESERCIÓN")).count();
       long rAlerta = estudiantes.stream().filter(e -> e.getNivelRiesgo().equals("ALERTA DE DESERCIÓN")).count();
       long rNormal = estudiantes.stream().filter(e -> e.getNivelRiesgo().equals("NORMAL")).count();
+
+      // Calculate acceleration for ALL students
+      long registrosMarzoTotal = estudiantes.stream().filter(e -> e.getMesRegistro() == 3).count();
+      long registrosMayoTotal = estudiantes.stream().filter(e -> e.getMesRegistro() == 5).count();
+      double deltaVTotal = registrosMayoTotal - registrosMarzoTotal;
+      double deltaT = 5 - 3; // 2 months
+      double aceleracionTotal = deltaVTotal / deltaT;
+
+      // Calculate acceleration for AT RISK students
+      List<Estudiante> estudiantesRiesgo = estudiantes.stream()
+          .filter(
+              e -> e.getNivelRiesgo().equals("RIESGO DE DESERCIÓN") || e.getNivelRiesgo().equals("ALERTA DE DESERCIÓN"))
+          .toList();
+      long registrosMarzoRiesgo = estudiantesRiesgo.stream().filter(e -> e.getMesRegistro() == 3).count();
+      long registrosMayoRiesgo = estudiantesRiesgo.stream().filter(e -> e.getMesRegistro() == 5).count();
+      double deltaVRiesgo = registrosMayoRiesgo - registrosMarzoRiesgo;
+      double aceleracionRiesgo = deltaVRiesgo / deltaT;
+
       lblStats.setText("<html>Total: " + total + "<br/>RIESGO DE DESERCIÓN: " + rRiesgo + "<br/>ALERTA DE DESERCIÓN: "
-          + rAlerta + "<br/>NORMAL: " + rNormal + "</html>");
+          + rAlerta + "<br/>NORMAL: " + rNormal + "<br/><br/><b>Análisis de Aceleración (Total de Estudiantes):</b>"
+          + "<br/>Registros Marzo: " + registrosMarzoTotal + "<br/>Registros Mayo: " + registrosMayoTotal
+          + "<br/>Aceleración: " + String.format("%.2f", aceleracionTotal) + " registros/mes"
+          + "<br/><br/><b>Análisis de Aceleración (Estudiantes en Riesgo/Alerta):</b>" + "<br/>Registros Marzo: "
+          + registrosMarzoRiesgo + "<br/>Registros Mayo: " + registrosMayoRiesgo + "<br/>Aceleración: "
+          + String.format("%.2f", aceleracionRiesgo) + " registros/mes</html>");
+    }
+
+    private void descargarGrafica(String widthStr) {
+      int width;
+      try {
+        width = Integer.parseInt(widthStr.trim());
+        if (width <= 0)
+          throw new NumberFormatException();
+      } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Ancho inválido. Por favor, ingrese un número positivo.", "Error",
+            JOptionPane.ERROR_MESSAGE);
+        return;
+      }
+
+      // Create a temporary panel to render the graph with the desired width
+      List<Estudiante> data = estudiantesVisibles();
+      JPanel tempPanel = new JPanel(new GridLayout(1, 2, 20, 20));
+      tempPanel.setPreferredSize(new Dimension(width, 400));
+      tempPanel.add(new PanelBarrasRiesgo(data));
+      tempPanel.add(new PanelBarrasGrados(data));
+      tempPanel.setSize(tempPanel.getPreferredSize());
+      tempPanel.doLayout();
+
+      // Create image
+      BufferedImage image = new BufferedImage(tempPanel.getWidth(), tempPanel.getHeight(), BufferedImage.TYPE_INT_RGB);
+      Graphics2D g2d = image.createGraphics();
+      tempPanel.paint(g2d);
+      g2d.dispose();
+
+      // Save file
+      JFileChooser fileChooser = new JFileChooser();
+      fileChooser.setDialogTitle("Guardar gráfica");
+      fileChooser.setSelectedFile(new File("grafica.png"));
+      int userSelection = fileChooser.showSaveDialog(this);
+
+      if (userSelection == JFileChooser.APPROVE_OPTION) {
+        File fileToSave = fileChooser.getSelectedFile();
+        String filePath = fileToSave.getAbsolutePath();
+        if (!filePath.toLowerCase().endsWith(".png") && !filePath.toLowerCase().endsWith(".jpg")
+            && !filePath.toLowerCase().endsWith(".jpeg")) {
+          filePath += ".png";
+        }
+        try {
+          String format = filePath.toLowerCase().endsWith(".jpg") || filePath.toLowerCase().endsWith(".jpeg") ? "JPG"
+              : "PNG";
+          ImageIO.write(image, format, new File(filePath));
+          JOptionPane.showMessageDialog(this, "Gráfica guardada exitosamente: " + filePath, "Éxito",
+              JOptionPane.INFORMATION_MESSAGE);
+        } catch (IOException ex) {
+          JOptionPane.showMessageDialog(this, "Error al guardar la gráfica: " + ex.getMessage(), "Error",
+              JOptionPane.ERROR_MESSAGE);
+        }
+      }
+    }
+
+    private void mostrarDialogoCorreo() {
+      JDialog dialog = new JDialog(this, "Mandar Correo a Padres", true);
+      dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+      dialog.setSize(700, 600);
+      dialog.setLocationRelativeTo(this);
+      dialog.setLayout(new BorderLayout(10, 10));
+
+      JPanel mainPanel = new JPanel(new BorderLayout(10, 10));
+      mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+      mainPanel.setBackground(new Color(245, 247, 250));
+
+      // Student selector
+      JPanel selectorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
+      selectorPanel.setBackground(new Color(245, 247, 250));
+      selectorPanel.add(new JLabel("Seleccionar Estudiante:"));
+
+      JComboBox<String> cbEstudiantes = new JComboBox<>();
+      cbEstudiantes.setPreferredSize(new Dimension(300, 30));
+      for (Estudiante e : estudiantes) {
+        if (e.getNivelRiesgo().equals("RIESGO DE DESERCIÓN") || e.getNivelRiesgo().equals("ALERTA DE DESERCIÓN")) {
+          cbEstudiantes.addItem(e.getId() + " - " + e.getNombre());
+        }
+      }
+      selectorPanel.add(cbEstudiantes);
+
+      mainPanel.add(selectorPanel, BorderLayout.NORTH);
+
+      // Email content
+      JPanel emailPanel = new JPanel(new BorderLayout(10, 10));
+      emailPanel.setBackground(new Color(245, 247, 250));
+
+      // Subject
+      JPanel subjectPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
+      subjectPanel.setBackground(new Color(245, 247, 250));
+      subjectPanel.add(new JLabel("Asunto:"));
+      JTextField txtAsunto = new JTextField();
+      txtAsunto.setPreferredSize(new Dimension(500, 30));
+      subjectPanel.add(txtAsunto);
+
+      emailPanel.add(subjectPanel, BorderLayout.NORTH);
+
+      // Body
+      JTextArea txtCuerpo = new JTextArea();
+      txtCuerpo.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+      txtCuerpo.setLineWrap(true);
+      txtCuerpo.setWrapStyleWord(true);
+      JScrollPane scrollCuerpo = new JScrollPane(txtCuerpo);
+      scrollCuerpo.setBorder(BorderFactory.createTitledBorder("Cuerpo del Correo"));
+
+      emailPanel.add(scrollCuerpo, BorderLayout.CENTER);
+
+      mainPanel.add(emailPanel, BorderLayout.CENTER);
+
+      // Buttons
+      JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 5));
+      buttonPanel.setBackground(new Color(245, 247, 250));
+
+      JButton btnCargar = crearBoton("Cargar Datos", BTN);
+      JButton btnEnviar = crearBoton("Enviar", BTN);
+      JButton btnCancelar = crearBoton("Cancelar", BTN2);
+
+      btnCargar.addActionListener(e -> {
+        String selected = (String) cbEstudiantes.getSelectedItem();
+        if (selected != null) {
+          String idStr = selected.split(" - ")[0];
+          int id = Integer.parseInt(idStr);
+          Estudiante est = estudiantes.stream().filter(estu -> estu.getId() == id).findFirst().orElse(null);
+          if (est != null) {
+            txtAsunto.setText("Alerta de Riesgo de Deserción Escolar - " + est.getNombre());
+
+            double promC1 = est.getPromedioCorte(1);
+            double promC2 = est.getPromedioCorte(2);
+            double promC3 = est.getPromedioCorte(3);
+            String cuerpo = "Estimado acudiente (" + est.getCorreoAcudiente() + "):\n\n" +
+                "Le informamos que el estudiante " + est.getNombre() + " de grado " + est.getGrado() +
+                " se encuentra actualmente en riesgo de deserción.\n\n" +
+                "Esta situación se ha detectado tras el último seguimiento académico, debido a que el alumno está presentando inasistencias constantes y mantiene un promedio de notas bajas en los cortes registrados hasta la fecha.\n\n"
+                +
+                "Reporte de apoyo:\n\n" +
+                "Número de inasistencias acumuladas: " + est.getTotalFaltas() + "\n\n" +
+                "Calificaciones por cortes registrados:\n\n" +
+                "Corte 1: " + String.format("%.2f", promC1) + "\n" +
+                "Corte 2: " + String.format("%.2f", promC2) + "\n" +
+                "Corte 3: " + String.format("%.2f", promC3) + "\n\n" +
+                "Le solicitamos encarecidamente comunicarse con la institución o asistir a una cita con el cuerpo docente para revisar este caso y tomar las medidas necesarias para evitar la pérdida del cupo escolar. Alguna duda acérquese a nuestras instalaciones.\n\n"
+                +
+                "Atentamente,\n\n" +
+                "Orientación psicosocial y directivos";
+            txtCuerpo.setText(cuerpo);
+          }
+        }
+      });
+
+      btnEnviar.addActionListener(e -> {
+        dialog.dispose();
+        JOptionPane.showMessageDialog(this, "Mensaje enviado con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+      });
+
+      btnCancelar.addActionListener(e -> dialog.dispose());
+
+      buttonPanel.add(btnCargar);
+      buttonPanel.add(btnEnviar);
+      buttonPanel.add(btnCancelar);
+
+      mainPanel.add(buttonPanel, BorderLayout.SOUTH);
+
+      dialog.add(mainPanel);
+      dialog.setVisible(true);
     }
 
     private Integer parseIntField(JTextField f, String msg) {
@@ -2657,20 +3211,84 @@ public class oficial {
       }
     }
 
-    private void exportarCSVDesdeGUI() {
-      String g = JOptionPane.showInputDialog(this, "Grado (1-11, Transicion, Jardin):");
-      if (g == null)
+    private void refrescarTablaEnTabla(List<Estudiante> lista, DefaultTableModel modelo, JTable tabla) {
+      if (lista == null)
         return;
-      String cStr = JOptionPane.showInputDialog(this, "Curso (ej: 1001 / 01 / 02):");
-      if (cStr == null)
-        return;
-      try {
-        int c = Integer.parseInt(cStr.trim());
-        exportarCSV(g.trim(), c);
-        JOptionPane.showMessageDialog(this, "CSV generado.", "OK", JOptionPane.INFORMATION_MESSAGE);
-      } catch (Exception ex) {
-        JOptionPane.showMessageDialog(this, "Curso invalido.", "Error", JOptionPane.ERROR_MESSAGE);
+
+      List<Estudiante> listaOrdenada = new ArrayList<>(lista);
+      listaOrdenada.sort((e1, e2) -> {
+        int g1 = obtenerPesoGrado(e1.getGrado());
+        int g2 = obtenerPesoGrado(e2.getGrado());
+        if (g1 != g2)
+          return Integer.compare(g1, g2);
+
+        int c = Integer.compare(e1.getCurso(), e2.getCurso());
+        if (c != 0)
+          return c;
+
+        String n1 = e1.getNombre() == null ? "" : e1.getNombre();
+        String n2 = e2.getNombre() == null ? "" : e2.getNombre();
+        return n1.compareToIgnoreCase(n2);
+      });
+
+      tabla.setSelectionBackground(new Color(232, 241, 250));
+      tabla.setSelectionForeground(Color.BLACK);
+      tabla.setShowGrid(true);
+      tabla.setGridColor(new Color(230, 230, 230));
+      tabla.getTableHeader().setBackground(new Color(240, 240, 240));
+      tabla.getTableHeader().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(200, 200, 200)));
+
+      List<String> columnas = new ArrayList<>();
+      columnas.add("ID");
+      columnas.add("Nombre");
+      columnas.add("Grado");
+      columnas.add("Curso");
+      columnas.add("Perdidas C1");
+      columnas.add("Perdidas C2");
+      columnas.add("Perdidas C3");
+      columnas.add("Promedio");
+      columnas.add("Faltas");
+      columnas.add("Estado");
+      columnas.add("Acudiente");
+      columnas.add("Telefono");
+      columnas.add("Correo");
+
+      modelo.setColumnIdentifiers(columnas.toArray(new String[0]));
+      modelo.setRowCount(0);
+      for (Estudiante e : listaOrdenada) {
+        Object[] row = new Object[columnas.size()];
+        int k = 0;
+        row[k++] = e.getId();
+        row[k++] = e.getNombre();
+        row[k++] = e.getGrado();
+        row[k++] = e.getCurso();
+        row[k++] = e.contarMateriasPerdidasCorte(1);
+        row[k++] = e.contarMateriasPerdidasCorte(2);
+        row[k++] = e.contarMateriasPerdidasCorte(3);
+        row[k++] = String.format("%.2f", e.getPromedioGeneral());
+        row[k++] = e.getTotalFaltas();
+        row[k++] = e.getNivelRiesgo();
+        row[k++] = e.getNombreAcudiente();
+        row[k++] = e.getTelefonoAcudiente();
+        row[k++] = e.getCorreoAcudiente();
+        modelo.addRow(row);
       }
+    }
+
+    private void mostrarPanelEnDialogo(JPanel panel, String titulo) {
+      JDialog dialog = new JDialog(this, titulo, true);
+      dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
+      JScrollPane scrollPane = new JScrollPane(panel);
+      scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+      scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+      scrollPane.setBorder(null);
+
+      dialog.getContentPane().add(scrollPane);
+      dialog.setSize(650, 700);
+      dialog.setLocationRelativeTo(this);
+      dialog.setResizable(true);
+      dialog.setVisible(true);
     }
 
   }
@@ -2745,8 +3363,10 @@ public class oficial {
         if (p.length >= 12 && !p[11].equals("NONE")) {
           faltasMes = parseFaltasPorMes(p[11]);
         }
+        int mesRegistro = p.length >= 13 ? Integer.parseInt(p[12]) : java.time.LocalDate.now().getMonthValue();
         estudiantes.add(new Estudiante(Integer.parseInt(p[0]), p[1], Integer.parseInt(p[2]),
-            p[3], Integer.parseInt(p[4]), notasMap, notasMateria, faltasMes, Integer.parseInt(p[6]), p[7], p[8], p[9]));
+            p[3], Integer.parseInt(p[4]), notasMap, notasMateria, faltasMes, Integer.parseInt(p[6]), p[7], p[8], p[9],
+            mesRegistro));
       }
     } catch (Exception e) {
       System.out.println("Aviso: Formato de datos actualizado.");
@@ -2916,20 +3536,6 @@ public class oficial {
     return out;
   }
 
-  private static void exportarCSV(String grado, int curso) {
-    List<Estudiante> filtrados = estudiantes.stream()
-        .filter(e -> e.getGrado().equalsIgnoreCase(grado) && e.getCurso() == curso)
-        .collect(Collectors.toList());
-
-    if (filtrados.isEmpty()) {
-      System.out.println("No hay estudiantes para el grado " + grado + " y curso " + curso);
-      return;
-    }
-
-    String nom = String.format("grado%s_curso%d.csv", grado.replace(" ", "_"), curso);
-    exportarGenericoCSV(filtrados, nom);
-  }
-
   private static void exportarGenericoCSV(List<Estudiante> filtrados, String nom) {
     int maxNotas = filtrados.stream()
         .mapToInt(e -> e.getNotasPorCorte().values().stream().mapToInt(List::size).sum())
@@ -2985,12 +3591,23 @@ class PanelBarrasRiesgo extends JPanel {
 
   public PanelBarrasRiesgo(List<Estudiante> estudiantes) {
     this.estudiantes = estudiantes;
-    setBorder(BorderFactory.createTitledBorder("Cantidad de Estudiantes por Estado"));
+    setBorder(BorderFactory.createTitledBorder(
+        BorderFactory.createLineBorder(new Color(41, 128, 185), 2),
+        "Cantidad de Estudiantes por Estado",
+        javax.swing.border.TitledBorder.CENTER,
+        javax.swing.border.TitledBorder.TOP,
+        new Font("Segoe UI", Font.BOLD, 14),
+        new Color(41, 128, 185)));
+    setBackground(new Color(245, 247, 250));
   }
 
   @Override
   protected void paintComponent(Graphics g) {
     super.paintComponent(g);
+    Graphics2D g2d = (Graphics2D) g;
+    g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+    g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
     long normal = estudiantes.stream().filter(e -> e.getNivelRiesgo().equalsIgnoreCase("NORMAL")).count();
     long alertaD = estudiantes.stream().filter(e -> e.getNivelRiesgo().equalsIgnoreCase("ALERTA DE DESERCIÓN")).count();
     long riesgoD = estudiantes.stream().filter(e -> e.getNivelRiesgo().equalsIgnoreCase("RIESGO DE DESERCIÓN")).count();
@@ -3003,26 +3620,44 @@ class PanelBarrasRiesgo extends JPanel {
       max = 1;
 
     int width = getWidth() - 100;
-    int height = getHeight() - 100;
+    int height = getHeight() - 120;
     int barWidth = width / 5;
 
-    dibujarBarra(g, 50, (int) normal, (int) max, barWidth, height, "NORMAL", new Color(46, 204, 113));
-    dibujarBarra(g, 50 + barWidth, (int) alertaD, (int) max, barWidth, height, "ALERTA DES", new Color(241, 196, 15));
-    dibujarBarra(g, 50 + barWidth * 2, (int) riesgoD, (int) max, barWidth, height, "RIESGO DES",
+    dibujarBarra(g2d, 50, (int) normal, (int) max, barWidth, height, "NORMAL", new Color(46, 204, 113));
+    dibujarBarra(g2d, 50 + barWidth, (int) alertaD, (int) max, barWidth, height, "ALERTA DES", new Color(241, 196, 15));
+    dibujarBarra(g2d, 50 + barWidth * 2, (int) riesgoD, (int) max, barWidth, height, "RIESGO DES",
         new Color(231, 76, 60));
-    dibujarBarra(g, 50 + barWidth * 3, (int) alertaA, (int) max, barWidth, height, "ALERTA ACAD",
+    dibujarBarra(g2d, 50 + barWidth * 3, (int) alertaA, (int) max, barWidth, height, "ALERTA ACAD",
         new Color(52, 152, 219));
-    dibujarBarra(g, 50 + barWidth * 4, (int) alertaI, (int) max, barWidth, height, "ALERTA ASIS",
+    dibujarBarra(g2d, 50 + barWidth * 4, (int) alertaI, (int) max, barWidth, height, "ALERTA ASIS",
         new Color(155, 89, 182));
   }
 
-  private void dibujarBarra(Graphics g, int x, int valor, int max, int w, int h, String label, Color c) {
-    int barHeight = (int) ((double) valor / max * (h - 20));
-    g.setColor(c);
-    g.fillRect(x + 10, h - barHeight + 30, w - 20, barHeight);
+  private void dibujarBarra(Graphics2D g, int x, int valor, int max, int w, int h, String label, Color c) {
+    int barHeight = (int) ((double) valor / max * (h - 40));
+
+    // Gradiente para la barra
+    GradientPaint gradient = new GradientPaint(
+        x + 10, h - barHeight + 40, c,
+        x + 10, h + 40, c.darker());
+    g.setPaint(gradient);
+    g.fillRoundRect(x + 10, h - barHeight + 40, w - 20, barHeight, 10, 10);
+
+    // Borde
+    g.setColor(c.darker().darker());
+    g.drawRoundRect(x + 10, h - barHeight + 40, w - 20, barHeight, 10, 10);
+
+    // Valor
     g.setColor(Color.BLACK);
-    g.drawRect(x + 10, h - barHeight + 30, w - 20, barHeight);
-    g.drawString(label + " (" + valor + ")", x + 20, h + 50);
+    g.setFont(new Font("Segoe UI", Font.BOLD, 12));
+    String valorStr = String.valueOf(valor);
+    int valorWidth = g.getFontMetrics().stringWidth(valorStr);
+    g.drawString(valorStr, x + w / 2 - valorWidth / 2, h - barHeight + 30);
+
+    // Etiqueta
+    g.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+    int labelWidth = g.getFontMetrics().stringWidth(label);
+    g.drawString(label, x + w / 2 - labelWidth / 2, h + 70);
   }
 }
 
@@ -3031,30 +3666,61 @@ class PanelBarrasGrados extends JPanel {
 
   public PanelBarrasGrados(List<Estudiante> estudiantes) {
     this.estudiantes = estudiantes;
-    setBorder(BorderFactory.createTitledBorder("Estudiantes por Grado"));
+    setBorder(BorderFactory.createTitledBorder(
+        BorderFactory.createLineBorder(new Color(41, 128, 185), 2),
+        "Estudiantes por Grado",
+        javax.swing.border.TitledBorder.CENTER,
+        javax.swing.border.TitledBorder.TOP,
+        new Font("Segoe UI", Font.BOLD, 14),
+        new Color(41, 128, 185)));
+    setBackground(new Color(245, 247, 250));
   }
 
   @Override
   protected void paintComponent(Graphics g) {
     super.paintComponent(g);
+    Graphics2D g2d = (Graphics2D) g;
+    g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+    g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
     Map<String, Long> porGrado = estudiantes.stream()
         .collect(Collectors.groupingBy(Estudiante::getGrado, Collectors.counting()));
 
     int x = 50;
     int barWidth = (getWidth() - 100) / Math.max(1, porGrado.size());
     long max = porGrado.values().stream().max(Long::compare).orElse(1L);
-    int h = getHeight() - 100;
+    int h = getHeight() - 120;
 
     int i = 0;
     for (Map.Entry<String, Long> entry : porGrado.entrySet()) {
       int val = entry.getValue().intValue();
-      int barHeight = (int) ((double) val / max * (h - 20));
+      int barHeight = (int) ((double) val / max * (h - 40));
 
-      g.setColor(new Color(100, 150, 255));
-      g.fillRect(x + i * barWidth + 10, h - barHeight + 30, barWidth - 20, barHeight);
-      g.setColor(Color.BLACK);
-      g.drawRect(x + i * barWidth + 10, h - barHeight + 30, barWidth - 20, barHeight);
-      g.drawString(entry.getKey(), x + i * barWidth + 15, h + 50);
+      // Gradiente para la barra
+      Color baseColor = new Color(100, 150, 255);
+      GradientPaint gradient = new GradientPaint(
+          x + i * barWidth + 10, h - barHeight + 40, baseColor,
+          x + i * barWidth + 10, h + 40, baseColor.darker());
+      g2d.setPaint(gradient);
+      g2d.fillRoundRect(x + i * barWidth + 10, h - barHeight + 40, barWidth - 20, barHeight, 10, 10);
+
+      // Borde
+      g2d.setColor(baseColor.darker().darker());
+      g2d.drawRoundRect(x + i * barWidth + 10, h - barHeight + 40, barWidth - 20, barHeight, 10, 10);
+
+      // Valor
+      g2d.setColor(Color.BLACK);
+      g2d.setFont(new Font("Segoe UI", Font.BOLD, 12));
+      String valorStr = String.valueOf(val);
+      int valorWidth = g2d.getFontMetrics().stringWidth(valorStr);
+      g2d.drawString(valorStr, x + i * barWidth + barWidth / 2 - valorWidth / 2, h - barHeight + 30);
+
+      // Etiqueta
+      g2d.setFont(new Font("Segoe UI", Font.PLAIN, 11));
+      String label = entry.getKey();
+      int labelWidth = g2d.getFontMetrics().stringWidth(label);
+      g2d.drawString(label, x + i * barWidth + barWidth / 2 - labelWidth / 2, h + 70);
+
       i++;
     }
   }
