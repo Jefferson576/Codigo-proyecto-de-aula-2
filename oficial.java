@@ -540,13 +540,25 @@ class Institucion {
   final String nombre;
   final String usuario;
   final String password;
-  final String archivo;
+  final String carpeta;
 
   public Institucion(String nombre, String usuario, String password) {
     this.nombre = nombre;
     this.usuario = usuario;
     this.password = password;
-    this.archivo = "datos_" + usuario + ".txt";
+    this.carpeta = "institucion_" + usuario;
+  }
+
+  public String getArchivoDatos() {
+    return carpeta + File.separator + "datos.txt";
+  }
+
+  public String getArchivoProfesores() {
+    return carpeta + File.separator + "profesores.txt";
+  }
+
+  public String getArchivoAsignaciones() {
+    return carpeta + File.separator + "asignaciones.txt";
   }
 }
 
@@ -664,7 +676,6 @@ public class oficial {
   }
 
   private static final class AppFrame extends JFrame {
-    private static final Color azulOscuro = new Color(0x708090);
     private static final Color azulReal = new Color(0x283593);
     private static final Color turquesaSuave = new Color(0x4DB6AC);
     private static final Color grisazulado = new Color(0xF0F2F5);
@@ -1283,8 +1294,9 @@ public class oficial {
             return;
           }
 
-          String nom = "lista_" + (grado != null ? grado : "todos") + "_curso_"
-              + (cursoStr.isEmpty() ? "todos" : cursoStr) + "_" + institucionActual.usuario + ".csv";
+          String nom = institucionActual.carpeta + File.separator + "lista_" + (grado != null ? grado : "todos")
+              + "_curso_"
+              + (cursoStr.isEmpty() ? "todos" : cursoStr) + ".csv";
           exportarGenericoCSV(listaExport, nom);
           JOptionPane.showMessageDialog(this, "Exportado: " + nom, "OK", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -1326,7 +1338,7 @@ public class oficial {
       });
       bExportar.addActionListener(e -> {
         if (listaActualFiltrada[0] != null && !listaActualFiltrada[0].isEmpty()) {
-          String nom = "lista_estudiantes_" + institucionActual.usuario + ".csv";
+          String nom = institucionActual.carpeta + File.separator + "lista_estudiantes.csv";
           exportarGenericoCSV(listaActualFiltrada[0], nom);
           JOptionPane.showMessageDialog(this, "Exportado: " + nom, "OK", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -2609,6 +2621,10 @@ public class oficial {
       profesores.add(new Profesor(user, pass, nombre));
       guardarProfesores();
       JOptionPane.showMessageDialog(this, "Profesor creado.", "OK", JOptionPane.INFORMATION_MESSAGE);
+
+      fDirProfUser.setText("");
+      fDirProfPass.setText("");
+      fDirProfNombre.setText("");
     }
 
     private void accionAsignarMateria() {
@@ -2663,6 +2679,9 @@ public class oficial {
       asignaciones.add(new Asignacion(grado.trim(), curso, materiaCanon, profUser.trim()));
       guardarAsignaciones();
       JOptionPane.showMessageDialog(this, "Asignacion guardada.", "OK", JOptionPane.INFORMATION_MESSAGE);
+
+      fDirAsigGrado.setText("");
+      fDirAsigCurso.setText("");
     }
 
     private JPanel crearFormulario(String titulo, JComponent... campos) {
@@ -2865,6 +2884,17 @@ public class oficial {
       guardarDatos();
       actualizarCombosGrado();
       refrescarTabla(estudiantes);
+      JOptionPane.showMessageDialog(this, "Estudiante registrado exitosamente.", "Éxito",
+          JOptionPane.INFORMATION_MESSAGE);
+
+      fRegId.setText("");
+      fRegNombre.setText("");
+      fRegEdad.setText("");
+      fRegGrado.setText("");
+      fRegCurso.setText("");
+      fRegAcud.setText("");
+      fRegCorreo.setText("");
+      fRegTel.setText("");
     }
 
     private void accionNotasMasivas() {
@@ -2914,6 +2944,12 @@ public class oficial {
       }
       guardarDatos();
       refrescarTabla(estudiantes);
+      JOptionPane.showMessageDialog(this, "Notas registradas exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+      fCursoGrado.setText("");
+      fCursoCurso.setText("");
+      fCursoCorte.setText("");
+      fCursoCantNotas.setText("");
     }
 
     private void accionAsistenciaMasiva() {
@@ -2953,6 +2989,12 @@ public class oficial {
       }
       guardarDatos();
       refrescarTabla(estudiantes);
+      JOptionPane.showMessageDialog(this, "Asistencia registrada exitosamente.", "Éxito",
+          JOptionPane.INFORMATION_MESSAGE);
+
+      fAsisGrado.setText("");
+      fAsisCurso.setText("");
+      fAsisDiasMax.setText("");
     }
 
     private void accionBuscar() {
@@ -3013,6 +3055,12 @@ public class oficial {
       e.editarNota(corte, idx, nueva);
       guardarDatos();
       refrescarTabla(estudiantes);
+      JOptionPane.showMessageDialog(this, "Nota actualizada exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+      fEditNotasId.setText("");
+      fEditNotasCorte.setText("");
+      fEditNotasIndice.setText("");
+      fEditNotasNueva.setText("");
     }
 
     private void accionCargarEdicion() {
@@ -3057,6 +3105,16 @@ public class oficial {
       guardarDatos();
       actualizarCombosGrado();
       refrescarTabla(estudiantes);
+      JOptionPane.showMessageDialog(this, "Estudiante actualizado exitosamente.", "Éxito",
+          JOptionPane.INFORMATION_MESSAGE);
+
+      fEditEstId.setText("");
+      fEditEstNombre.setText("");
+      fEditEstGrado.setText("");
+      fEditEstCurso.setText("");
+      fEditEstAcud.setText("");
+      fEditEstCorreo.setText("");
+      fEditEstTel.setText("");
     }
 
     private void accionEliminar() {
@@ -3071,9 +3129,13 @@ public class oficial {
         guardarDatos();
         actualizarCombosGrado();
         refrescarTabla(estudiantes);
+        JOptionPane.showMessageDialog(this, "Estudiante eliminado exitosamente.", "Éxito",
+            JOptionPane.INFORMATION_MESSAGE);
       } else {
         JOptionPane.showMessageDialog(this, "No encontrado.", "Info", JOptionPane.INFORMATION_MESSAGE);
       }
+
+      fEliminarId.setText("");
     }
 
     private void accionExportarRiesgo() {
@@ -3085,7 +3147,8 @@ public class oficial {
             JOptionPane.INFORMATION_MESSAGE);
         return;
       }
-      String nom = "reporte_riesgo_" + institucionActual.usuario + ".csv";
+      String nom = institucionActual.carpeta + File.separator + "reporte_riesgo.csv";
+      asegurarCarpetaInstitucion(institucionActual);
       exportarGenericoCSV(riesgo, nom);
       JOptionPane.showMessageDialog(this, "Exportado: " + nom, "OK", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -3416,9 +3479,17 @@ public class oficial {
     instituciones.add(new Institucion("Liceo Moderno", "liceo", "1112"));
   }
 
+  private static void asegurarCarpetaInstitucion(Institucion inst) {
+    File carpeta = new File(inst.carpeta);
+    if (!carpeta.exists()) {
+      carpeta.mkdirs();
+    }
+  }
+
   private static void guardarDatos() {
+    asegurarCarpetaInstitucion(institucionActual);
     try (BufferedWriter bw = new BufferedWriter(
-        new OutputStreamWriter(new FileOutputStream(institucionActual.archivo),
+        new OutputStreamWriter(new FileOutputStream(institucionActual.getArchivoDatos()),
             java.nio.charset.StandardCharsets.UTF_8))) {
       for (Estudiante e : estudiantes) {
         bw.write(e.toDataString());
@@ -3430,7 +3501,7 @@ public class oficial {
   }
 
   private static void cargarDatos() {
-    File f = new File(institucionActual.archivo);
+    File f = new File(institucionActual.getArchivoDatos());
     if (!f.exists())
       return;
     try (BufferedReader br = new BufferedReader(
@@ -3470,14 +3541,6 @@ public class oficial {
     }
   }
 
-  private static String archivoProfesores(Institucion inst) {
-    return "profesores_" + inst.usuario + ".txt";
-  }
-
-  private static String archivoAsignaciones(Institucion inst) {
-    return "asignaciones_" + inst.usuario + ".txt";
-  }
-
   private static void cargarProfesoresYAsignaciones() {
     profesores.clear();
     asignaciones.clear();
@@ -3489,7 +3552,7 @@ public class oficial {
   }
 
   private static void cargarProfesores(Institucion inst, List<Profesor> out) {
-    File f = new File(archivoProfesores(inst));
+    File f = new File(inst.getArchivoProfesores());
     if (!f.exists())
       return;
     try (BufferedReader br = new BufferedReader(
@@ -3509,8 +3572,9 @@ public class oficial {
   private static void guardarProfesores() {
     if (institucionActual == null)
       return;
+    asegurarCarpetaInstitucion(institucionActual);
     try (BufferedWriter bw = new BufferedWriter(
-        new OutputStreamWriter(new FileOutputStream(archivoProfesores(institucionActual)),
+        new OutputStreamWriter(new FileOutputStream(institucionActual.getArchivoProfesores()),
             java.nio.charset.StandardCharsets.UTF_8))) {
       for (Profesor p : profesores) {
         bw.write(p.usuario + "|" + p.password + "|" + p.nombre);
@@ -3522,7 +3586,7 @@ public class oficial {
   }
 
   private static void cargarAsignaciones(Institucion inst, List<Asignacion> out) {
-    File f = new File(archivoAsignaciones(inst));
+    File f = new File(inst.getArchivoAsignaciones());
     if (!f.exists())
       return;
     try (BufferedReader br = new BufferedReader(
@@ -3545,8 +3609,9 @@ public class oficial {
   private static void guardarAsignaciones() {
     if (institucionActual == null)
       return;
+    asegurarCarpetaInstitucion(institucionActual);
     try (BufferedWriter bw = new BufferedWriter(
-        new OutputStreamWriter(new FileOutputStream(archivoAsignaciones(institucionActual)),
+        new OutputStreamWriter(new FileOutputStream(institucionActual.getArchivoAsignaciones()),
             java.nio.charset.StandardCharsets.UTF_8))) {
       for (Asignacion a : asignaciones) {
         bw.write((a.grado == null ? "" : a.grado.trim()) + "|" + a.curso + "|" + a.materia + "|" + a.usuarioProfesor);

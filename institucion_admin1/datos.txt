@@ -28,3 +28,4 @@
 2461|Daniela Vargas Ortiz|7|2|201|1:1.7,2.5,1.0,5.0;2:1.0,1.0,1.0|11|Jorge Vargas Villalba|jorgevargas@email.com|3056789012|Matemáticas@1:1.7,2.5,1.0,5.0;2:1.0,1.0,1.0|2=11|5
 3132|Nicolas Ramirez Silva|7|2|202|1:2.0,4.0,3.0,4.0,1.0,5.0,5.0|0|Sandra Silva Gonzales|sandrasilva@email.com|3067890123|Lengua Castellana@1:1.0,5.0,5.0|NONE|5
 7777|Jefferson Jose Barrios|7|2|202|1:5.0,4.0,4.0,3.0,3.0,4.0,4.0|0|Juliana Maria Hernandez|JuliMaria@email.com|300514612|Lengua Castellana@1:3.0,4.0,4.0|NONE|5
+2021|alexis sanches|5|1|101|NONE|0|maria sanches|maria@gmail.com|3251351525|NONE|NONE|5
