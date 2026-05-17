@@ -30,16 +30,19 @@ import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.image.BufferedImage;
+import java.net.URL;
 import java.util.Objects;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -51,6 +54,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
@@ -708,6 +712,7 @@ public class oficial {
     private final JTextField txtGrafCurso = new JTextField();
     private final JComboBox<String> cbGrafRiesgo = new JComboBox<>(
         new String[] { "Todos", "RIESGO DE DESERCIÓN", "ALERTA DE DESERCIÓN", "NORMAL" });
+    private final JTextField txtGrafBuscar = new JTextField();
     private final JLabel lblGrafInfo = new JLabel("");
 
     private final JTextField fRegId = new JTextField();
@@ -849,54 +854,95 @@ public class oficial {
 
     private void construirLogin() {
       loginPanel.removeAll();
-      loginPanel.setBackground(BG);
+      loginPanel.setBackground(new Color(240, 244, 248));
       loginPanel.setLayout(new GridBagLayout());
 
       JPanel shell = new JPanel(new BorderLayout());
       shell.setBackground(Color.WHITE);
-      shell.setBorder(BorderFactory.createCompoundBorder(
-          BorderFactory.createLineBorder(new Color(230, 235, 240), 1, true),
-          BorderFactory.createEmptyBorder(0, 0, 0, 0)));
+      shell.setBorder(BorderFactory.createLineBorder(new Color(220, 225, 230), 1, true));
+      shell.setPreferredSize(new Dimension(900, 600));
 
-      JPanel left = new JPanel();
-      left.setBackground(SIDEBAR);
-      left.setPreferredSize(new Dimension(360, 0));
-      left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));
-      left.setBorder(BorderFactory.createEmptyBorder(28, 24, 28, 24));
+      JPanel left = new JPanel() {
+        @Override
+        protected void paintComponent(Graphics g) {
+          super.paintComponent(g);
+          Graphics2D g2d = (Graphics2D) g;
+          g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+          GradientPaint gp = new GradientPaint(0, 0, new Color(240, 244, 248), 0, getHeight(),
+              new Color(180, 220, 240));
+          g2d.setPaint(gp);
+          g2d.fillRect(0, 0, getWidth(), getHeight());
+        }
+      };
+      left.setOpaque(false);
+      left.setPreferredSize(new Dimension(450, 0));
 
-      JLabel brand = new JLabel("E.I.P.I");
-      brand.setForeground(Color.WHITE);
-      brand.setFont(new Font("Segoe UI", Font.BOLD, 26));
-      brand.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+      JPanel centerContent = new JPanel();
+      centerContent.setOpaque(false);
+      centerContent.setLayout(new BoxLayout(centerContent, BoxLayout.Y_AXIS));
+      centerContent.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
+      centerContent.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+      centerContent.setAlignmentY(JComponent.CENTER_ALIGNMENT);
+      centerContent.setMaximumSize(new Dimension(400, Integer.MAX_VALUE));
 
-      JLabel sub = new JLabel("<html>Estudio integral de <br/>permanencia estudiantil</html>");
-      sub.setForeground(new Color(236, 240, 241));
-      sub.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-      sub.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+      try {
+        File logoFile = new File("logo.png");
+        if (logoFile.exists()) {
+          ImageIcon icon = new ImageIcon(logoFile.getAbsolutePath());
+          Image scaledImage = icon.getImage().getScaledInstance(280, 280, Image.SCALE_SMOOTH);
+          JLabel logoLabel = new JLabel(new ImageIcon(scaledImage));
+          logoLabel.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+          centerContent.add(logoLabel);
+        }
+      } catch (Exception e) {
+      }
+
+      JLabel brand = new JLabel("E.I.P.I.");
+      brand.setForeground(new Color(30, 60, 120));
+      brand.setFont(new Font("Segoe UI", Font.BOLD, 48));
+      brand.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+      centerContent.add(brand);
+
+      centerContent.add(Box.createVerticalStrut(15));
+
+      JLabel sub = new JLabel(
+          "<html><div style='text-align:center;'>Estudio integral de<br>permanencia estudiantil</div></html>");
+      sub.setForeground(new Color(50, 70, 100));
+      sub.setFont(new Font("Segoe UI", Font.PLAIN, 22));
+      sub.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+      centerContent.add(sub);
+
+      centerContent.add(Box.createVerticalStrut(40));
 
       JLabel hint = new JLabel(
-          "<html><b>Acceso:</b><br/>Selecciona la institucion<br/>e ingresa tus credenciales.</html>");
-      hint.setForeground(new Color(236, 240, 241));
-      hint.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-      hint.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+          "<html><div style='text-align:center;'><b style='font-size:18px;'>Acceso:</b><br><span style='font-size:16px;'>Selecciona la institución e<br>ingresa tus credenciales.</span></div></html>");
+      hint.setForeground(new Color(50, 70, 100));
+      hint.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+      hint.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+      centerContent.add(hint);
 
-      left.add(brand);
-      left.add(Box.createVerticalStrut(10));
-      left.add(sub);
-      left.add(Box.createVerticalStrut(20));
-      left.add(hint);
-      left.add(Box.createVerticalGlue());
+      centerContent.add(Box.createVerticalGlue());
+
+      left.setLayout(new GridBagLayout());
+      GridBagConstraints gbc = new GridBagConstraints();
+      gbc.gridx = 0;
+      gbc.gridy = 0;
+      gbc.weightx = 1.0;
+      gbc.weighty = 1.0;
+      gbc.anchor = GridBagConstraints.CENTER;
+      left.add(centerContent, gbc);
 
       JPanel rightCard = new JPanel();
       rightCard.setBackground(Color.WHITE);
       rightCard.setLayout(new BoxLayout(rightCard, BoxLayout.Y_AXIS));
-      rightCard.setBorder(BorderFactory.createEmptyBorder(32, 32, 32, 32));
+      rightCard.setBorder(BorderFactory.createEmptyBorder(60, 50, 60, 50));
 
-      JLabel title = new JLabel("Iniciar sesion");
-      title.setFont(new Font("Segoe UI", Font.BOLD, 18));
+      JLabel title = new JLabel("Iniciar sesión");
+      title.setFont(new Font("Segoe UI", Font.BOLD, 36));
+      title.setForeground(new Color(30, 40, 50));
       title.setAlignmentX(JComponent.LEFT_ALIGNMENT);
       rightCard.add(title);
-      rightCard.add(Box.createVerticalStrut(18));
+      rightCard.add(Box.createVerticalStrut(40));
 
       cbInst.removeAllItems();
       for (Institucion i : instituciones) {
@@ -909,29 +955,37 @@ public class oficial {
       styleInput(txtPass);
 
       rightCard.add(crearCampo("Tipo de acceso", cbTipo));
-      rightCard.add(Box.createVerticalStrut(12));
-      rightCard.add(crearCampo("Institucion", cbInst));
-      rightCard.add(Box.createVerticalStrut(12));
-      rightCard.add(crearCampo("Usuario", txtUser));
-      rightCard.add(Box.createVerticalStrut(12));
-      rightCard.add(crearCampo("Contraseña", txtPass));
       rightCard.add(Box.createVerticalStrut(18));
+      rightCard.add(crearCampo("Institución", cbInst));
+      rightCard.add(Box.createVerticalStrut(18));
+      rightCard.add(crearCampo("Usuario", txtUser));
+      rightCard.add(Box.createVerticalStrut(18));
+      rightCard.add(crearCampo("Contraseña", txtPass));
+      rightCard.add(Box.createVerticalStrut(30));
 
-      JButton btnLogin = crearBoton("Ingresar", BTN);
+      JButton btnLogin = crearBoton("Ingresar", new Color(0, 150, 136));
       btnLogin.setAlignmentX(JComponent.LEFT_ALIGNMENT);
-      btnLogin.setMaximumSize(new Dimension(Integer.MAX_VALUE, 42));
+      btnLogin.setMaximumSize(new Dimension(Integer.MAX_VALUE, 56));
+      btnLogin.setFont(new Font("Segoe UI", Font.BOLD, 20));
       btnLogin.addActionListener(e -> login());
       rightCard.add(btnLogin);
+
+      rightCard.add(Box.createVerticalStrut(30));
+
+      JSeparator sep = new JSeparator();
+      sep.setMaximumSize(new Dimension(Integer.MAX_VALUE, 2));
+      sep.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+      rightCard.add(sep);
 
       shell.add(left, BorderLayout.WEST);
       shell.add(rightCard, BorderLayout.CENTER);
 
-      GridBagConstraints gbc = new GridBagConstraints();
-      gbc.gridx = 0;
-      gbc.gridy = 0;
-      gbc.insets = new Insets(24, 24, 24, 24);
-      gbc.fill = GridBagConstraints.NONE;
-      loginPanel.add(shell, gbc);
+      GridBagConstraints gbcLogin = new GridBagConstraints();
+      gbcLogin.gridx = 0;
+      gbcLogin.gridy = 0;
+      gbcLogin.insets = new Insets(24, 24, 24, 24);
+      gbcLogin.fill = GridBagConstraints.NONE;
+      loginPanel.add(shell, gbcLogin);
     }
 
     private JPanel crearCampo(String label, JComponent field) {
@@ -1455,11 +1509,13 @@ public class oficial {
       JPanel row2 = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 0));
       row2.setOpaque(false);
       row2.add(new JLabel("Buscar:"));
-      JTextField txtGrafBuscar = new JTextField();
       txtGrafBuscar.setPreferredSize(new Dimension(200, 28));
       row2.add(txtGrafBuscar);
+      JButton bBuscar = crearBoton("Buscar", BTN2);
+      bBuscar.addActionListener(e -> mostrarGraficasEnPantalla());
+      row2.add(bBuscar);
       row2.add(new JLabel("Ancho de gráficas:"));
-      JTextField fWidth = new JTextField("800");
+      JTextField fWidth = new JTextField("1500");
       fWidth.setPreferredSize(new Dimension(100, 28));
       row2.add(fWidth);
       JButton bDescargar = crearBoton("Descargar Imagen", BTN);
@@ -2034,7 +2090,7 @@ public class oficial {
       row2.add(lWidth);
       row2.add(Box.createHorizontalStrut(6));
 
-      JTextField txtGrafWidth = new JTextField("800");
+      JTextField txtGrafWidth = new JTextField("1500");
       txtGrafWidth.setFont(new Font("Segoe UI", Font.PLAIN, 12));
       txtGrafWidth.setMaximumSize(new Dimension(100, 30));
       row2.add(txtGrafWidth);
@@ -2121,11 +2177,15 @@ public class oficial {
           return List.of();
         }
       }
+      String busqueda = txtGrafBuscar.getText() == null ? "" : txtGrafBuscar.getText().trim().toLowerCase();
       Integer cursoFinal = curso;
       return estudiantes.stream()
           .filter(e -> grado == null || "Todos".equals(grado) || e.getGrado().equalsIgnoreCase(grado))
           .filter(e -> cursoFinal == null || e.getCurso() == cursoFinal)
           .filter(e -> riesgo == null || "Todos".equals(riesgo) || e.getNivelRiesgo().equalsIgnoreCase(riesgo))
+          .filter(e -> busqueda.isEmpty() ||
+              e.getNombre().toLowerCase().contains(busqueda) ||
+              Integer.toString(e.getId()).contains(busqueda))
           .toList();
     }
 
@@ -3826,12 +3886,13 @@ class PanelBarrasRiesgo extends JPanel {
     int barWidth = width / 5;
 
     dibujarBarra(g2d, 50, (int) normal, (int) max, barWidth, height, "NORMAL", new Color(46, 204, 113));
-    dibujarBarra(g2d, 50 + barWidth, (int) alertaD, (int) max, barWidth, height, "ALERTA DES", new Color(241, 196, 15));
-    dibujarBarra(g2d, 50 + barWidth * 2, (int) riesgoD, (int) max, barWidth, height, "RIESGO DES",
+    dibujarBarra(g2d, 50 + barWidth, (int) alertaD, (int) max, barWidth, height, "ALERTA DE DESERCIÓN",
+        new Color(241, 196, 15));
+    dibujarBarra(g2d, 50 + barWidth * 2, (int) riesgoD, (int) max, barWidth, height, "RIESGO DE DESERCIÓN",
         new Color(231, 76, 60));
-    dibujarBarra(g2d, 50 + barWidth * 3, (int) alertaA, (int) max, barWidth, height, "ALERTA ACAD",
+    dibujarBarra(g2d, 50 + barWidth * 3, (int) alertaA, (int) max, barWidth, height, "ALERTA ACADÉMICA",
         new Color(52, 152, 219));
-    dibujarBarra(g2d, 50 + barWidth * 4, (int) alertaI, (int) max, barWidth, height, "ALERTA ASIS",
+    dibujarBarra(g2d, 50 + barWidth * 4, (int) alertaI, (int) max, barWidth, height, "ALERTA DE ASISTENCIA",
         new Color(155, 89, 182));
   }
 
@@ -3922,7 +3983,6 @@ class PanelBarrasGrados extends JPanel {
       String label = entry.getKey();
       int labelWidth = g2d.getFontMetrics().stringWidth(label);
       g2d.drawString(label, x + i * barWidth + barWidth / 2 - labelWidth / 2, h + 70);
-
       i++;
     }
   }
