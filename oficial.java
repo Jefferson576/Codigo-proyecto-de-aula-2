@@ -2768,15 +2768,51 @@ public class oficial {
           botonesRow(submit, back));
     }
 
+    private JTable tablaBusqueda;
+    private DefaultTableModel modeloBusqueda;
+
     private JPanel crearPanelBuscar() {
       JButton submit = crearBoton("Buscar", BTN);
       JButton back = crearBoton("Volver", BTN2);
       submit.addActionListener(e -> accionBuscar());
       back.addActionListener(e -> goBack());
-      return crearFormulario("Buscar Estudiante",
-          campoLabeled("Tipo", cbBuscarTipo),
-          campoLabeled("Texto", fBuscarQuery),
-          botonesRow(submit, back));
+
+      JPanel p = crearPanelBase("Buscar Estudiante");
+      JPanel body = new JPanel();
+      body.setOpaque(false);
+      body.setLayout(new BoxLayout(body, BoxLayout.Y_AXIS));
+      body.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+      JPanel tipoPanel = campoLabeled("Tipo", cbBuscarTipo);
+      tipoPanel.setAlignmentX(0.0f);
+      body.add(tipoPanel);
+
+      body.add(Box.createVerticalStrut(15));
+
+      JPanel textoPanel = campoLabeled("Texto", fBuscarQuery);
+      textoPanel.setAlignmentX(0.0f);
+      body.add(textoPanel);
+
+      body.add(Box.createVerticalStrut(15));
+
+      JPanel botonesPanel = botonesRow(submit, back);
+      botonesPanel.setAlignmentX(0.0f);
+      body.add(botonesPanel);
+
+      body.add(Box.createVerticalStrut(15));
+
+      modeloBusqueda = new DefaultTableModel();
+      tablaBusqueda = new JTable(modeloBusqueda);
+      tablaBusqueda.setRowHeight(24);
+      tablaBusqueda.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+      tablaBusqueda.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+      JScrollPane scrollBusqueda = new JScrollPane(tablaBusqueda);
+      scrollBusqueda.setPreferredSize(new Dimension(600, 300));
+      scrollBusqueda.setAlignmentX(0.0f);
+      body.add(scrollBusqueda);
+
+      p.add(body, BorderLayout.CENTER);
+      return p;
     }
 
     private JPanel crearPanelEditarNotas() {
@@ -3002,24 +3038,28 @@ public class oficial {
       String q = fBuscarQuery.getText().trim();
       if (q.isEmpty())
         return;
+      List<Estudiante> res = new ArrayList<>();
       if ("ID".equals(tipo)) {
         try {
           int id = Integer.parseInt(q);
           Optional<Estudiante> e = oficial.buscarPorId(id);
-          if (e.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "No encontrado.", "Info", JOptionPane.INFORMATION_MESSAGE);
-            return;
+          if (e.isPresent()) {
+            res.add(e.get());
           }
-          refrescarTabla(List.of(e.get()));
         } catch (Exception ex) {
           JOptionPane.showMessageDialog(this, "ID invalido.", "Error", JOptionPane.ERROR_MESSAGE);
         }
       } else {
         String s = q.toLowerCase();
-        List<Estudiante> res = estudiantes.stream()
+        res = estudiantes.stream()
             .filter(es -> es.getNombre().toLowerCase().contains(s))
             .toList();
-        refrescarTabla(res);
+      }
+
+      if (res.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "No encontrado.", "Info", JOptionPane.INFORMATION_MESSAGE);
+      } else {
+        refrescarTablaEnTabla(res, modeloBusqueda, tablaBusqueda);
       }
     }
 
