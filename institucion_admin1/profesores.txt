@@ -1,3 +1,21 @@
-prueba1|1234|profesor de prueba
-prueba2|1234|profersor del prueba 2
-jeff|jeff123|jefferson
+andresg|102345|Andres Gomez
+mariap|102346|Maria Perez
+carlost|102347|Carlos Torres
+laurac|102348|Laura Castro
+juanr|102349|Juan Ramirez
+danielam|102350|Daniela Moreno
+sebastianv|102351|Sebastian Vargas
+camilar|102352|Camila Rojas
+felipeh|102353|Felipe Herrera
+sarar|102354|Sara Rodriguez
+miguelp|102355|Miguel Parra
+valentinag|102356|Valentina Garcia
+nicolasd|102357|Nicolas Diaz
+paulac|102358|Paula Cruz
+alejandrol|102359|Alejandro Lopez
+sofiam|102360|Sofia Martinez
+javiera|102361|Javier Acosta
+gabrielat|102362|Gabriela Torres
+martinp|102363|Martin Perez
+lucianar|102364|Luciana Romero
+rebecasu|112634|Rebeca Suluaga

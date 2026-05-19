@@ -33,10 +33,8 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Insets;
 import java.awt.RenderingHints;
-import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.image.BufferedImage;
-import java.net.URL;
 import java.util.Objects;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
@@ -58,15 +56,13 @@ import javax.swing.JSeparator;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
-import javax.swing.Timer;
 import javax.swing.plaf.basic.BasicButtonUI;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.UIManager;
-import javax.swing.JTextArea;
-import javax.swing.border.TitledBorder;
 
 class Estudiante {
   private static final int[] MESES_CORTE_1 = new int[] { 2, 3, 4 };
@@ -660,6 +656,27 @@ public class oficial {
       10, "Octubre",
       11, "Noviembre");
 
+  public static int obtenerPesoGrado(String grado) {
+    if (grado == null)
+      return 99;
+    String g = Estudiante.normalizarTexto(grado);
+    if (g.contains("transicion"))
+      return 0;
+    if (g.contains("jardin"))
+      return 1;
+    try {
+      String num = g.replaceAll("[^0-9]", "");
+      if (!num.isEmpty()) {
+        int n = Integer.parseInt(num);
+        if (n >= 1 && n <= 11) {
+          return n + 1;
+        }
+      }
+    } catch (Exception e) {
+    }
+    return 99;
+  }
+
   private static final List<Institucion> instituciones = new ArrayList<>();
   private static final List<Estudiante> estudiantes = new ArrayList<>();
   private static final List<Profesor> profesores = new ArrayList<>();
@@ -762,6 +779,7 @@ public class oficial {
     private final JComboBox<String> cbProfCursoNotas = new JComboBox<>();
     private final JComboBox<String> cbProfMateriaNotas = new JComboBox<>();
     private final JComboBox<String> cbProfCursoAsis = new JComboBox<>();
+    private final JComboBox<String> cbProfMateriaAsis = new JComboBox<>();
     private final JComboBox<String> cbProfMes = new JComboBox<>();
     private final JComboBox<String> cbProfCursoVer = new JComboBox<>();
     private final JTextField fProfCorte = new JTextField();
@@ -1867,21 +1885,7 @@ public class oficial {
     }
 
     private int obtenerPesoGrado(String grado) {
-      if (grado == null)
-        return 99;
-      String g = Estudiante.normalizarTexto(grado);
-      if (g.contains("jardin"))
-        return 0;
-      if (g.contains("transicion"))
-        return 1;
-      try {
-        String num = g.replaceAll("[^0-9]", "");
-        if (!num.isEmpty()) {
-          return Integer.parseInt(num) + 2;
-        }
-      } catch (Exception e) {
-      }
-      return 99;
+      return oficial.obtenerPesoGrado(grado);
     }
 
     private void aplicarFiltrosProfesor() {
@@ -1929,12 +1933,29 @@ public class oficial {
 
     private void prepararPanelProfesorAsistencia() {
       actualizarComboCursos(cbProfCursoAsis, false);
+      cbProfCursoAsis.addActionListener(e -> actualizarMateriasAsistenciaParaCursoSeleccionado());
+      actualizarMateriasAsistenciaParaCursoSeleccionado();
       cbProfMes.removeAllItems();
       for (Map.Entry<Integer, String> e : oficial.MESES_LECTIVOS.entrySet().stream()
           .sorted((a, b) -> Integer.compare(a.getKey(), b.getKey()))
           .toList()) {
         cbProfMes.addItem(e.getKey() + " - " + e.getValue());
       }
+    }
+
+    private void actualizarMateriasAsistenciaParaCursoSeleccionado() {
+      CursoAcademico curso = parseCursoDisplay((String) cbProfCursoAsis.getSelectedItem());
+      cbProfMateriaAsis.removeAllItems();
+      if (curso == null || profesorActual == null) {
+        return;
+      }
+      Set<String> mats = asignaciones.stream()
+          .filter(a -> a != null && profesorActual.usuario.equals(a.usuarioProfesor))
+          .filter(a -> a.cursoKey().equals(curso))
+          .map(a -> a.materia)
+          .filter(m -> m != null && !m.trim().isEmpty())
+          .collect(Collectors.toSet());
+      mats.stream().sorted(String.CASE_INSENSITIVE_ORDER).forEach(cbProfMateriaAsis::addItem);
     }
 
     private void prepararPanelProfesorVerEstudiantes() {
@@ -1969,9 +1990,10 @@ public class oficial {
       }
       List<CursoAcademico> list = new ArrayList<>(seen.keySet());
       list.sort((a, b) -> {
-        int g = CursoAcademico.normalizarGrado(a.grado).compareTo(CursoAcademico.normalizarGrado(b.grado));
-        if (g != 0)
-          return g;
+        int p1 = oficial.obtenerPesoGrado(a.grado);
+        int p2 = oficial.obtenerPesoGrado(b.grado);
+        if (p1 != p2)
+          return Integer.compare(p1, p2);
         return Integer.compare(a.curso, b.curso);
       });
       return list;
@@ -2333,6 +2355,7 @@ public class oficial {
 
       return crearFormulario("Registrar asistencia",
           campoLabeled("Curso", cbProfCursoAsis),
+          campoLabeled("Materia", cbProfMateriaAsis),
           campoLabeled("Mes", cbProfMes),
           botonesRow(submit, back));
     }
@@ -2433,6 +2456,11 @@ public class oficial {
         JOptionPane.showMessageDialog(this, "Seleccione un curso.", "Error", JOptionPane.ERROR_MESSAGE);
         return;
       }
+      String materia = (String) cbProfMateriaAsis.getSelectedItem();
+      if (materia == null || materia.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Seleccione una materia.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+      }
       Integer mes = parseMesDisplay((String) cbProfMes.getSelectedItem());
       if (mes == null) {
         JOptionPane.showMessageDialog(this, "Seleccione un mes.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -2449,7 +2477,8 @@ public class oficial {
         return;
       }
       for (Estudiante e : cursoList) {
-        String v = JOptionPane.showInputDialog(this, "Faltas del mes (0-20) para " + e.getNombre() + ":");
+        String v = JOptionPane.showInputDialog(this,
+            "Faltas del mes (0-20) para " + e.getNombre() + " (" + materia + "):");
         if (v == null)
           return;
         try {
@@ -2466,7 +2495,8 @@ public class oficial {
       }
       guardarDatos();
       refrescarTabla(estudiantesVisibles());
-      JOptionPane.showMessageDialog(this, "Asistencia registrada.", "OK", JOptionPane.INFORMATION_MESSAGE);
+      JOptionPane.showMessageDialog(this, "Asistencia registrada para " + materia + ".", "OK",
+          JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void accionProfesorVerEstudiantes() {
@@ -2796,7 +2826,6 @@ public class oficial {
           campoLabeled("Edad (3-100)", fRegEdad),
           campoLabeled("Grado (1-11, Transicion, Jardin)", fRegGrado),
           campoLabeled("Curso", fRegCurso),
-          campoLabeled("Materia", cbRegMateria),
           campoLabeled("Nombre Acudiente", fRegAcud),
           campoLabeled("Correo Acudiente", fRegCorreo),
           campoLabeled("Telefono Acudiente", fRegTel),
@@ -3949,13 +3978,20 @@ class PanelBarrasGrados extends JPanel {
     Map<String, Long> porGrado = estudiantes.stream()
         .collect(Collectors.groupingBy(Estudiante::getGrado, Collectors.counting()));
 
+    List<Map.Entry<String, Long>> sortedGrados = new ArrayList<>(porGrado.entrySet());
+    sortedGrados.sort((e1, e2) -> {
+      int p1 = oficial.obtenerPesoGrado(e1.getKey());
+      int p2 = oficial.obtenerPesoGrado(e2.getKey());
+      return Integer.compare(p1, p2);
+    });
+
     int x = 50;
-    int barWidth = (getWidth() - 100) / Math.max(1, porGrado.size());
-    long max = porGrado.values().stream().max(Long::compare).orElse(1L);
+    int barWidth = (getWidth() - 100) / Math.max(1, sortedGrados.size());
+    long max = sortedGrados.stream().mapToLong(Map.Entry::getValue).max().orElse(1L);
     int h = getHeight() - 120;
 
     int i = 0;
-    for (Map.Entry<String, Long> entry : porGrado.entrySet()) {
+    for (Map.Entry<String, Long> entry : sortedGrados) {
       int val = entry.getValue().intValue();
       int barHeight = (int) ((double) val / max * (h - 40));
 

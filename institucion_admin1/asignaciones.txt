@@ -1,5 +1,4 @@
-2|201|Matemáticas|prueba1
-2|202|Lengua Castellana|prueba2
-1|101|Inglés|jeff
-2|201|Lengua Castellana|prueba1
-1|102|Tecnología e Informática|prueba1
+1|101|Matemáticas|andresg
+1|101|Lengua Castellana|andresg
+1|101|Inglés|camilar
+1|101|Tecnología e Informática|camilar

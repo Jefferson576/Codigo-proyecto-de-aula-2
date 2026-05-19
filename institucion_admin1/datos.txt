@@ -1,31 +1,690 @@
-2101|Benjamin Correa Salas|7|1|101|1:2.5,1.0,5.0,2.0,4.0,3.0,4.0|19|Javier Correa Diaz|benja.correa@gmail.com|3152223344|Inglés@1:4.0,3.0,4.0|5=5|5
-2111|Abigail Lopez Pena|6|1|102|1:4.0,3.6,4.8,4.0|1|Diana Pena Jimenez|abigail.lopez.p@gmail.com|3204445566|NONE|NONE|5
-2201|Thiago Ruiz Cano|8|2|201|1:3.0,3.3,3.8,3.0,2.0,1.0,3.0,4.0;2:2.0,5.0,1.0|13|Luis Ruiz Carmel|Luisruiz09q@gmail.com|3112345678|Matemáticas@1:2.0,1.0,3.0,4.0;2:2.0,5.0,1.0|2=5|5
-2301|Miguel Pava Soler|8|3|301|NONE|0|Andres Pava Montes|Andres12322@gmail.com|3015830582|NONE|NONE|5
-2311|Valeria Jimena Ortiz|8|3|302|NONE|0|Esperanza Ortiz Castillo|esperanza.ortiz.j@gmail.com|3149698898|NONE|NONE|5
-2401|Daniel Felipe Castro|9|4|401|NONE|0|Mario Castro Pineda|mario.castro.f@gmail.com|3171110090|NONE|NONE|5
-2411|Gabriela Maria Suarez|8|4|402|NONE|0|Lucia Suarez Minota|luciasuarezm@gmail.com|3025846592|NONE|NONE|5
-2501|Alejandro Mesa Giraldo|10|5|501|NONE|0|Gustavo Mesa Rios|gustavomesari@gmail.com|3115692577|NONE|NONE|5
-2511|Juliana Andrea Caicedo Mendez|10|5|502|NONE|0|Patricia Caicedo Melendes|patriciacaicedomm@gmail.com|3122323232|NONE|NONE|5
-3601|Mateo Alexander Flores|11|6|601|NONE|0|Orlando Florez Barrios|orlandofloreza@gmail.com|3003434343|NONE|NONE|5
-3640|Paula Ximena Rincon|11|6|602|NONE|0|Gladys Rincon Licona|gladysrinconx@gmail.com|3154545454|NONE|NONE|5
-3701|Emanuel David Beltran|12|7|701|NONE|0|Samuel Beltran Ayola|samuelbeltrand@gmail.com|3205656565|NONE|NONE|5
-3714|Laura Victoria Ospina|12|7|702|NONE|0|Clemencia Ospina Berrios|clemenciaospinav@gmail.com|3116767676|NONE|NONE|5
-3803|Tomas Enrique Bernal|13|8|801|NONE|0|Enrique Bernal Guerrero|enriquebernalp@gmail.com|3148989898|NONE|NONE|5
-3823|Manuela Fernanda Soler|13|8|802|NONE|0|Angela Soler Rivera|angelasolerf01@gmail.com|3148989898|NONE|NONE|5
-3901|Kevin Andres Guzman Martinez|14|9|901|NONE|0|Alvaro Guzman Barrios|alvaroguzmana@gmail.com|3179090909|NONE|NONE|5
-3911|Allison Dayana Murillo Garcias|14|9|902|NONE|0|Rosa Murillo Llamas|rosamurillod@gmailcom|3040101010|NONE|NONE|5
-4001|Jorge Luis Henao Gomez|15|10|1001|NONE|0|Carlos Henao Blanco|carloshenaoacudiente@gmailcom|3007778899|NONE|NONE|5
-4011|Mayerly Paola Ortiz Manjarres|15|10|1002|NONE|0|Cecilia Ortiz Manrrique|ceciliaortizmadre@gmail.com|3150001122|NONE|NONE|5
-5101|Santiago Jose Marin Gutierres|17|11|1101|NONE|0|Claudia Duarte Perez|claudiaduartem@gmail.com|3123332222|NONE|NONE|5
-5111|Isabella Moreno Duarte Duarte|16|11|1102|NONE|0|Andres Duarte Marin|andresduartemarin@gmail.com|3102221111|NONE|NONE|5
-1036|Lissa Navarro Quintero|5|Jardin|1|NONE|0|Luis Navarro Rojas|Navarro0930@gmail.com|3025679440|NONE|NONE|5
-1055|Mateo Pinzon Duarte|4|Jardin|2|NONE|0|Carlos Pinzon Cardona|carlospinzoncardona882@gmail.com|3228590367|NONE|NONE|5
-1221|Valentina Rojas Diaz|5|1|101|1:5.0,2.0,5.0|4|Carlos Rojas Barrios|carlosrojas22@email.com|3012345678|Inglés@1:5.0,2.0,3.0|5=4|5
-2425|Santiago Torres Leon|6|1|102|NONE|0|Ana Leon Castillo|analeon@email.com|3023456789|NONE|NONE|5
-2722|Camila Martinez Ruiz|6|1|102|NONE|0|Luis Martinez Martinez|luismartinez@email.com|3034567890|NONE|NONE|5
-5594|Sebastian Herrera Castro|7|2|201|1:2.0,2.4,3.2,4.2;2:1.0,5.0,2.0|9|Patricia Castro Mendez|patriciacastro@email.com|3045678901|Matemáticas@1:2.0,2.4,3.2,4.2;2:1.0,5.0,2.0|2=9|5
-2461|Daniela Vargas Ortiz|7|2|201|1:1.7,2.5,1.0,5.0;2:1.0,1.0,1.0|11|Jorge Vargas Villalba|jorgevargas@email.com|3056789012|Matemáticas@1:1.7,2.5,1.0,5.0;2:1.0,1.0,1.0|2=11|5
-3132|Nicolas Ramirez Silva|7|2|202|1:2.0,4.0,3.0,4.0,1.0,5.0,5.0|0|Sandra Silva Gonzales|sandrasilva@email.com|3067890123|Lengua Castellana@1:1.0,5.0,5.0|NONE|5
-7777|Jefferson Jose Barrios|7|2|202|1:5.0,4.0,4.0,3.0,3.0,4.0,4.0|0|Juliana Maria Hernandez|JuliMaria@email.com|300514612|Lengua Castellana@1:3.0,4.0,4.0|NONE|5
-2021|alexis sanches|5|1|101|NONE|0|maria sanches|maria@gmail.com|3251351525|NONE|NONE|5
+1001|Juan David Perez Gomez|6|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|48|Carlos Perez Ruiz|carlosperez101@gmail.com|3001001001|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=20;4=13|5
+1002|Maria Fernanda Torres Diaz|6|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|48|Ana Diaz Romero|mariatorres101@gmail.com|3001001002|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=20;4=13|5
+1003|Samuel Andres Lopez Garcia|7|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|48|Luis Lopez Perez|samuel101@gmail.com|3001001003|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=20;4=13|5
+1004|Valentina Ruiz Moreno|6|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|48|Patricia Moreno Diaz|valentina101@gmail.com|3001001004|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=20;4=13|5
+1005|Mateo Castro Herrera|7|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|48|Jorge Castro Ruiz|mateo101@gmail.com|3001001005|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=20;4=13|5
+1006|Sofia Martinez Pardo|6|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|48|Andrea Pardo Soto|sofia101@gmail.com|3001001006|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=20;4=13|5
+1007|Daniel Felipe Rios Vega|7|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|48|Oscar Rios Marin|daniel101@gmail.com|3001001007|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=20;4=13|5
+1008|Isabella Gomez Lara|6|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|48|Sandra Lara Ruiz|isabella101@gmail.com|3001001008|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=20;4=13|5
+1009|Nicolas Ramirez Torres|7|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|48|Felipe Ramirez Diaz|nicolas101@gmail.com|3001001009|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=20;4=13|5
+1010|Gabriela Suarez Leon|6|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|48|Martha Leon Soto|gabriela101@gmail.com|3001001010|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=20;4=13|5
+1011|Juan Esteban Ortiz Silva|7|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|41|Ricardo Ortiz Luna|juan101@gmail.com|3001001011|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=13;4=13|5
+1012|Camila Mendoza Ruiz|6|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|41|Paola Ruiz Castro|camila101@gmail.com|3001001012|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=13;4=13|5
+1013|Sebastian Vega Morales|7|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|41|Henry Vega Pineda|sebastian101@gmail.com|3001001013|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=13;4=13|5
+1014|Luciana Herrera Gomez|6|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|41|Juliana Gomez Lara|luciana101@gmail.com|3001001014|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=13;4=13|5
+1015|Thiago Castillo Perez|7|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|41|Mario Castillo Ruiz|thiago101@gmail.com|3001001015|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=13;4=13|5
+1016|Emma Duarte Salas|6|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|41|Rosa Salas Vega|emma101@gmail.com|3001001016|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=13;4=13|5
+1017|Alejandro Medina Torres|7|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|41|Carlos Medina Ruiz|alejandro101@gmail.com|3001001017|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=13;4=13|5
+1018|Antonella Vargas Diaz|6|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|41|Liliana Diaz Perez|antonella101@gmail.com|3001001018|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=13;4=13|5
+1019|Martin Pacheco Rios|7|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|41|Jaime Pacheco Soto|martin101@gmail.com|3001001019|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=13;4=13|5
+1020|Salome Navarro Ruiz|6|1|101|1:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0;2:2.0,2.0,2.0,2.0,3.0,3.0,4.0,4.0;3:1.0,1.0,2.0,2.0,3.0,3.0,4.0,4.0|41|Diana Ruiz Gomez|salome101@gmail.com|3001001020|Tecnología e Informática@1:2.0,2.0;2:2.0,2.0;3:2.0,2.0§Matemáticas@1:4.0,4.0;2:4.0,4.0;3:4.0,4.0§Inglés@1:1.0,1.0;2:2.0,2.0;3:1.0,1.0§Lengua Castellana@1:3.0,3.0;2:3.0,3.0;3:3.0,3.0|2=15;3=13;4=13|5
+1021|Juan Pablo Reyes Gomez|6|1|102|NONE|0|Pedro Reyes Ruiz|juan102@gmail.com|3001001021|NONE|NONE|5
+1022|Valeria Acosta Diaz|7|1|102|NONE|0|Martha Diaz Leon|valeria102@gmail.com|3001001022|NONE|NONE|5
+1023|Samuel Torres Vega|6|1|102|NONE|0|Luis Torres Perez|samuel102@gmail.com|3001001023|NONE|NONE|5
+1024|Isabella Perez Ruiz|7|1|102|NONE|0|Sandra Ruiz Castro|isabella102@gmail.com|3001001024|NONE|NONE|5
+1025|Mateo Gomez Lara|6|1|102|NONE|0|Oscar Gomez Soto|mateo102@gmail.com|3001001025|NONE|NONE|5
+1026|Camila Castro Herrera|7|1|102|NONE|0|Ana Herrera Diaz|camila102@gmail.com|3001001026|NONE|NONE|5
+1027|Sebastian Martinez Pardo|6|1|102|NONE|0|Carlos Martinez Ruiz|sebastian102@gmail.com|3001001027|NONE|NONE|5
+1028|Luciana Rios Vega|7|1|102|NONE|0|Patricia Vega Torres|luciana102@gmail.com|3001001028|NONE|NONE|5
+1029|Nicolas Gomez Silva|6|1|102|NONE|0|Henry Gomez Perez|nicolas102@gmail.com|3001001029|NONE|NONE|5
+1030|Emma Ramirez Leon|7|1|102|NONE|0|Sandra Leon Ruiz|emma102@gmail.com|3001001030|NONE|NONE|5
+2001|Juan David Perez Gomez|7|2|201|NONE|0|Carlos Perez Ruiz|juan201@gmail.com|3002001001|NONE|NONE|5
+2002|Maria Fernanda Torres Diaz|8|2|201|NONE|0|Ana Diaz Romero|maria201@gmail.com|3002001002|NONE|NONE|5
+2003|Samuel Andres Lopez Garcia|7|2|201|NONE|0|Luis Lopez Perez|samuel201@gmail.com|3002001003|NONE|NONE|5
+2004|Valentina Ruiz Moreno|8|2|201|NONE|0|Patricia Moreno Diaz|valentina201@gmail.com|3002001004|NONE|NONE|5
+2005|Mateo Castro Herrera|7|2|201|NONE|0|Jorge Castro Ruiz|mateo201@gmail.com|3002001005|NONE|NONE|5
+2006|Sofia Martinez Pardo|8|2|201|NONE|0|Andrea Pardo Soto|sofia201@gmail.com|3002001006|NONE|NONE|5
+2007|Daniel Felipe Rios Vega|7|2|201|NONE|0|Oscar Rios Marin|daniel201@gmail.com|3002001007|NONE|NONE|5
+2008|Isabella Gomez Lara|8|2|201|NONE|0|Sandra Lara Ruiz|isabella201@gmail.com|3002001008|NONE|NONE|5
+2009|Nicolas Ramirez Torres|7|2|201|NONE|0|Felipe Ramirez Diaz|nicolas201@gmail.com|3002001009|NONE|NONE|5
+2010|Gabriela Suarez Leon|8|2|201|NONE|0|Martha Leon Soto|gabriela201@gmail.com|3002001010|NONE|NONE|5
+2011|Juan Esteban Ortiz Silva|7|2|201|NONE|0|Ricardo Ortiz Luna|juan2011@gmail.com|3002001011|NONE|NONE|5
+2012|Camila Mendoza Ruiz|8|2|201|NONE|0|Paola Ruiz Castro|camila201@gmail.com|3002001012|NONE|NONE|5
+2013|Sebastian Vega Morales|7|2|201|NONE|0|Henry Vega Pineda|sebastian201@gmail.com|3002001013|NONE|NONE|5
+2014|Luciana Herrera Gomez|8|2|201|NONE|0|Juliana Gomez Lara|luciana201@gmail.com|3002001014|NONE|NONE|5
+2015|Thiago Castillo Perez|7|2|201|NONE|0|Mario Castillo Ruiz|thiago201@gmail.com|3002001015|NONE|NONE|5
+2016|Emma Duarte Salas|8|2|201|NONE|0|Rosa Salas Vega|emma201@gmail.com|3002001016|NONE|NONE|5
+2017|Alejandro Medina Torres|7|2|201|NONE|0|Carlos Medina Ruiz|alejandro201@gmail.com|3002001017|NONE|NONE|5
+2018|Antonella Vargas Diaz|8|2|201|NONE|0|Liliana Diaz Perez|antonella201@gmail.com|3002001018|NONE|NONE|5
+2019|Martin Pacheco Rios|7|2|201|NONE|0|Jaime Pacheco Soto|martin201@gmail.com|3002001019|NONE|NONE|5
+2020|Salome Navarro Ruiz|8|2|201|NONE|0|Diana Ruiz Gomez|salome201@gmail.com|3002001020|NONE|NONE|5
+2021|Juan Pablo Reyes Gomez|7|2|202|NONE|0|Pedro Reyes Ruiz|juan202@gmail.com|3002001021|NONE|NONE|5
+2022|Valeria Acosta Diaz|8|2|202|NONE|0|Martha Diaz Leon|valeria202@gmail.com|3002001022|NONE|NONE|5
+2023|Samuel Torres Vega|7|2|202|NONE|0|Luis Torres Perez|samuel202@gmail.com|3002001023|NONE|NONE|5
+2024|Isabella Perez Ruiz|8|2|202|NONE|0|Sandra Ruiz Castro|isabella202@gmail.com|3002001024|NONE|NONE|5
+2025|Mateo Gomez Lara|7|2|202|NONE|0|Oscar Gomez Soto|mateo202@gmail.com|3002001025|NONE|NONE|5
+2026|Camila Castro Herrera|8|2|202|NONE|0|Ana Herrera Diaz|camila202@gmail.com|3002001026|NONE|NONE|5
+2027|Sebastian Martinez Pardo|7|2|202|NONE|0|Carlos Martinez Ruiz|sebastian202@gmail.com|3002001027|NONE|NONE|5
+2028|Luciana Rios Vega|8|2|202|NONE|0|Patricia Vega Torres|luciana202@gmail.com|3002001028|NONE|NONE|5
+2029|Nicolas Gomez Silva|7|2|202|NONE|0|Henry Gomez Perez|nicolas202@gmail.com|3002001029|NONE|NONE|5
+2030|Emma Ramirez Leon|8|2|202|NONE|0|Sandra Leon Ruiz|emma202@gmail.com|3002001030|NONE|NONE|5
+2031|Daniel Moreno Ruiz|7|2|202|NONE|0|Carlos Moreno Diaz|daniel202@gmail.com|3002001031|NONE|NONE|5
+2032|Laura Perez Torres|8|2|202|NONE|0|Sandra Torres Vega|laura202@gmail.com|3002001032|NONE|NONE|5
+2033|Andres Vega Ruiz|7|2|202|NONE|0|Pedro Vega Castro|andres202@gmail.com|3002001033|NONE|NONE|5
+2034|Valentina Diaz Gomez|8|2|202|NONE|0|Paola Gomez Ruiz|valentina202@gmail.com|3002001034|NONE|NONE|5
+2035|Mateo Herrera Leon|7|2|202|NONE|0|Luis Herrera Soto|mateo2022@gmail.com|3002001035|NONE|NONE|5
+2036|Camila Rojas Perez|8|2|202|NONE|0|Andrea Perez Ruiz|camila2022@gmail.com|3002001036|NONE|NONE|5
+2037|Samuel Castro Diaz|7|2|202|NONE|0|Mario Castro Vega|samuel2022@gmail.com|3002001037|NONE|NONE|5
+2038|Emma Torres Ruiz|8|2|202|NONE|0|Sandra Ruiz Perez|emma2022@gmail.com|3002001038|NONE|NONE|5
+2039|Thiago Morales Gomez|7|2|202|NONE|0|Henry Morales Diaz|thiago202@gmail.com|3002001039|NONE|NONE|5
+2040|Sofia Navarro Ruiz|8|2|202|NONE|0|Diana Navarro Perez|sofia202@gmail.com|3002001040|NONE|NONE|5
+2041|Juan Camilo Herrera Ruiz|7|2|203|NONE|0|Luis Herrera Diaz|juan203@gmail.com|3002001041|NONE|NONE|5
+2042|Maria Jose Vega Castro|8|2|203|NONE|0|Sandra Castro Perez|maria203@gmail.com|3002001042|NONE|NONE|5
+2043|Samuel Ortiz Leon|7|2|203|NONE|0|Carlos Ortiz Ruiz|samuel203@gmail.com|3002001043|NONE|NONE|5
+2044|Valentina Ramirez Gomez|8|2|203|NONE|0|Patricia Gomez Diaz|valentina203@gmail.com|3002001044|NONE|NONE|5
+2045|Mateo Suarez Torres|7|2|203|NONE|0|Mario Suarez Perez|mateo203@gmail.com|3002001045|NONE|NONE|5
+2046|Sofia Medina Ruiz|8|2|203|NONE|0|Liliana Ruiz Gomez|sofia203@gmail.com|3002001046|NONE|NONE|5
+2047|Daniel Navarro Perez|7|2|203|NONE|0|Jaime Navarro Ruiz|daniel203@gmail.com|3002001047|NONE|NONE|5
+2048|Camila Duarte Vega|8|2|203|NONE|0|Andrea Vega Torres|camila203@gmail.com|3002001048|NONE|NONE|5
+2049|Nicolas Herrera Gomez|7|2|203|NONE|0|Oscar Herrera Diaz|nicolas203@gmail.com|3002001049|NONE|NONE|5
+2050|Emma Rios Castro|8|2|203|NONE|0|Sandra Castro Ruiz|emma203@gmail.com|3002001050|NONE|NONE|5
+2051|Sebastian Leon Perez|7|2|203|NONE|0|Pedro Leon Gomez|sebastian203@gmail.com|3002001051|NONE|NONE|5
+2052|Luciana Torres Ruiz|8|2|203|NONE|0|Paola Torres Diaz|luciana203@gmail.com|3002001052|NONE|NONE|5
+2053|Alejandro Vega Gomez|7|2|203|NONE|0|Henry Vega Ruiz|alejandro203@gmail.com|3002001053|NONE|NONE|5
+2054|Antonella Castro Perez|8|2|203|NONE|0|Sandra Perez Torres|antonella203@gmail.com|3002001054|NONE|NONE|5
+2055|Martin Silva Ruiz|7|2|203|NONE|0|Carlos Silva Gomez|martin203@gmail.com|3002001055|NONE|NONE|5
+2056|Salome Herrera Diaz|8|2|203|NONE|0|Liliana Herrera Perez|salome203@gmail.com|3002001056|NONE|NONE|5
+2057|Thiago Medina Gomez|7|2|203|NONE|0|Oscar Medina Ruiz|thiago203@gmail.com|3002001057|NONE|NONE|5
+2058|Gabriela Rojas Perez|8|2|203|NONE|0|Andrea Rojas Torres|gabriela203@gmail.com|3002001058|NONE|NONE|5
+2059|Juan David Castro Ruiz|7|2|203|NONE|0|Mario Castro Gomez|juand203@gmail.com|3002001059|NONE|NONE|5
+2060|Sara Leon Diaz|8|2|203|NONE|0|Sandra Leon Perez|sara203@gmail.com|3002001060|NONE|NONE|5
+3001|Juan David Perez Gomez|8|3|301|NONE|0|Carlos Perez Ruiz|juan301@gmail.com|3003001001|NONE|NONE|5
+3002|Maria Fernanda Torres Diaz|9|3|301|NONE|0|Ana Diaz Romero|maria301@gmail.com|3003001002|NONE|NONE|5
+3003|Samuel Andres Lopez Garcia|8|3|301|NONE|0|Luis Lopez Perez|samuel301@gmail.com|3003001003|NONE|NONE|5
+3004|Valentina Ruiz Moreno|9|3|301|NONE|0|Patricia Moreno Diaz|valentina301@gmail.com|3003001004|NONE|NONE|5
+3005|Mateo Castro Herrera|8|3|301|NONE|0|Jorge Castro Ruiz|mateo301@gmail.com|3003001005|NONE|NONE|5
+3006|Sofia Martinez Pardo|9|3|301|NONE|0|Andrea Pardo Soto|sofia301@gmail.com|3003001006|NONE|NONE|5
+3007|Daniel Felipe Rios Vega|8|3|301|NONE|0|Oscar Rios Marin|daniel301@gmail.com|3003001007|NONE|NONE|5
+3008|Isabella Gomez Lara|9|3|301|NONE|0|Sandra Lara Ruiz|isabella301@gmail.com|3003001008|NONE|NONE|5
+3009|Nicolas Ramirez Torres|8|3|301|NONE|0|Felipe Ramirez Diaz|nicolas301@gmail.com|3003001009|NONE|NONE|5
+3010|Gabriela Suarez Leon|9|3|301|NONE|0|Martha Leon Soto|gabriela301@gmail.com|3003001010|NONE|NONE|5
+3011|Juan Esteban Ortiz Silva|8|3|301|NONE|0|Ricardo Ortiz Luna|juan3011@gmail.com|3003001011|NONE|NONE|5
+3012|Camila Mendoza Ruiz|9|3|301|NONE|0|Paola Ruiz Castro|camila301@gmail.com|3003001012|NONE|NONE|5
+3013|Sebastian Vega Morales|8|3|301|NONE|0|Henry Vega Pineda|sebastian301@gmail.com|3003001013|NONE|NONE|5
+3014|Luciana Herrera Gomez|9|3|301|NONE|0|Juliana Gomez Lara|luciana301@gmail.com|3003001014|NONE|NONE|5
+3015|Thiago Castillo Perez|8|3|301|NONE|0|Mario Castillo Ruiz|thiago301@gmail.com|3003001015|NONE|NONE|5
+3016|Emma Duarte Salas|9|3|301|NONE|0|Rosa Salas Vega|emma301@gmail.com|3003001016|NONE|NONE|5
+3017|Alejandro Medina Torres|8|3|301|NONE|0|Carlos Medina Ruiz|alejandro301@gmail.com|3003001017|NONE|NONE|5
+3018|Antonella Vargas Diaz|9|3|301|NONE|0|Liliana Diaz Perez|antonella301@gmail.com|3003001018|NONE|NONE|5
+3019|Martin Pacheco Rios|8|3|301|NONE|0|Jaime Pacheco Soto|martin301@gmail.com|3003001019|NONE|NONE|5
+3020|Salome Navarro Ruiz|9|3|301|NONE|0|Diana Ruiz Gomez|salome301@gmail.com|3003001020|NONE|NONE|5
+3021|Juan Pablo Reyes Gomez|8|3|302|NONE|0|Pedro Reyes Ruiz|juan302@gmail.com|3003001021|NONE|NONE|5
+3022|Valeria Acosta Diaz|9|3|302|NONE|0|Martha Diaz Leon|valeria302@gmail.com|3003001022|NONE|NONE|5
+3023|Samuel Torres Vega|8|3|302|NONE|0|Luis Torres Perez|samuel302@gmail.com|3003001023|NONE|NONE|5
+3024|Isabella Perez Ruiz|9|3|302|NONE|0|Sandra Ruiz Castro|isabella302@gmail.com|3003001024|NONE|NONE|5
+3025|Mateo Gomez Lara|8|3|302|NONE|0|Oscar Gomez Soto|mateo302@gmail.com|3003001025|NONE|NONE|5
+3026|Camila Castro Herrera|9|3|302|NONE|0|Ana Herrera Diaz|camila302@gmail.com|3003001026|NONE|NONE|5
+3027|Sebastian Martinez Pardo|8|3|302|NONE|0|Carlos Martinez Ruiz|sebastian302@gmail.com|3003001027|NONE|NONE|5
+3028|Luciana Rios Vega|9|3|302|NONE|0|Patricia Vega Torres|luciana302@gmail.com|3003001028|NONE|NONE|5
+3029|Nicolas Gomez Silva|8|3|302|NONE|0|Henry Gomez Perez|nicolas302@gmail.com|3003001029|NONE|NONE|5
+3030|Emma Ramirez Leon|9|3|302|NONE|0|Sandra Leon Ruiz|emma302@gmail.com|3003001030|NONE|NONE|5
+3031|Daniel Moreno Ruiz|8|3|302|NONE|0|Carlos Moreno Diaz|daniel302@gmail.com|3003001031|NONE|NONE|5
+3032|Laura Perez Torres|9|3|302|NONE|0|Sandra Torres Vega|laura302@gmail.com|3003001032|NONE|NONE|5
+3033|Andres Vega Ruiz|8|3|302|NONE|0|Pedro Vega Castro|andres302@gmail.com|3003001033|NONE|NONE|5
+3034|Valentina Diaz Gomez|9|3|302|NONE|0|Paola Gomez Ruiz|valentina302@gmail.com|3003001034|NONE|NONE|5
+3035|Mateo Herrera Leon|8|3|302|NONE|0|Luis Herrera Soto|mateo3022@gmail.com|3003001035|NONE|NONE|5
+3036|Camila Rojas Perez|9|3|302|NONE|0|Andrea Perez Ruiz|camila3022@gmail.com|3003001036|NONE|NONE|5
+3037|Samuel Castro Diaz|8|3|302|NONE|0|Mario Castro Vega|samuel3022@gmail.com|3003001037|NONE|NONE|5
+3038|Emma Torres Ruiz|9|3|302|NONE|0|Sandra Ruiz Perez|emma3022@gmail.com|3003001038|NONE|NONE|5
+3039|Thiago Morales Gomez|8|3|302|NONE|0|Henry Morales Diaz|thiago302@gmail.com|3003001039|NONE|NONE|5
+3040|Sofia Navarro Ruiz|9|3|302|NONE|0|Diana Navarro Perez|sofia302@gmail.com|3003001040|NONE|NONE|5
+3041|Juan Camilo Herrera Ruiz|8|3|303|NONE|0|Luis Herrera Diaz|juan303@gmail.com|3003001041|NONE|NONE|5
+3042|Maria Jose Vega Castro|9|3|303|NONE|0|Sandra Castro Perez|maria303@gmail.com|3003001042|NONE|NONE|5
+3043|Samuel Ortiz Leon|8|3|303|NONE|0|Carlos Ortiz Ruiz|samuel303@gmail.com|3003001043|NONE|NONE|5
+3044|Valentina Ramirez Gomez|9|3|303|NONE|0|Patricia Gomez Diaz|valentina303@gmail.com|3003001044|NONE|NONE|5
+3045|Mateo Suarez Torres|8|3|303|NONE|0|Mario Suarez Perez|mateo303@gmail.com|3003001045|NONE|NONE|5
+3046|Sofia Medina Ruiz|9|3|303|NONE|0|Liliana Ruiz Gomez|sofia303@gmail.com|3003001046|NONE|NONE|5
+3047|Daniel Navarro Perez|8|3|303|NONE|0|Jaime Navarro Ruiz|daniel303@gmail.com|3003001047|NONE|NONE|5
+3048|Camila Duarte Vega|9|3|303|NONE|0|Andrea Vega Torres|camila303@gmail.com|3003001048|NONE|NONE|5
+3049|Nicolas Herrera Gomez|8|3|303|NONE|0|Oscar Herrera Diaz|nicolas303@gmail.com|3003001049|NONE|NONE|5
+3050|Emma Rios Castro|9|3|303|NONE|0|Sandra Castro Ruiz|emma303@gmail.com|3003001050|NONE|NONE|5
+3051|Sebastian Leon Perez|8|3|303|NONE|0|Pedro Leon Gomez|sebastian303@gmail.com|3003001051|NONE|NONE|5
+3052|Luciana Torres Ruiz|9|3|303|NONE|0|Paola Torres Diaz|luciana303@gmail.com|3003001052|NONE|NONE|5
+3053|Alejandro Vega Gomez|8|3|303|NONE|0|Henry Vega Ruiz|alejandro303@gmail.com|3003001053|NONE|NONE|5
+3054|Antonella Castro Perez|9|3|303|NONE|0|Sandra Perez Torres|antonella303@gmail.com|3003001054|NONE|NONE|5
+3055|Martin Silva Ruiz|8|3|303|NONE|0|Carlos Silva Gomez|martin303@gmail.com|3003001055|NONE|NONE|5
+3056|Salome Herrera Diaz|9|3|303|NONE|0|Liliana Herrera Perez|salome303@gmail.com|3003001056|NONE|NONE|5
+3057|Thiago Medina Gomez|8|3|303|NONE|0|Oscar Medina Ruiz|thiago303@gmail.com|3003001057|NONE|NONE|5
+3058|Gabriela Rojas Perez|9|3|303|NONE|0|Andrea Rojas Torres|gabriela303@gmail.com|3003001058|NONE|NONE|5
+3059|Juan David Castro Ruiz|8|3|303|NONE|0|Mario Castro Gomez|juand303@gmail.com|3003001059|NONE|NONE|5
+3060|Sara Leon Diaz|9|3|303|NONE|0|Sandra Leon Perez|sara303@gmail.com|3003001060|NONE|NONE|5
+4001|Juan David Perez Gomez|9|4|401|NONE|0|Carlos Perez Ruiz|juan401@gmail.com|3004001001|NONE|NONE|5
+4002|Maria Fernanda Torres Diaz|10|4|401|NONE|0|Ana Diaz Romero|maria401@gmail.com|3004001002|NONE|NONE|5
+4003|Samuel Andres Lopez Garcia|9|4|401|NONE|0|Luis Lopez Perez|samuel401@gmail.com|3004001003|NONE|NONE|5
+4004|Valentina Ruiz Moreno|10|4|401|NONE|0|Patricia Moreno Diaz|valentina401@gmail.com|3004001004|NONE|NONE|5
+4005|Mateo Castro Herrera|9|4|401|NONE|0|Jorge Castro Ruiz|mateo401@gmail.com|3004001005|NONE|NONE|5
+4006|Sofia Martinez Pardo|10|4|401|NONE|0|Andrea Pardo Soto|sofia401@gmail.com|3004001006|NONE|NONE|5
+4007|Daniel Felipe Rios Vega|9|4|401|NONE|0|Oscar Rios Marin|daniel401@gmail.com|3004001007|NONE|NONE|5
+4008|Isabella Gomez Lara|10|4|401|NONE|0|Sandra Lara Ruiz|isabella401@gmail.com|3004001008|NONE|NONE|5
+4009|Nicolas Ramirez Torres|9|4|401|NONE|0|Felipe Ramirez Diaz|nicolas401@gmail.com|3004001009|NONE|NONE|5
+4010|Gabriela Suarez Leon|10|4|401|NONE|0|Martha Leon Soto|gabriela401@gmail.com|3004001010|NONE|NONE|5
+4011|Juan Esteban Ortiz Silva|9|4|401|NONE|0|Ricardo Ortiz Luna|juan4011@gmail.com|3004001011|NONE|NONE|5
+4012|Camila Mendoza Ruiz|10|4|401|NONE|0|Paola Ruiz Castro|camila401@gmail.com|3004001012|NONE|NONE|5
+4013|Sebastian Vega Morales|9|4|401|NONE|0|Henry Vega Pineda|sebastian401@gmail.com|3004001013|NONE|NONE|5
+4014|Luciana Herrera Gomez|10|4|401|NONE|0|Juliana Gomez Lara|luciana401@gmail.com|3004001014|NONE|NONE|5
+4015|Thiago Castillo Perez|9|4|401|NONE|0|Mario Castillo Ruiz|thiago401@gmail.com|3004001015|NONE|NONE|5
+4016|Emma Duarte Salas|10|4|401|NONE|0|Rosa Salas Vega|emma401@gmail.com|3004001016|NONE|NONE|5
+4017|Alejandro Medina Torres|9|4|401|NONE|0|Carlos Medina Ruiz|alejandro401@gmail.com|3004001017|NONE|NONE|5
+4018|Antonella Vargas Diaz|10|4|401|NONE|0|Liliana Diaz Perez|antonella401@gmail.com|3004001018|NONE|NONE|5
+4019|Martin Pacheco Rios|9|4|401|NONE|0|Jaime Pacheco Soto|martin401@gmail.com|3004001019|NONE|NONE|5
+4020|Salome Navarro Ruiz|10|4|401|NONE|0|Diana Ruiz Gomez|salome401@gmail.com|3004001020|NONE|NONE|5
+4021|Juan Pablo Reyes Gomez|9|4|402|NONE|0|Pedro Reyes Ruiz|juan402@gmail.com|3004001021|NONE|NONE|5
+4022|Valeria Acosta Diaz|10|4|402|NONE|0|Martha Diaz Leon|valeria402@gmail.com|3004001022|NONE|NONE|5
+4023|Samuel Torres Vega|9|4|402|NONE|0|Luis Torres Perez|samuel402@gmail.com|3004001023|NONE|NONE|5
+4024|Isabella Perez Ruiz|10|4|402|NONE|0|Sandra Ruiz Castro|isabella402@gmail.com|3004001024|NONE|NONE|5
+4025|Mateo Gomez Lara|9|4|402|NONE|0|Oscar Gomez Soto|mateo402@gmail.com|3004001025|NONE|NONE|5
+4026|Camila Castro Herrera|10|4|402|NONE|0|Ana Herrera Diaz|camila402@gmail.com|3004001026|NONE|NONE|5
+4027|Sebastian Martinez Pardo|9|4|402|NONE|0|Carlos Martinez Ruiz|sebastian402@gmail.com|3004001027|NONE|NONE|5
+4028|Luciana Rios Vega|10|4|402|NONE|0|Patricia Vega Torres|luciana402@gmail.com|3004001028|NONE|NONE|5
+4029|Nicolas Gomez Silva|9|4|402|NONE|0|Henry Gomez Perez|nicolas402@gmail.com|3004001029|NONE|NONE|5
+4030|Emma Ramirez Leon|10|4|402|NONE|0|Sandra Leon Ruiz|emma402@gmail.com|3004001030|NONE|NONE|5
+4031|Daniel Moreno Ruiz|9|4|402|NONE|0|Carlos Moreno Diaz|daniel402@gmail.com|3004001031|NONE|NONE|5
+4032|Laura Perez Torres|10|4|402|NONE|0|Sandra Torres Vega|laura402@gmail.com|3004001032|NONE|NONE|5
+4033|Andres Vega Ruiz|9|4|402|NONE|0|Pedro Vega Castro|andres402@gmail.com|3004001033|NONE|NONE|5
+4034|Valentina Diaz Gomez|10|4|402|NONE|0|Paola Gomez Ruiz|valentina402@gmail.com|3004001034|NONE|NONE|5
+4035|Mateo Herrera Leon|9|4|402|NONE|0|Luis Herrera Soto|mateo4022@gmail.com|3004001035|NONE|NONE|5
+4036|Camila Rojas Perez|10|4|402|NONE|0|Andrea Perez Ruiz|camila4022@gmail.com|3004001036|NONE|NONE|5
+4037|Samuel Castro Diaz|9|4|402|NONE|0|Mario Castro Vega|samuel4022@gmail.com|3004001037|NONE|NONE|5
+4038|Emma Torres Ruiz|10|4|402|NONE|0|Sandra Ruiz Perez|emma4022@gmail.com|3004001038|NONE|NONE|5
+4039|Thiago Morales Gomez|9|4|402|NONE|0|Henry Morales Diaz|thiago402@gmail.com|3004001039|NONE|NONE|5
+4040|Sofia Navarro Ruiz|10|4|402|NONE|0|Diana Navarro Perez|sofia402@gmail.com|3004001040|NONE|NONE|5
+4041|Juan Camilo Herrera Ruiz|9|4|403|NONE|0|Luis Herrera Diaz|juan403@gmail.com|3004001041|NONE|NONE|5
+4042|Maria Jose Vega Castro|10|4|403|NONE|0|Sandra Castro Perez|maria403@gmail.com|3004001042|NONE|NONE|5
+4043|Samuel Ortiz Leon|9|4|403|NONE|0|Carlos Ortiz Ruiz|samuel403@gmail.com|3004001043|NONE|NONE|5
+4044|Valentina Ramirez Gomez|10|4|403|NONE|0|Patricia Gomez Diaz|valentina403@gmail.com|3004001044|NONE|NONE|5
+4045|Mateo Suarez Torres|9|4|403|NONE|0|Mario Suarez Perez|mateo403@gmail.com|3004001045|NONE|NONE|5
+4046|Sofia Medina Ruiz|10|4|403|NONE|0|Liliana Ruiz Gomez|sofia403@gmail.com|3004001046|NONE|NONE|5
+4047|Daniel Navarro Perez|9|4|403|NONE|0|Jaime Navarro Ruiz|daniel403@gmail.com|3004001047|NONE|NONE|5
+4048|Camila Duarte Vega|10|4|403|NONE|0|Andrea Vega Torres|camila403@gmail.com|3004001048|NONE|NONE|5
+4049|Nicolas Herrera Gomez|9|4|403|NONE|0|Oscar Herrera Diaz|nicolas403@gmail.com|3004001049|NONE|NONE|5
+4050|Emma Rios Castro|10|4|403|NONE|0|Sandra Castro Ruiz|emma403@gmail.com|3004001050|NONE|NONE|5
+4051|Sebastian Leon Perez|9|4|403|NONE|0|Pedro Leon Gomez|sebastian403@gmail.com|3004001051|NONE|NONE|5
+4052|Luciana Torres Ruiz|10|4|403|NONE|0|Paola Torres Diaz|luciana403@gmail.com|3004001052|NONE|NONE|5
+4053|Alejandro Vega Gomez|9|4|403|NONE|0|Henry Vega Ruiz|alejandro403@gmail.com|3004001053|NONE|NONE|5
+4054|Antonella Castro Perez|10|4|403|NONE|0|Sandra Perez Torres|antonella403@gmail.com|3004001054|NONE|NONE|5
+4055|Martin Silva Ruiz|9|4|403|NONE|0|Carlos Silva Gomez|martin403@gmail.com|3004001055|NONE|NONE|5
+4056|Salome Herrera Diaz|10|4|403|NONE|0|Liliana Herrera Perez|salome403@gmail.com|3004001056|NONE|NONE|5
+4057|Thiago Medina Gomez|9|4|403|NONE|0|Oscar Medina Ruiz|thiago403@gmail.com|3004001057|NONE|NONE|5
+4058|Gabriela Rojas Perez|10|4|403|NONE|0|Andrea Rojas Torres|gabriela403@gmail.com|3004001058|NONE|NONE|5
+4059|Juan David Castro Ruiz|9|4|403|NONE|0|Mario Castro Gomez|juand403@gmail.com|3004001059|NONE|NONE|5
+4060|Sara Leon Diaz|10|4|403|NONE|0|Sandra Leon Perez|sara403@gmail.com|3004001060|NONE|NONE|5
+5001|Juan David Perez Gomez|10|5|501|NONE|0|Carlos Perez Ruiz|juan501@gmail.com|3005001001|NONE|NONE|5
+5002|Maria Fernanda Torres Diaz|11|5|501|NONE|0|Ana Diaz Romero|maria501@gmail.com|3005001002|NONE|NONE|5
+5003|Samuel Andres Lopez Garcia|10|5|501|NONE|0|Luis Lopez Perez|samuel501@gmail.com|3005001003|NONE|NONE|5
+5004|Valentina Ruiz Moreno|11|5|501|NONE|0|Patricia Moreno Diaz|valentina501@gmail.com|3005001004|NONE|NONE|5
+5005|Mateo Castro Herrera|10|5|501|NONE|0|Jorge Castro Ruiz|mateo501@gmail.com|3005001005|NONE|NONE|5
+5006|Sofia Martinez Pardo|11|5|501|NONE|0|Andrea Pardo Soto|sofia501@gmail.com|3005001006|NONE|NONE|5
+5007|Daniel Felipe Rios Vega|10|5|501|NONE|0|Oscar Rios Marin|daniel501@gmail.com|3005001007|NONE|NONE|5
+5008|Isabella Gomez Lara|11|5|501|NONE|0|Sandra Lara Ruiz|isabella501@gmail.com|3005001008|NONE|NONE|5
+5009|Nicolas Ramirez Torres|10|5|501|NONE|0|Felipe Ramirez Diaz|nicolas501@gmail.com|3005001009|NONE|NONE|5
+5010|Gabriela Suarez Leon|11|5|501|NONE|0|Martha Leon Soto|gabriela501@gmail.com|3005001010|NONE|NONE|5
+5011|Juan Esteban Ortiz Silva|10|5|501|NONE|0|Ricardo Ortiz Luna|juan5011@gmail.com|3005001011|NONE|NONE|5
+5012|Camila Mendoza Ruiz|11|5|501|NONE|0|Paola Ruiz Castro|camila501@gmail.com|3005001012|NONE|NONE|5
+5013|Sebastian Vega Morales|10|5|501|NONE|0|Henry Vega Pineda|sebastian501@gmail.com|3005001013|NONE|NONE|5
+5014|Luciana Herrera Gomez|11|5|501|NONE|0|Juliana Gomez Lara|luciana501@gmail.com|3005001014|NONE|NONE|5
+5015|Thiago Castillo Perez|10|5|501|NONE|0|Mario Castillo Ruiz|thiago501@gmail.com|3005001015|NONE|NONE|5
+5016|Emma Duarte Salas|11|5|501|NONE|0|Rosa Salas Vega|emma501@gmail.com|3005001016|NONE|NONE|5
+5017|Alejandro Medina Torres|10|5|501|NONE|0|Carlos Medina Ruiz|alejandro501@gmail.com|3005001017|NONE|NONE|5
+5018|Antonella Vargas Diaz|11|5|501|NONE|0|Liliana Diaz Perez|antonella501@gmail.com|3005001018|NONE|NONE|5
+5019|Martin Pacheco Rios|10|5|501|NONE|0|Jaime Pacheco Soto|martin501@gmail.com|3005001019|NONE|NONE|5
+5020|Salome Navarro Ruiz|11|5|501|NONE|0|Diana Ruiz Gomez|salome501@gmail.com|3005001020|NONE|NONE|5
+5021|Juan Pablo Reyes Gomez|10|5|502|NONE|0|Pedro Reyes Ruiz|juan502@gmail.com|3005001021|NONE|NONE|5
+5022|Valeria Acosta Diaz|11|5|502|NONE|0|Martha Diaz Leon|valeria502@gmail.com|3005001022|NONE|NONE|5
+5023|Samuel Torres Vega|10|5|502|NONE|0|Luis Torres Perez|samuel502@gmail.com|3005001023|NONE|NONE|5
+5024|Isabella Perez Ruiz|11|5|502|NONE|0|Sandra Ruiz Castro|isabella502@gmail.com|3005001024|NONE|NONE|5
+5025|Mateo Gomez Lara|10|5|502|NONE|0|Oscar Gomez Soto|mateo502@gmail.com|3005001025|NONE|NONE|5
+5026|Camila Castro Herrera|11|5|502|NONE|0|Ana Herrera Diaz|camila502@gmail.com|3005001026|NONE|NONE|5
+5027|Sebastian Martinez Pardo|10|5|502|NONE|0|Carlos Martinez Ruiz|sebastian502@gmail.com|3005001027|NONE|NONE|5
+5028|Luciana Rios Vega|11|5|502|NONE|0|Patricia Vega Torres|luciana502@gmail.com|3005001028|NONE|NONE|5
+5029|Nicolas Gomez Silva|10|5|502|NONE|0|Henry Gomez Perez|nicolas502@gmail.com|3005001029|NONE|NONE|5
+5030|Emma Ramirez Leon|11|5|502|NONE|0|Sandra Leon Ruiz|emma502@gmail.com|3005001030|NONE|NONE|5
+5031|Daniel Moreno Ruiz|10|5|502|NONE|0|Carlos Moreno Diaz|daniel502@gmail.com|3005001031|NONE|NONE|5
+5032|Laura Perez Torres|11|5|502|NONE|0|Sandra Torres Vega|laura502@gmail.com|3005001032|NONE|NONE|5
+5033|Andres Vega Ruiz|10|5|502|NONE|0|Pedro Vega Castro|andres502@gmail.com|3005001033|NONE|NONE|5
+5034|Valentina Diaz Gomez|11|5|502|NONE|0|Paola Gomez Ruiz|valentina502@gmail.com|3005001034|NONE|NONE|5
+5035|Mateo Herrera Leon|10|5|502|NONE|0|Luis Herrera Soto|mateo5022@gmail.com|3005001035|NONE|NONE|5
+5036|Camila Rojas Perez|11|5|502|NONE|0|Andrea Perez Ruiz|camila5022@gmail.com|3005001036|NONE|NONE|5
+5037|Samuel Castro Diaz|10|5|502|NONE|0|Mario Castro Vega|samuel5022@gmail.com|3005001037|NONE|NONE|5
+5038|Emma Torres Ruiz|11|5|502|NONE|0|Sandra Ruiz Perez|emma5022@gmail.com|3005001038|NONE|NONE|5
+5039|Thiago Morales Gomez|10|5|502|NONE|0|Henry Morales Diaz|thiago502@gmail.com|3005001039|NONE|NONE|5
+5040|Sofia Navarro Ruiz|11|5|502|NONE|0|Diana Navarro Perez|sofia502@gmail.com|3005001040|NONE|NONE|5
+5041|Juan Camilo Herrera Ruiz|10|5|503|NONE|0|Luis Herrera Diaz|juan503@gmail.com|3005001041|NONE|NONE|5
+5042|Maria Jose Vega Castro|11|5|503|NONE|0|Sandra Castro Perez|maria503@gmail.com|3005001042|NONE|NONE|5
+5043|Samuel Ortiz Leon|10|5|503|NONE|0|Carlos Ortiz Ruiz|samuel503@gmail.com|3005001043|NONE|NONE|5
+5044|Valentina Ramirez Gomez|11|5|503|NONE|0|Patricia Gomez Diaz|valentina503@gmail.com|3005001044|NONE|NONE|5
+5045|Mateo Suarez Torres|10|5|503|NONE|0|Mario Suarez Perez|mateo503@gmail.com|3005001045|NONE|NONE|5
+5046|Sofia Medina Ruiz|11|5|503|NONE|0|Liliana Ruiz Gomez|sofia503@gmail.com|3005001046|NONE|NONE|5
+5047|Daniel Navarro Perez|10|5|503|NONE|0|Jaime Navarro Ruiz|daniel503@gmail.com|3005001047|NONE|NONE|5
+5048|Camila Duarte Vega|11|5|503|NONE|0|Andrea Vega Torres|camila503@gmail.com|3005001048|NONE|NONE|5
+5049|Nicolas Herrera Gomez|10|5|503|NONE|0|Oscar Herrera Diaz|nicolas503@gmail.com|3005001049|NONE|NONE|5
+5050|Emma Rios Castro|11|5|503|NONE|0|Sandra Castro Ruiz|emma503@gmail.com|3005001050|NONE|NONE|5
+5051|Sebastian Leon Perez|10|5|503|NONE|0|Pedro Leon Gomez|sebastian503@gmail.com|3005001051|NONE|NONE|5
+5052|Luciana Torres Ruiz|11|5|503|NONE|0|Paola Torres Diaz|luciana503@gmail.com|3005001052|NONE|NONE|5
+5053|Alejandro Vega Gomez|10|5|503|NONE|0|Henry Vega Ruiz|alejandro503@gmail.com|3005001053|NONE|NONE|5
+5054|Antonella Castro Perez|11|5|503|NONE|0|Sandra Perez Torres|antonella503@gmail.com|3005001054|NONE|NONE|5
+5055|Martin Silva Ruiz|10|5|503|NONE|0|Carlos Silva Gomez|martin503@gmail.com|3005001055|NONE|NONE|5
+5056|Salome Herrera Diaz|11|5|503|NONE|0|Liliana Herrera Perez|salome503@gmail.com|3005001056|NONE|NONE|5
+5057|Thiago Medina Gomez|10|5|503|NONE|0|Oscar Medina Ruiz|thiago503@gmail.com|3005001057|NONE|NONE|5
+5058|Gabriela Rojas Perez|11|5|503|NONE|0|Andrea Rojas Torres|gabriela503@gmail.com|3005001058|NONE|NONE|5
+5059|Juan David Castro Ruiz|10|5|503|NONE|0|Mario Castro Gomez|juand503@gmail.com|3005001059|NONE|NONE|5
+5060|Sara Leon Diaz|11|5|503|NONE|0|Sandra Leon Perez|sara503@gmail.com|3005001060|NONE|NONE|5
+6001|Juan David Perez Gomez|11|6|601|NONE|0|Carlos Perez Ruiz|juan601@gmail.com|3006001001|NONE|NONE|5
+6002|Maria Fernanda Torres Diaz|12|6|601|NONE|0|Ana Diaz Romero|maria601@gmail.com|3006001002|NONE|NONE|5
+6003|Samuel Andres Lopez Garcia|11|6|601|NONE|0|Luis Lopez Perez|samuel601@gmail.com|3006001003|NONE|NONE|5
+6004|Valentina Ruiz Moreno|12|6|601|NONE|0|Patricia Moreno Diaz|valentina601@gmail.com|3006001004|NONE|NONE|5
+6005|Mateo Castro Herrera|11|6|601|NONE|0|Jorge Castro Ruiz|mateo601@gmail.com|3006001005|NONE|NONE|5
+6006|Sofia Martinez Pardo|12|6|601|NONE|0|Andrea Pardo Soto|sofia601@gmail.com|3006001006|NONE|NONE|5
+6007|Daniel Felipe Rios Vega|11|6|601|NONE|0|Oscar Rios Marin|daniel601@gmail.com|3006001007|NONE|NONE|5
+6008|Isabella Gomez Lara|12|6|601|NONE|0|Sandra Lara Ruiz|isabella601@gmail.com|3006001008|NONE|NONE|5
+6009|Nicolas Ramirez Torres|11|6|601|NONE|0|Felipe Ramirez Diaz|nicolas601@gmail.com|3006001009|NONE|NONE|5
+6010|Gabriela Suarez Leon|12|6|601|NONE|0|Martha Leon Soto|gabriela601@gmail.com|3006001010|NONE|NONE|5
+6011|Juan Esteban Ortiz Silva|11|6|601|NONE|0|Ricardo Ortiz Luna|juan6011@gmail.com|3006001011|NONE|NONE|5
+6012|Camila Mendoza Ruiz|12|6|601|NONE|0|Paola Ruiz Castro|camila601@gmail.com|3006001012|NONE|NONE|5
+6013|Sebastian Vega Morales|11|6|601|NONE|0|Henry Vega Pineda|sebastian601@gmail.com|3006001013|NONE|NONE|5
+6014|Luciana Herrera Gomez|12|6|601|NONE|0|Juliana Gomez Lara|luciana601@gmail.com|3006001014|NONE|NONE|5
+6015|Thiago Castillo Perez|11|6|601|NONE|0|Mario Castillo Ruiz|thiago601@gmail.com|3006001015|NONE|NONE|5
+6016|Emma Duarte Salas|12|6|601|NONE|0|Rosa Salas Vega|emma601@gmail.com|3006001016|NONE|NONE|5
+6017|Alejandro Medina Torres|11|6|601|NONE|0|Carlos Medina Ruiz|alejandro601@gmail.com|3006001017|NONE|NONE|5
+6018|Antonella Vargas Diaz|12|6|601|NONE|0|Liliana Diaz Perez|antonella601@gmail.com|3006001018|NONE|NONE|5
+6019|Martin Pacheco Rios|11|6|601|NONE|0|Jaime Pacheco Soto|martin601@gmail.com|3006001019|NONE|NONE|5
+6020|Salome Navarro Ruiz|12|6|601|NONE|0|Diana Ruiz Gomez|salome601@gmail.com|3006001020|NONE|NONE|5
+6021|Juan Pablo Reyes Gomez|11|6|602|NONE|0|Pedro Reyes Ruiz|juan602@gmail.com|3006001021|NONE|NONE|5
+6022|Valeria Acosta Diaz|12|6|602|NONE|0|Martha Diaz Leon|valeria602@gmail.com|3006001022|NONE|NONE|5
+6023|Samuel Torres Vega|11|6|602|NONE|0|Luis Torres Perez|samuel602@gmail.com|3006001023|NONE|NONE|5
+6024|Isabella Perez Ruiz|12|6|602|NONE|0|Sandra Ruiz Castro|isabella602@gmail.com|3006001024|NONE|NONE|5
+6025|Mateo Gomez Lara|11|6|602|NONE|0|Oscar Gomez Soto|mateo602@gmail.com|3006001025|NONE|NONE|5
+6026|Camila Castro Herrera|12|6|602|NONE|0|Ana Herrera Diaz|camila602@gmail.com|3006001026|NONE|NONE|5
+6027|Sebastian Martinez Pardo|11|6|602|NONE|0|Carlos Martinez Ruiz|sebastian602@gmail.com|3006001027|NONE|NONE|5
+6028|Luciana Rios Vega|12|6|602|NONE|0|Patricia Vega Torres|luciana602@gmail.com|3006001028|NONE|NONE|5
+6029|Nicolas Gomez Silva|11|6|602|NONE|0|Henry Gomez Perez|nicolas602@gmail.com|3006001029|NONE|NONE|5
+6030|Emma Ramirez Leon|12|6|602|NONE|0|Sandra Leon Ruiz|emma602@gmail.com|3006001030|NONE|NONE|5
+6031|Daniel Moreno Ruiz|11|6|602|NONE|0|Carlos Moreno Diaz|daniel602@gmail.com|3006001031|NONE|NONE|5
+6032|Laura Perez Torres|12|6|602|NONE|0|Sandra Torres Vega|laura602@gmail.com|3006001032|NONE|NONE|5
+6033|Andres Vega Ruiz|11|6|602|NONE|0|Pedro Vega Castro|andres602@gmail.com|3006001033|NONE|NONE|5
+6034|Valentina Diaz Gomez|12|6|602|NONE|0|Paola Gomez Ruiz|valentina602@gmail.com|3006001034|NONE|NONE|5
+6035|Mateo Herrera Leon|11|6|602|NONE|0|Luis Herrera Soto|mateo6022@gmail.com|3006001035|NONE|NONE|5
+6036|Camila Rojas Perez|12|6|602|NONE|0|Andrea Perez Ruiz|camila6022@gmail.com|3006001036|NONE|NONE|5
+6037|Samuel Castro Diaz|11|6|602|NONE|0|Mario Castro Vega|samuel6022@gmail.com|3006001037|NONE|NONE|5
+6038|Emma Torres Ruiz|12|6|602|NONE|0|Sandra Ruiz Perez|emma6022@gmail.com|3006001038|NONE|NONE|5
+6039|Thiago Morales Gomez|11|6|602|NONE|0|Henry Morales Diaz|thiago602@gmail.com|3006001039|NONE|NONE|5
+6040|Sofia Navarro Ruiz|12|6|602|NONE|0|Diana Navarro Perez|sofia602@gmail.com|3006001040|NONE|NONE|5
+6041|Juan Camilo Herrera Ruiz|11|6|603|NONE|0|Luis Herrera Diaz|juan603@gmail.com|3006001041|NONE|NONE|5
+6042|Maria Jose Vega Castro|12|6|603|NONE|0|Sandra Castro Perez|maria603@gmail.com|3006001042|NONE|NONE|5
+6043|Samuel Ortiz Leon|11|6|603|NONE|0|Carlos Ortiz Ruiz|samuel603@gmail.com|3006001043|NONE|NONE|5
+6044|Valentina Ramirez Gomez|12|6|603|NONE|0|Patricia Gomez Diaz|valentina603@gmail.com|3006001044|NONE|NONE|5
+6045|Mateo Suarez Torres|11|6|603|NONE|0|Mario Suarez Perez|mateo603@gmail.com|3006001045|NONE|NONE|5
+6046|Sofia Medina Ruiz|12|6|603|NONE|0|Liliana Ruiz Gomez|sofia603@gmail.com|3006001046|NONE|NONE|5
+6047|Daniel Navarro Perez|11|6|603|NONE|0|Jaime Navarro Ruiz|daniel603@gmail.com|3006001047|NONE|NONE|5
+6048|Camila Duarte Vega|12|6|603|NONE|0|Andrea Vega Torres|camila603@gmail.com|3006001048|NONE|NONE|5
+6049|Nicolas Herrera Gomez|11|6|603|NONE|0|Oscar Herrera Diaz|nicolas603@gmail.com|3006001049|NONE|NONE|5
+6050|Emma Rios Castro|12|6|603|NONE|0|Sandra Castro Ruiz|emma603@gmail.com|3006001050|NONE|NONE|5
+6051|Sebastian Leon Perez|11|6|603|NONE|0|Pedro Leon Gomez|sebastian603@gmail.com|3006001051|NONE|NONE|5
+6052|Luciana Torres Ruiz|12|6|603|NONE|0|Paola Torres Diaz|luciana603@gmail.com|3006001052|NONE|NONE|5
+6053|Alejandro Vega Gomez|11|6|603|NONE|0|Henry Vega Ruiz|alejandro603@gmail.com|3006001053|NONE|NONE|5
+6054|Antonella Castro Perez|12|6|603|NONE|0|Sandra Perez Torres|antonella603@gmail.com|3006001054|NONE|NONE|5
+6055|Martin Silva Ruiz|11|6|603|NONE|0|Carlos Silva Gomez|martin603@gmail.com|3006001055|NONE|NONE|5
+6056|Salome Herrera Diaz|12|6|603|NONE|0|Liliana Herrera Perez|salome603@gmail.com|3006001056|NONE|NONE|5
+6057|Thiago Medina Gomez|11|6|603|NONE|0|Oscar Medina Ruiz|thiago603@gmail.com|3006001057|NONE|NONE|5
+6058|Gabriela Rojas Perez|12|6|603|NONE|0|Andrea Rojas Torres|gabriela603@gmail.com|3006001058|NONE|NONE|5
+6059|Juan David Castro Ruiz|11|6|603|NONE|0|Mario Castro Gomez|juand603@gmail.com|3006001059|NONE|NONE|5
+6060|Sara Leon Diaz|12|6|603|NONE|0|Sandra Leon Perez|sara603@gmail.com|3006001060|NONE|NONE|5
+7001|Juan David Perez Gomez|12|7|701|NONE|0|Carlos Perez Ruiz|juan701@gmail.com|3007001001|NONE|NONE|5
+7002|Maria Fernanda Torres Diaz|13|7|701|NONE|0|Ana Diaz Romero|maria701@gmail.com|3007001002|NONE|NONE|5
+7003|Samuel Andres Lopez Garcia|12|7|701|NONE|0|Luis Lopez Perez|samuel701@gmail.com|3007001003|NONE|NONE|5
+7004|Valentina Ruiz Moreno|13|7|701|NONE|0|Patricia Moreno Diaz|valentina701@gmail.com|3007001004|NONE|NONE|5
+7005|Mateo Castro Herrera|12|7|701|NONE|0|Jorge Castro Ruiz|mateo701@gmail.com|3007001005|NONE|NONE|5
+7006|Sofia Martinez Pardo|13|7|701|NONE|0|Andrea Pardo Soto|sofia701@gmail.com|3007001006|NONE|NONE|5
+7007|Daniel Felipe Rios Vega|12|7|701|NONE|0|Oscar Rios Marin|daniel701@gmail.com|3007001007|NONE|NONE|5
+7008|Isabella Gomez Lara|13|7|701|NONE|0|Sandra Lara Ruiz|isabella701@gmail.com|3007001008|NONE|NONE|5
+7009|Nicolas Ramirez Torres|12|7|701|NONE|0|Felipe Ramirez Diaz|nicolas701@gmail.com|3007001009|NONE|NONE|5
+7010|Gabriela Suarez Leon|13|7|701|NONE|0|Martha Leon Soto|gabriela701@gmail.com|3007001010|NONE|NONE|5
+7011|Juan Esteban Ortiz Silva|12|7|701|NONE|0|Ricardo Ortiz Luna|juan7011@gmail.com|3007001011|NONE|NONE|5
+7012|Camila Mendoza Ruiz|13|7|701|NONE|0|Paola Ruiz Castro|camila701@gmail.com|3007001012|NONE|NONE|5
+7013|Sebastian Vega Morales|12|7|701|NONE|0|Henry Vega Pineda|sebastian701@gmail.com|3007001013|NONE|NONE|5
+7014|Luciana Herrera Gomez|13|7|701|NONE|0|Juliana Gomez Lara|luciana701@gmail.com|3007001014|NONE|NONE|5
+7015|Thiago Castillo Perez|12|7|701|NONE|0|Mario Castillo Ruiz|thiago701@gmail.com|3007001015|NONE|NONE|5
+7016|Emma Duarte Salas|13|7|701|NONE|0|Rosa Salas Vega|emma701@gmail.com|3007001016|NONE|NONE|5
+7017|Alejandro Medina Torres|12|7|701|NONE|0|Carlos Medina Ruiz|alejandro701@gmail.com|3007001017|NONE|NONE|5
+7018|Antonella Vargas Diaz|13|7|701|NONE|0|Liliana Diaz Perez|antonella701@gmail.com|3007001018|NONE|NONE|5
+7019|Martin Pacheco Rios|12|7|701|NONE|0|Jaime Pacheco Soto|martin701@gmail.com|3007001019|NONE|NONE|5
+7020|Salome Navarro Ruiz|13|7|701|NONE|0|Diana Ruiz Gomez|salome701@gmail.com|3007001020|NONE|NONE|5
+7021|Juan Pablo Reyes Gomez|12|7|702|NONE|0|Pedro Reyes Ruiz|juan702@gmail.com|3007001021|NONE|NONE|5
+7022|Valeria Acosta Diaz|13|7|702|NONE|0|Martha Diaz Leon|valeria702@gmail.com|3007001022|NONE|NONE|5
+7023|Samuel Torres Vega|12|7|702|NONE|0|Luis Torres Perez|samuel702@gmail.com|3007001023|NONE|NONE|5
+7024|Isabella Perez Ruiz|13|7|702|NONE|0|Sandra Ruiz Castro|isabella702@gmail.com|3007001024|NONE|NONE|5
+7025|Mateo Gomez Lara|12|7|702|NONE|0|Oscar Gomez Soto|mateo702@gmail.com|3007001025|NONE|NONE|5
+7026|Camila Castro Herrera|13|7|702|NONE|0|Ana Herrera Diaz|camila702@gmail.com|3007001026|NONE|NONE|5
+7027|Sebastian Martinez Pardo|12|7|702|NONE|0|Carlos Martinez Ruiz|sebastian702@gmail.com|3007001027|NONE|NONE|5
+7028|Luciana Rios Vega|13|7|702|NONE|0|Patricia Vega Torres|luciana702@gmail.com|3007001028|NONE|NONE|5
+7029|Nicolas Gomez Silva|12|7|702|NONE|0|Henry Gomez Perez|nicolas702@gmail.com|3007001029|NONE|NONE|5
+7030|Emma Ramirez Leon|13|7|702|NONE|0|Sandra Leon Ruiz|emma702@gmail.com|3007001030|NONE|NONE|5
+7031|Daniel Moreno Ruiz|12|7|702|NONE|0|Carlos Moreno Diaz|daniel702@gmail.com|3007001031|NONE|NONE|5
+7032|Laura Perez Torres|13|7|702|NONE|0|Sandra Torres Vega|laura702@gmail.com|3007001032|NONE|NONE|5
+7033|Andres Vega Ruiz|12|7|702|NONE|0|Pedro Vega Castro|andres702@gmail.com|3007001033|NONE|NONE|5
+7034|Valentina Diaz Gomez|13|7|702|NONE|0|Paola Gomez Ruiz|valentina702@gmail.com|3007001034|NONE|NONE|5
+7035|Mateo Herrera Leon|12|7|702|NONE|0|Luis Herrera Soto|mateo7022@gmail.com|3007001035|NONE|NONE|5
+7036|Camila Rojas Perez|13|7|702|NONE|0|Andrea Perez Ruiz|camila7022@gmail.com|3007001036|NONE|NONE|5
+7037|Samuel Castro Diaz|12|7|702|NONE|0|Mario Castro Vega|samuel7022@gmail.com|3007001037|NONE|NONE|5
+7038|Emma Torres Ruiz|13|7|702|NONE|0|Sandra Ruiz Perez|emma7022@gmail.com|3007001038|NONE|NONE|5
+7039|Thiago Morales Gomez|12|7|702|NONE|0|Henry Morales Diaz|thiago702@gmail.com|3007001039|NONE|NONE|5
+7040|Sofia Navarro Ruiz|13|7|702|NONE|0|Diana Navarro Perez|sofia702@gmail.com|3007001040|NONE|NONE|5
+7041|Juan Camilo Herrera Ruiz|12|7|703|NONE|0|Luis Herrera Diaz|juan703@gmail.com|3007001041|NONE|NONE|5
+7042|Maria Jose Vega Castro|13|7|703|NONE|0|Sandra Castro Perez|maria703@gmail.com|3007001042|NONE|NONE|5
+7043|Samuel Ortiz Leon|12|7|703|NONE|0|Carlos Ortiz Ruiz|samuel703@gmail.com|3007001043|NONE|NONE|5
+7044|Valentina Ramirez Gomez|13|7|703|NONE|0|Patricia Gomez Diaz|valentina703@gmail.com|3007001044|NONE|NONE|5
+7045|Mateo Suarez Torres|12|7|703|NONE|0|Mario Suarez Perez|mateo703@gmail.com|3007001045|NONE|NONE|5
+7046|Sofia Medina Ruiz|13|7|703|NONE|0|Liliana Ruiz Gomez|sofia703@gmail.com|3007001046|NONE|NONE|5
+7047|Daniel Navarro Perez|12|7|703|NONE|0|Jaime Navarro Ruiz|daniel703@gmail.com|3007001047|NONE|NONE|5
+7048|Camila Duarte Vega|13|7|703|NONE|0|Andrea Vega Torres|camila703@gmail.com|3007001048|NONE|NONE|5
+7049|Nicolas Herrera Gomez|12|7|703|NONE|0|Oscar Herrera Diaz|nicolas703@gmail.com|3007001049|NONE|NONE|5
+7050|Emma Rios Castro|13|7|703|NONE|0|Sandra Castro Ruiz|emma703@gmail.com|3007001050|NONE|NONE|5
+7051|Sebastian Leon Perez|12|7|703|NONE|0|Pedro Leon Gomez|sebastian703@gmail.com|3007001051|NONE|NONE|5
+7052|Luciana Torres Ruiz|13|7|703|NONE|0|Paola Torres Diaz|luciana703@gmail.com|3007001052|NONE|NONE|5
+7053|Alejandro Vega Gomez|12|7|703|NONE|0|Henry Vega Ruiz|alejandro703@gmail.com|3007001053|NONE|NONE|5
+7054|Antonella Castro Perez|13|7|703|NONE|0|Sandra Perez Torres|antonella703@gmail.com|3007001054|NONE|NONE|5
+7055|Martin Silva Ruiz|12|7|703|NONE|0|Carlos Silva Gomez|martin703@gmail.com|3007001055|NONE|NONE|5
+7056|Salome Herrera Diaz|13|7|703|NONE|0|Liliana Herrera Perez|salome703@gmail.com|3007001056|NONE|NONE|5
+7057|Thiago Medina Gomez|12|7|703|NONE|0|Oscar Medina Ruiz|thiago703@gmail.com|3007001057|NONE|NONE|5
+7058|Gabriela Rojas Perez|13|7|703|NONE|0|Andrea Rojas Torres|gabriela703@gmail.com|3007001058|NONE|NONE|5
+7059|Juan David Castro Ruiz|12|7|703|NONE|0|Mario Castro Gomez|juand703@gmail.com|3007001059|NONE|NONE|5
+7060|Sara Leon Diaz|13|7|703|NONE|0|Sandra Leon Perez|sara703@gmail.com|3007001060|NONE|NONE|5
+8001|Juan David Perez Gomez|13|8|801|NONE|0|Carlos Perez Ruiz|juan801@gmail.com|3008001001|NONE|NONE|5
+8002|Maria Fernanda Torres Diaz|14|8|801|NONE|0|Ana Diaz Romero|maria801@gmail.com|3008001002|NONE|NONE|5
+8003|Samuel Andres Lopez Garcia|13|8|801|NONE|0|Luis Lopez Perez|samuel801@gmail.com|3008001003|NONE|NONE|5
+8004|Valentina Ruiz Moreno|14|8|801|NONE|0|Patricia Moreno Diaz|valentina801@gmail.com|3008001004|NONE|NONE|5
+8005|Mateo Castro Herrera|13|8|801|NONE|0|Jorge Castro Ruiz|mateo801@gmail.com|3008001005|NONE|NONE|5
+8006|Sofia Martinez Pardo|14|8|801|NONE|0|Andrea Pardo Soto|sofia801@gmail.com|3008001006|NONE|NONE|5
+8007|Daniel Felipe Rios Vega|13|8|801|NONE|0|Oscar Rios Marin|daniel801@gmail.com|3008001007|NONE|NONE|5
+8008|Isabella Gomez Lara|14|8|801|NONE|0|Sandra Lara Ruiz|isabella801@gmail.com|3008001008|NONE|NONE|5
+8009|Nicolas Ramirez Torres|13|8|801|NONE|0|Felipe Ramirez Diaz|nicolas801@gmail.com|3008001009|NONE|NONE|5
+8010|Gabriela Suarez Leon|14|8|801|NONE|0|Martha Leon Soto|gabriela801@gmail.com|3008001010|NONE|NONE|5
+8011|Juan Esteban Ortiz Silva|13|8|801|NONE|0|Ricardo Ortiz Luna|juan8011@gmail.com|3008001011|NONE|NONE|5
+8012|Camila Mendoza Ruiz|14|8|801|NONE|0|Paola Ruiz Castro|camila801@gmail.com|3008001012|NONE|NONE|5
+8013|Sebastian Vega Morales|13|8|801|NONE|0|Henry Vega Pineda|sebastian801@gmail.com|3008001013|NONE|NONE|5
+8014|Luciana Herrera Gomez|14|8|801|NONE|0|Juliana Gomez Lara|luciana801@gmail.com|3008001014|NONE|NONE|5
+8015|Thiago Castillo Perez|13|8|801|NONE|0|Mario Castillo Ruiz|thiago801@gmail.com|3008001015|NONE|NONE|5
+8016|Emma Duarte Salas|14|8|801|NONE|0|Rosa Salas Vega|emma801@gmail.com|3008001016|NONE|NONE|5
+8017|Alejandro Medina Torres|13|8|801|NONE|0|Carlos Medina Ruiz|alejandro801@gmail.com|3008001017|NONE|NONE|5
+8018|Antonella Vargas Diaz|14|8|801|NONE|0|Liliana Diaz Perez|antonella801@gmail.com|3008001018|NONE|NONE|5
+8019|Martin Pacheco Rios|13|8|801|NONE|0|Jaime Pacheco Soto|martin801@gmail.com|3008001019|NONE|NONE|5
+8020|Salome Navarro Ruiz|14|8|801|NONE|0|Diana Ruiz Gomez|salome801@gmail.com|3008001020|NONE|NONE|5
+8021|Juan Pablo Reyes Gomez|13|8|802|NONE|0|Pedro Reyes Ruiz|juan802@gmail.com|3008001021|NONE|NONE|5
+8022|Valeria Acosta Diaz|14|8|802|NONE|0|Martha Diaz Leon|valeria802@gmail.com|3008001022|NONE|NONE|5
+8023|Samuel Torres Vega|13|8|802|NONE|0|Luis Torres Perez|samuel802@gmail.com|3008001023|NONE|NONE|5
+8024|Isabella Perez Ruiz|14|8|802|NONE|0|Sandra Ruiz Castro|isabella802@gmail.com|3008001024|NONE|NONE|5
+8025|Mateo Gomez Lara|13|8|802|NONE|0|Oscar Gomez Soto|mateo802@gmail.com|3008001025|NONE|NONE|5
+8026|Camila Castro Herrera|14|8|802|NONE|0|Ana Herrera Diaz|camila802@gmail.com|3008001026|NONE|NONE|5
+8027|Sebastian Martinez Pardo|13|8|802|NONE|0|Carlos Martinez Ruiz|sebastian802@gmail.com|3008001027|NONE|NONE|5
+8028|Luciana Rios Vega|14|8|802|NONE|0|Patricia Vega Torres|luciana802@gmail.com|3008001028|NONE|NONE|5
+8029|Nicolas Gomez Silva|13|8|802|NONE|0|Henry Gomez Perez|nicolas802@gmail.com|3008001029|NONE|NONE|5
+8030|Emma Ramirez Leon|14|8|802|NONE|0|Sandra Leon Ruiz|emma802@gmail.com|3008001030|NONE|NONE|5
+8031|Daniel Moreno Ruiz|13|8|802|NONE|0|Carlos Moreno Diaz|daniel802@gmail.com|3008001031|NONE|NONE|5
+8032|Laura Perez Torres|14|8|802|NONE|0|Sandra Torres Vega|laura802@gmail.com|3008001032|NONE|NONE|5
+8033|Andres Vega Ruiz|13|8|802|NONE|0|Pedro Vega Castro|andres802@gmail.com|3008001033|NONE|NONE|5
+8034|Valentina Diaz Gomez|14|8|802|NONE|0|Paola Gomez Ruiz|valentina802@gmail.com|3008001034|NONE|NONE|5
+8035|Mateo Herrera Leon|13|8|802|NONE|0|Luis Herrera Soto|mateo8022@gmail.com|3008001035|NONE|NONE|5
+8036|Camila Rojas Perez|14|8|802|NONE|0|Andrea Perez Ruiz|camila8022@gmail.com|3008001036|NONE|NONE|5
+8037|Samuel Castro Diaz|13|8|802|NONE|0|Mario Castro Vega|samuel8022@gmail.com|3008001037|NONE|NONE|5
+8038|Emma Torres Ruiz|14|8|802|NONE|0|Sandra Ruiz Perez|emma8022@gmail.com|3008001038|NONE|NONE|5
+8039|Thiago Morales Gomez|13|8|802|NONE|0|Henry Morales Diaz|thiago802@gmail.com|3008001039|NONE|NONE|5
+8040|Sofia Navarro Ruiz|14|8|802|NONE|0|Diana Navarro Perez|sofia802@gmail.com|3008001040|NONE|NONE|5
+8041|Juan Camilo Herrera Ruiz|13|8|803|NONE|0|Luis Herrera Diaz|juan803@gmail.com|3008001041|NONE|NONE|5
+8042|Maria Jose Vega Castro|14|8|803|NONE|0|Sandra Castro Perez|maria803@gmail.com|3008001042|NONE|NONE|5
+8043|Samuel Ortiz Leon|13|8|803|NONE|0|Carlos Ortiz Ruiz|samuel803@gmail.com|3008001043|NONE|NONE|5
+8044|Valentina Ramirez Gomez|14|8|803|NONE|0|Patricia Gomez Diaz|valentina803@gmail.com|3008001044|NONE|NONE|5
+8045|Mateo Suarez Torres|13|8|803|NONE|0|Mario Suarez Perez|mateo803@gmail.com|3008001045|NONE|NONE|5
+8046|Sofia Medina Ruiz|14|8|803|NONE|0|Liliana Ruiz Gomez|sofia803@gmail.com|3008001046|NONE|NONE|5
+8047|Daniel Navarro Perez|13|8|803|NONE|0|Jaime Navarro Ruiz|daniel803@gmail.com|3008001047|NONE|NONE|5
+8048|Camila Duarte Vega|14|8|803|NONE|0|Andrea Vega Torres|camila803@gmail.com|3008001048|NONE|NONE|5
+8049|Nicolas Herrera Gomez|13|8|803|NONE|0|Oscar Herrera Diaz|nicolas803@gmail.com|3008001049|NONE|NONE|5
+8050|Emma Rios Castro|14|8|803|NONE|0|Sandra Castro Ruiz|emma803@gmail.com|3008001050|NONE|NONE|5
+8051|Sebastian Leon Perez|13|8|803|NONE|0|Pedro Leon Gomez|sebastian803@gmail.com|3008001051|NONE|NONE|5
+8052|Luciana Torres Ruiz|14|8|803|NONE|0|Paola Torres Diaz|luciana803@gmail.com|3008001052|NONE|NONE|5
+8053|Alejandro Vega Gomez|13|8|803|NONE|0|Henry Vega Ruiz|alejandro803@gmail.com|3008001053|NONE|NONE|5
+8054|Antonella Castro Perez|14|8|803|NONE|0|Sandra Perez Torres|antonella803@gmail.com|3008001054|NONE|NONE|5
+8055|Martin Silva Ruiz|13|8|803|NONE|0|Carlos Silva Gomez|martin803@gmail.com|3008001055|NONE|NONE|5
+8056|Salome Herrera Diaz|14|8|803|NONE|0|Liliana Herrera Perez|salome803@gmail.com|3008001056|NONE|NONE|5
+8057|Thiago Medina Gomez|13|8|803|NONE|0|Oscar Medina Ruiz|thiago803@gmail.com|3008001057|NONE|NONE|5
+8058|Gabriela Rojas Perez|14|8|803|NONE|0|Andrea Rojas Torres|gabriela803@gmail.com|3008001058|NONE|NONE|5
+8059|Juan David Castro Ruiz|13|8|803|NONE|0|Mario Castro Gomez|juand803@gmail.com|3008001059|NONE|NONE|5
+8060|Sara Leon Diaz|14|8|803|NONE|0|Sandra Leon Perez|sara803@gmail.com|3008001060|NONE|NONE|5
+9001|Juan David Perez Gomez|14|9|901|NONE|0|Carlos Perez Ruiz|juan901@gmail.com|3009001001|NONE|NONE|5
+9002|Maria Fernanda Torres Diaz|15|9|901|NONE|0|Ana Diaz Romero|maria901@gmail.com|3009001002|NONE|NONE|5
+9003|Samuel Andres Lopez Garcia|14|9|901|NONE|0|Luis Lopez Perez|samuel901@gmail.com|3009001003|NONE|NONE|5
+9004|Valentina Ruiz Moreno|15|9|901|NONE|0|Patricia Moreno Diaz|valentina901@gmail.com|3009001004|NONE|NONE|5
+9005|Mateo Castro Herrera|14|9|901|NONE|0|Jorge Castro Ruiz|mateo901@gmail.com|3009001005|NONE|NONE|5
+9006|Sofia Martinez Pardo|15|9|901|NONE|0|Andrea Pardo Soto|sofia901@gmail.com|3009001006|NONE|NONE|5
+9007|Daniel Felipe Rios Vega|14|9|901|NONE|0|Oscar Rios Marin|daniel901@gmail.com|3009001007|NONE|NONE|5
+9008|Isabella Gomez Lara|15|9|901|NONE|0|Sandra Lara Ruiz|isabella901@gmail.com|3009001008|NONE|NONE|5
+9009|Nicolas Ramirez Torres|14|9|901|NONE|0|Felipe Ramirez Diaz|nicolas901@gmail.com|3009001009|NONE|NONE|5
+9010|Gabriela Suarez Leon|15|9|901|NONE|0|Martha Leon Soto|gabriela901@gmail.com|3009001010|NONE|NONE|5
+9011|Juan Esteban Ortiz Silva|14|9|901|NONE|0|Ricardo Ortiz Luna|juan9011@gmail.com|3009001011|NONE|NONE|5
+9012|Camila Mendoza Ruiz|15|9|901|NONE|0|Paola Ruiz Castro|camila901@gmail.com|3009001012|NONE|NONE|5
+9013|Sebastian Vega Morales|14|9|901|NONE|0|Henry Vega Pineda|sebastian901@gmail.com|3009001013|NONE|NONE|5
+9014|Luciana Herrera Gomez|15|9|901|NONE|0|Juliana Gomez Lara|luciana901@gmail.com|3009001014|NONE|NONE|5
+9015|Thiago Castillo Perez|14|9|901|NONE|0|Mario Castillo Ruiz|thiago901@gmail.com|3009001015|NONE|NONE|5
+9016|Emma Duarte Salas|15|9|901|NONE|0|Rosa Salas Vega|emma901@gmail.com|3009001016|NONE|NONE|5
+9017|Alejandro Medina Torres|14|9|901|NONE|0|Carlos Medina Ruiz|alejandro901@gmail.com|3009001017|NONE|NONE|5
+9018|Antonella Vargas Diaz|15|9|901|NONE|0|Liliana Diaz Perez|antonella901@gmail.com|3009001018|NONE|NONE|5
+9019|Martin Pacheco Rios|14|9|901|NONE|0|Jaime Pacheco Soto|martin901@gmail.com|3009001019|NONE|NONE|5
+9020|Salome Navarro Ruiz|15|9|901|NONE|0|Diana Ruiz Gomez|salome901@gmail.com|3009001020|NONE|NONE|5
+9021|Juan Pablo Reyes Gomez|14|9|902|NONE|0|Pedro Reyes Ruiz|juan902@gmail.com|3009001021|NONE|NONE|5
+9022|Valeria Acosta Diaz|15|9|902|NONE|0|Martha Diaz Leon|valeria902@gmail.com|3009001022|NONE|NONE|5
+9023|Samuel Torres Vega|14|9|902|NONE|0|Luis Torres Perez|samuel902@gmail.com|3009001023|NONE|NONE|5
+9024|Isabella Perez Ruiz|15|9|902|NONE|0|Sandra Ruiz Castro|isabella902@gmail.com|3009001024|NONE|NONE|5
+9025|Mateo Gomez Lara|14|9|902|NONE|0|Oscar Gomez Soto|mateo902@gmail.com|3009001025|NONE|NONE|5
+9026|Camila Castro Herrera|15|9|902|NONE|0|Ana Herrera Diaz|camila902@gmail.com|3009001026|NONE|NONE|5
+9027|Sebastian Martinez Pardo|14|9|902|NONE|0|Carlos Martinez Ruiz|sebastian902@gmail.com|3009001027|NONE|NONE|5
+9028|Luciana Rios Vega|15|9|902|NONE|0|Patricia Vega Torres|luciana902@gmail.com|3009001028|NONE|NONE|5
+9029|Nicolas Gomez Silva|14|9|902|NONE|0|Henry Gomez Perez|nicolas902@gmail.com|3009001029|NONE|NONE|5
+9030|Emma Ramirez Leon|15|9|902|NONE|0|Sandra Leon Ruiz|emma902@gmail.com|3009001030|NONE|NONE|5
+9031|Daniel Moreno Ruiz|14|9|902|NONE|0|Carlos Moreno Diaz|daniel902@gmail.com|3009001031|NONE|NONE|5
+9032|Laura Perez Torres|15|9|902|NONE|0|Sandra Torres Vega|laura902@gmail.com|3009001032|NONE|NONE|5
+9033|Andres Vega Ruiz|14|9|902|NONE|0|Pedro Vega Castro|andres902@gmail.com|3009001033|NONE|NONE|5
+9034|Valentina Diaz Gomez|15|9|902|NONE|0|Paola Gomez Ruiz|valentina902@gmail.com|3009001034|NONE|NONE|5
+9035|Mateo Herrera Leon|14|9|902|NONE|0|Luis Herrera Soto|mateo9022@gmail.com|3009001035|NONE|NONE|5
+9036|Camila Rojas Perez|15|9|902|NONE|0|Andrea Perez Ruiz|camila9022@gmail.com|3009001036|NONE|NONE|5
+9037|Samuel Castro Diaz|14|9|902|NONE|0|Mario Castro Vega|samuel9022@gmail.com|3009001037|NONE|NONE|5
+9038|Emma Torres Ruiz|15|9|902|NONE|0|Sandra Ruiz Perez|emma9022@gmail.com|3009001038|NONE|NONE|5
+9039|Thiago Morales Gomez|14|9|902|NONE|0|Henry Morales Diaz|thiago902@gmail.com|3009001039|NONE|NONE|5
+9040|Sofia Navarro Ruiz|15|9|902|NONE|0|Diana Navarro Perez|sofia902@gmail.com|3009001040|NONE|NONE|5
+9041|Juan Camilo Herrera Ruiz|14|9|903|NONE|0|Luis Herrera Diaz|juan903@gmail.com|3009001041|NONE|NONE|5
+9042|Maria Jose Vega Castro|15|9|903|NONE|0|Sandra Castro Perez|maria903@gmail.com|3009001042|NONE|NONE|5
+9043|Samuel Ortiz Leon|14|9|903|NONE|0|Carlos Ortiz Ruiz|samuel903@gmail.com|3009001043|NONE|NONE|5
+9044|Valentina Ramirez Gomez|15|9|903|NONE|0|Patricia Gomez Diaz|valentina903@gmail.com|3009001044|NONE|NONE|5
+9045|Mateo Suarez Torres|14|9|903|NONE|0|Mario Suarez Perez|mateo903@gmail.com|3009001045|NONE|NONE|5
+9046|Sofia Medina Ruiz|15|9|903|NONE|0|Liliana Ruiz Gomez|sofia903@gmail.com|3009001046|NONE|NONE|5
+9047|Daniel Navarro Perez|14|9|903|NONE|0|Jaime Navarro Ruiz|daniel903@gmail.com|3009001047|NONE|NONE|5
+9048|Camila Duarte Vega|15|9|903|NONE|0|Andrea Vega Torres|camila903@gmail.com|3009001048|NONE|NONE|5
+9049|Nicolas Herrera Gomez|14|9|903|NONE|0|Oscar Herrera Diaz|nicolas903@gmail.com|3009001049|NONE|NONE|5
+9050|Emma Rios Castro|15|9|903|NONE|0|Sandra Castro Ruiz|emma903@gmail.com|3009001050|NONE|NONE|5
+9051|Sebastian Leon Perez|14|9|903|NONE|0|Pedro Leon Gomez|sebastian903@gmail.com|3009001051|NONE|NONE|5
+9052|Luciana Torres Ruiz|15|9|903|NONE|0|Paola Torres Diaz|luciana903@gmail.com|3009001052|NONE|NONE|5
+9053|Alejandro Vega Gomez|14|9|903|NONE|0|Henry Vega Ruiz|alejandro903@gmail.com|3009001053|NONE|NONE|5
+9054|Antonella Castro Perez|15|9|903|NONE|0|Sandra Perez Torres|antonella903@gmail.com|3009001054|NONE|NONE|5
+9055|Martin Silva Ruiz|14|9|903|NONE|0|Carlos Silva Gomez|martin903@gmail.com|3009001055|NONE|NONE|5
+9056|Salome Herrera Diaz|15|9|903|NONE|0|Liliana Herrera Perez|salome903@gmail.com|3009001056|NONE|NONE|5
+9057|Thiago Medina Gomez|14|9|903|NONE|0|Oscar Medina Ruiz|thiago903@gmail.com|3009001057|NONE|NONE|5
+9058|Gabriela Rojas Perez|15|9|903|NONE|0|Andrea Rojas Torres|gabriela903@gmail.com|3009001058|NONE|NONE|5
+9059|Juan David Castro Ruiz|14|9|903|NONE|0|Mario Castro Gomez|juand903@gmail.com|3009001059|NONE|NONE|5
+9060|Sara Leon Diaz|15|9|903|NONE|0|Sandra Leon Perez|sara903@gmail.com|3009001060|NONE|NONE|5
+10001|Juan David Perez Gomez|15|10|1001|NONE|0|Carlos Perez Ruiz|juan1001@gmail.com|3010001001|NONE|NONE|5
+10002|Maria Fernanda Torres Diaz|16|10|1001|NONE|0|Ana Diaz Romero|maria1001@gmail.com|3010001002|NONE|NONE|5
+10003|Samuel Andres Lopez Garcia|15|10|1001|NONE|0|Luis Lopez Perez|samuel1001@gmail.com|3010001003|NONE|NONE|5
+10004|Valentina Ruiz Moreno|16|10|1001|NONE|0|Patricia Moreno Diaz|valentina1001@gmail.com|3010001004|NONE|NONE|5
+10005|Mateo Castro Herrera|15|10|1001|NONE|0|Jorge Castro Ruiz|mateo1001@gmail.com|3010001005|NONE|NONE|5
+10006|Sofia Martinez Pardo|16|10|1001|NONE|0|Andrea Pardo Soto|sofia1001@gmail.com|3010001006|NONE|NONE|5
+10007|Daniel Felipe Rios Vega|15|10|1001|NONE|0|Oscar Rios Marin|daniel1001@gmail.com|3010001007|NONE|NONE|5
+10008|Isabella Gomez Lara|16|10|1001|NONE|0|Sandra Lara Ruiz|isabella1001@gmail.com|3010001008|NONE|NONE|5
+10009|Nicolas Ramirez Torres|15|10|1001|NONE|0|Felipe Ramirez Diaz|nicolas1001@gmail.com|3010001009|NONE|NONE|5
+10010|Gabriela Suarez Leon|16|10|1001|NONE|0|Martha Leon Soto|gabriela1001@gmail.com|3010001010|NONE|NONE|5
+10011|Juan Esteban Ortiz Silva|15|10|1001|NONE|0|Ricardo Ortiz Luna|juan10011@gmail.com|3010001011|NONE|NONE|5
+10012|Camila Mendoza Ruiz|16|10|1001|NONE|0|Paola Ruiz Castro|camila1001@gmail.com|3010001012|NONE|NONE|5
+10013|Sebastian Vega Morales|15|10|1001|NONE|0|Henry Vega Pineda|sebastian1001@gmail.com|3010001013|NONE|NONE|5
+10014|Luciana Herrera Gomez|16|10|1001|NONE|0|Juliana Gomez Lara|luciana1001@gmail.com|3010001014|NONE|NONE|5
+10015|Thiago Castillo Perez|15|10|1001|NONE|0|Mario Castillo Ruiz|thiago1001@gmail.com|3010001015|NONE|NONE|5
+10016|Emma Duarte Salas|16|10|1001|NONE|0|Rosa Salas Vega|emma1001@gmail.com|3010001016|NONE|NONE|5
+10017|Alejandro Medina Torres|15|10|1001|NONE|0|Carlos Medina Ruiz|alejandro1001@gmail.com|3010001017|NONE|NONE|5
+10018|Antonella Vargas Diaz|16|10|1001|NONE|0|Liliana Diaz Perez|antonella1001@gmail.com|3010001018|NONE|NONE|5
+10019|Martin Pacheco Rios|15|10|1001|NONE|0|Jaime Pacheco Soto|martin1001@gmail.com|3010001019|NONE|NONE|5
+10020|Salome Navarro Ruiz|16|10|1001|NONE|0|Diana Ruiz Gomez|salome1001@gmail.com|3010001020|NONE|NONE|5
+10021|Juan Pablo Reyes Gomez|15|10|1002|NONE|0|Pedro Reyes Ruiz|juan1002@gmail.com|3010001021|NONE|NONE|5
+10022|Valeria Acosta Diaz|16|10|1002|NONE|0|Martha Diaz Leon|valeria1002@gmail.com|3010001022|NONE|NONE|5
+10023|Samuel Torres Vega|15|10|1002|NONE|0|Luis Torres Perez|samuel1002@gmail.com|3010001023|NONE|NONE|5
+10024|Isabella Perez Ruiz|16|10|1002|NONE|0|Sandra Ruiz Castro|isabella1002@gmail.com|3010001024|NONE|NONE|5
+10025|Mateo Gomez Lara|15|10|1002|NONE|0|Oscar Gomez Soto|mateo1002@gmail.com|3010001025|NONE|NONE|5
+10026|Camila Castro Herrera|16|10|1002|NONE|0|Ana Herrera Diaz|camila1002@gmail.com|3010001026|NONE|NONE|5
+10027|Sebastian Martinez Pardo|15|10|1002|NONE|0|Carlos Martinez Ruiz|sebastian1002@gmail.com|3010001027|NONE|NONE|5
+10028|Luciana Rios Vega|16|10|1002|NONE|0|Patricia Vega Torres|luciana1002@gmail.com|3010001028|NONE|NONE|5
+10029|Nicolas Gomez Silva|15|10|1002|NONE|0|Henry Gomez Perez|nicolas1002@gmail.com|3010001029|NONE|NONE|5
+10030|Emma Ramirez Leon|16|10|1002|NONE|0|Sandra Leon Ruiz|emma1002@gmail.com|3010001030|NONE|NONE|5
+10031|Daniel Moreno Ruiz|15|10|1002|NONE|0|Carlos Moreno Diaz|daniel1002@gmail.com|3010001031|NONE|NONE|5
+10032|Laura Perez Torres|16|10|1002|NONE|0|Sandra Torres Vega|laura1002@gmail.com|3010001032|NONE|NONE|5
+10033|Andres Vega Ruiz|15|10|1002|NONE|0|Pedro Vega Castro|andres1002@gmail.com|3010001033|NONE|NONE|5
+10034|Valentina Diaz Gomez|16|10|1002|NONE|0|Paola Gomez Ruiz|valentina1002@gmail.com|3010001034|NONE|NONE|5
+10035|Mateo Herrera Leon|15|10|1002|NONE|0|Luis Herrera Soto|mateo10022@gmail.com|3010001035|NONE|NONE|5
+10036|Camila Rojas Perez|16|10|1002|NONE|0|Andrea Perez Ruiz|camila10022@gmail.com|3010001036|NONE|NONE|5
+10037|Samuel Castro Diaz|15|10|1002|NONE|0|Mario Castro Vega|samuel10022@gmail.com|3010001037|NONE|NONE|5
+10038|Emma Torres Ruiz|16|10|1002|NONE|0|Sandra Ruiz Perez|emma10022@gmail.com|3010001038|NONE|NONE|5
+10039|Thiago Morales Gomez|15|10|1002|NONE|0|Henry Morales Diaz|thiago1002@gmail.com|3010001039|NONE|NONE|5
+10040|Sofia Navarro Ruiz|16|10|1002|NONE|0|Diana Navarro Perez|sofia1002@gmail.com|3010001040|NONE|NONE|5
+10041|Juan Camilo Herrera Ruiz|15|10|1003|NONE|0|Luis Herrera Diaz|juan1003@gmail.com|3010001041|NONE|NONE|5
+10042|Maria Jose Vega Castro|16|10|1003|NONE|0|Sandra Castro Perez|maria1003@gmail.com|3010001042|NONE|NONE|5
+10043|Samuel Ortiz Leon|15|10|1003|NONE|0|Carlos Ortiz Ruiz|samuel1003@gmail.com|3010001043|NONE|NONE|5
+10044|Valentina Ramirez Gomez|16|10|1003|NONE|0|Patricia Gomez Diaz|valentina1003@gmail.com|3010001044|NONE|NONE|5
+10045|Mateo Suarez Torres|15|10|1003|NONE|0|Mario Suarez Perez|mateo1003@gmail.com|3010001045|NONE|NONE|5
+10046|Sofia Medina Ruiz|16|10|1003|NONE|0|Liliana Ruiz Gomez|sofia1003@gmail.com|3010001046|NONE|NONE|5
+10047|Daniel Navarro Perez|15|10|1003|NONE|0|Jaime Navarro Ruiz|daniel1003@gmail.com|3010001047|NONE|NONE|5
+10048|Camila Duarte Vega|16|10|1003|NONE|0|Andrea Vega Torres|camila1003@gmail.com|3010001048|NONE|NONE|5
+10049|Nicolas Herrera Gomez|15|10|1003|NONE|0|Oscar Herrera Diaz|nicolas1003@gmail.com|3010001049|NONE|NONE|5
+10050|Emma Rios Castro|16|10|1003|NONE|0|Sandra Castro Ruiz|emma1003@gmail.com|3010001050|NONE|NONE|5
+10051|Sebastian Leon Perez|15|10|1003|NONE|0|Pedro Leon Gomez|sebastian1003@gmail.com|3010001051|NONE|NONE|5
+10052|Luciana Torres Ruiz|16|10|1003|NONE|0|Paola Torres Diaz|luciana1003@gmail.com|3010001052|NONE|NONE|5
+10053|Alejandro Vega Gomez|15|10|1003|NONE|0|Henry Vega Ruiz|alejandro1003@gmail.com|3010001053|NONE|NONE|5
+10054|Antonella Castro Perez|16|10|1003|NONE|0|Sandra Perez Torres|antonella1003@gmail.com|3010001054|NONE|NONE|5
+10055|Martin Silva Ruiz|15|10|1003|NONE|0|Carlos Silva Gomez|martin1003@gmail.com|3010001055|NONE|NONE|5
+10056|Salome Herrera Diaz|16|10|1003|NONE|0|Liliana Herrera Perez|salome1003@gmail.com|3010001056|NONE|NONE|5
+10057|Thiago Medina Gomez|15|10|1003|NONE|0|Oscar Medina Ruiz|thiago1003@gmail.com|3010001057|NONE|NONE|5
+10058|Gabriela Rojas Perez|16|10|1003|NONE|0|Andrea Rojas Torres|gabriela1003@gmail.com|3010001058|NONE|NONE|5
+10059|Juan David Castro Ruiz|15|10|1003|NONE|0|Mario Castro Gomez|juand1003@gmail.com|3010001059|NONE|NONE|5
+10060|Sara Leon Diaz|16|10|1003|NONE|0|Sandra Leon Perez|sara1003@gmail.com|3010001060|NONE|NONE|5
+11001|Juan David Perez Gomez|16|11|1101|NONE|0|Carlos Perez Ruiz|juan1101@gmail.com|3011001001|NONE|NONE|5
+11002|Maria Fernanda Torres Diaz|17|11|1101|NONE|0|Ana Diaz Romero|maria1101@gmail.com|3011001002|NONE|NONE|5
+11003|Samuel Andres Lopez Garcia|16|11|1101|NONE|0|Luis Lopez Perez|samuel1101@gmail.com|3011001003|NONE|NONE|5
+11004|Valentina Ruiz Moreno|17|11|1101|NONE|0|Patricia Moreno Diaz|valentina1101@gmail.com|3011001004|NONE|NONE|5
+11005|Mateo Castro Herrera|16|11|1101|NONE|0|Jorge Castro Ruiz|mateo1101@gmail.com|3011001005|NONE|NONE|5
+11006|Sofia Martinez Pardo|17|11|1101|NONE|0|Andrea Pardo Soto|sofia1101@gmail.com|3011001006|NONE|NONE|5
+11007|Daniel Felipe Rios Vega|16|11|1101|NONE|0|Oscar Rios Marin|daniel1101@gmail.com|3011001007|NONE|NONE|5
+11008|Isabella Gomez Lara|17|11|1101|NONE|0|Sandra Lara Ruiz|isabella1101@gmail.com|3011001008|NONE|NONE|5
+11009|Nicolas Ramirez Torres|16|11|1101|NONE|0|Felipe Ramirez Diaz|nicolas1101@gmail.com|3011001009|NONE|NONE|5
+11010|Gabriela Suarez Leon|17|11|1101|NONE|0|Martha Leon Soto|gabriela1101@gmail.com|3011001010|NONE|NONE|5
+11011|Juan Esteban Ortiz Silva|16|11|1101|NONE|0|Ricardo Ortiz Luna|juan11011@gmail.com|3011001011|NONE|NONE|5
+11012|Camila Mendoza Ruiz|17|11|1101|NONE|0|Paola Ruiz Castro|camila1101@gmail.com|3011001012|NONE|NONE|5
+11013|Sebastian Vega Morales|16|11|1101|NONE|0|Henry Vega Pineda|sebastian1101@gmail.com|3011001013|NONE|NONE|5
+11014|Luciana Herrera Gomez|17|11|1101|NONE|0|Juliana Gomez Lara|luciana1101@gmail.com|3011001014|NONE|NONE|5
+11015|Thiago Castillo Perez|16|11|1101|NONE|0|Mario Castillo Ruiz|thiago1101@gmail.com|3011001015|NONE|NONE|5
+11016|Emma Duarte Salas|17|11|1101|NONE|0|Rosa Salas Vega|emma1101@gmail.com|3011001016|NONE|NONE|5
+11017|Alejandro Medina Torres|16|11|1101|NONE|0|Carlos Medina Ruiz|alejandro1101@gmail.com|3011001017|NONE|NONE|5
+11018|Antonella Vargas Diaz|17|11|1101|NONE|0|Liliana Diaz Perez|antonella1101@gmail.com|3011001018|NONE|NONE|5
+11019|Martin Pacheco Rios|16|11|1101|NONE|0|Jaime Pacheco Soto|martin1101@gmail.com|3011001019|NONE|NONE|5
+11020|Salome Navarro Ruiz|17|11|1101|NONE|0|Diana Ruiz Gomez|salome1101@gmail.com|3011001020|NONE|NONE|5
+11021|Juan Pablo Reyes Gomez|16|11|1102|NONE|0|Pedro Reyes Ruiz|juan1102@gmail.com|3011001021|NONE|NONE|5
+11022|Valeria Acosta Diaz|17|11|1102|NONE|0|Martha Diaz Leon|valeria1102@gmail.com|3011001022|NONE|NONE|5
+11023|Samuel Torres Vega|16|11|1102|NONE|0|Luis Torres Perez|samuel1102@gmail.com|3011001023|NONE|NONE|5
+11024|Isabella Perez Ruiz|17|11|1102|NONE|0|Sandra Ruiz Castro|isabella1102@gmail.com|3011001024|NONE|NONE|5
+11025|Mateo Gomez Lara|16|11|1102|NONE|0|Oscar Gomez Soto|mateo1102@gmail.com|3011001025|NONE|NONE|5
+11026|Camila Castro Herrera|17|11|1102|NONE|0|Ana Herrera Diaz|camila1102@gmail.com|3011001026|NONE|NONE|5
+11027|Sebastian Martinez Pardo|16|11|1102|NONE|0|Carlos Martinez Ruiz|sebastian1102@gmail.com|3011001027|NONE|NONE|5
+11028|Luciana Rios Vega|17|11|1102|NONE|0|Patricia Vega Torres|luciana1102@gmail.com|3011001028|NONE|NONE|5
+11029|Nicolas Gomez Silva|16|11|1102|NONE|0|Henry Gomez Perez|nicolas1102@gmail.com|3011001029|NONE|NONE|5
+11030|Emma Ramirez Leon|17|11|1102|NONE|0|Sandra Leon Ruiz|emma1102@gmail.com|3011001030|NONE|NONE|5
+11031|Daniel Moreno Ruiz|16|11|1102|NONE|0|Carlos Moreno Diaz|daniel1102@gmail.com|3011001031|NONE|NONE|5
+11032|Laura Perez Torres|17|11|1102|NONE|0|Sandra Torres Vega|laura1102@gmail.com|3011001032|NONE|NONE|5
+11033|Andres Vega Ruiz|16|11|1102|NONE|0|Pedro Vega Castro|andres1102@gmail.com|3011001033|NONE|NONE|5
+11034|Valentina Diaz Gomez|17|11|1102|NONE|0|Paola Gomez Ruiz|valentina1102@gmail.com|3011001034|NONE|NONE|5
+11035|Mateo Herrera Leon|16|11|1102|NONE|0|Luis Herrera Soto|mateo11022@gmail.com|3011001035|NONE|NONE|5
+11036|Camila Rojas Perez|17|11|1102|NONE|0|Andrea Perez Ruiz|camila11022@gmail.com|3011001036|NONE|NONE|5
+11037|Samuel Castro Diaz|16|11|1102|NONE|0|Mario Castro Vega|samuel11022@gmail.com|3011001037|NONE|NONE|5
+11038|Emma Torres Ruiz|17|11|1102|NONE|0|Sandra Ruiz Perez|emma11022@gmail.com|3011001038|NONE|NONE|5
+11039|Thiago Morales Gomez|16|11|1102|NONE|0|Henry Morales Diaz|thiago1102@gmail.com|3011001039|NONE|NONE|5
+11040|Sofia Navarro Ruiz|17|11|1102|NONE|0|Diana Navarro Perez|sofia1102@gmail.com|3011001040|NONE|NONE|5
+11041|Juan Camilo Herrera Ruiz|16|11|1103|NONE|0|Luis Herrera Diaz|juan1103@gmail.com|3011001041|NONE|NONE|5
+11042|Maria Jose Vega Castro|17|11|1103|NONE|0|Sandra Castro Perez|maria1103@gmail.com|3011001042|NONE|NONE|5
+11043|Samuel Ortiz Leon|16|11|1103|NONE|0|Carlos Ortiz Ruiz|samuel1103@gmail.com|3011001043|NONE|NONE|5
+11044|Valentina Ramirez Gomez|17|11|1103|NONE|0|Patricia Gomez Diaz|valentina1103@gmail.com|3011001044|NONE|NONE|5
+11045|Mateo Suarez Torres|16|11|1103|NONE|0|Mario Suarez Perez|mateo1103@gmail.com|3011001045|NONE|NONE|5
+11046|Sofia Medina Ruiz|17|11|1103|NONE|0|Liliana Ruiz Gomez|sofia1103@gmail.com|3011001046|NONE|NONE|5
+11047|Daniel Navarro Perez|16|11|1103|NONE|0|Jaime Navarro Ruiz|daniel1103@gmail.com|3011001047|NONE|NONE|5
+11048|Camila Duarte Vega|17|11|1103|NONE|0|Andrea Vega Torres|camila1103@gmail.com|3011001048|NONE|NONE|5
+11049|Nicolas Herrera Gomez|16|11|1103|NONE|0|Oscar Herrera Diaz|nicolas1103@gmail.com|3011001049|NONE|NONE|5
+11050|Emma Rios Castro|17|11|1103|NONE|0|Sandra Castro Ruiz|emma1103@gmail.com|3011001050|NONE|NONE|5
+11051|Sebastian Leon Perez|16|11|1103|NONE|0|Pedro Leon Gomez|sebastian1103@gmail.com|3011001051|NONE|NONE|5
+11052|Luciana Torres Ruiz|17|11|1103|NONE|0|Paola Torres Diaz|luciana1103@gmail.com|3011001052|NONE|NONE|5
+11053|Alejandro Vega Gomez|16|11|1103|NONE|0|Henry Vega Ruiz|alejandro1103@gmail.com|3011001053|NONE|NONE|5
+11054|Antonella Castro Perez|17|11|1103|NONE|0|Sandra Perez Torres|antonella1103@gmail.com|3011001054|NONE|NONE|5
+11055|Martin Silva Ruiz|16|11|1103|NONE|0|Carlos Silva Gomez|martin1103@gmail.com|3011001055|NONE|NONE|5
+11056|Salome Herrera Diaz|17|11|1103|NONE|0|Liliana Herrera Perez|salome1103@gmail.com|3011001056|NONE|NONE|5
+11057|Thiago Medina Gomez|16|11|1103|NONE|0|Oscar Medina Ruiz|thiago1103@gmail.com|3011001057|NONE|NONE|5
+11058|Gabriela Rojas Perez|17|11|1103|NONE|0|Andrea Rojas Torres|gabriela1103@gmail.com|3011001058|NONE|NONE|5
+11059|Juan David Castro Ruiz|16|11|1103|NONE|0|Mario Castro Gomez|juand1103@gmail.com|3011001059|NONE|NONE|5
+11060|Sara Leon Diaz|17|11|1103|NONE|0|Sandra Leon Perez|sara1103@gmail.com|3011001060|NONE|NONE|5
+20011|Mateo Andres Perez Gomez|4|JARDIN|1|NONE|0|Carlos Perez Ruiz|mateoj01@gmail.com|3002001001|NONE|NONE|5
+12002|Sofia Valentina Torres Diaz|5|JARDIN|1|NONE|0|Ana Diaz Romero|sofiaj01@gmail.com|3002001002|NONE|NONE|5
+21003|Samuel David Lopez Garcia|4|JARDIN|1|NONE|0|Luis Lopez Perez|samuelj01@gmail.com|3002001003|NONE|NONE|5
+20104|Emma Ruiz Moreno|5|JARDIN|1|NONE|0|Patricia Moreno Diaz|emmaj01@gmail.com|3002001004|NONE|NONE|5
+20015|Thiago Castro Herrera|4|JARDIN|1|NONE|0|Jorge Castro Ruiz|thiagoj01@gmail.com|3002001005|NONE|NONE|5
+12006|Antonella Martinez Pardo|5|JARDIN|1|NONE|0|Andrea Pardo Soto|antonellaj01@gmail.com|3002001006|NONE|NONE|5
+21007|Martin Felipe Rios Vega|4|JARDIN|1|NONE|0|Oscar Rios Marin|martinj01@gmail.com|3002001007|NONE|NONE|5
+20108|Isabella Gomez Lara|5|JARDIN|1|NONE|0|Sandra Lara Ruiz|isabellaj01@gmail.com|3002001008|NONE|NONE|5
+20019|Nicolas Ramirez Torres|4|JARDIN|1|NONE|0|Felipe Ramirez Diaz|nicolasj01@gmail.com|3002001009|NONE|NONE|5
+20101|Gabriela Suarez Leon|5|JARDIN|1|NONE|0|Martha Leon Soto|gabrielaj01@gmail.com|3002001010|NONE|NONE|5
+20211|Juan Pablo Reyes Gomez|4|JARDIN|2|NONE|0|Pedro Reyes Ruiz|juanj02@gmail.com|3002001021|NONE|NONE|5
+20221|Valeria Acosta Diaz|5|JARDIN|2|NONE|0|Martha Diaz Leon|valeriaj02@gmail.com|3002001022|NONE|NONE|5
+20213|Samuel Torres Vega|4|JARDIN|2|NONE|0|Luis Torres Perez|samuelj02@gmail.com|3002001023|NONE|NONE|5
+20214|Isabella Perez Ruiz|5|JARDIN|2|NONE|0|Sandra Ruiz Castro|isabellaj02@gmail.com|3002001024|NONE|NONE|5
+20215|Mateo Gomez Lara|4|JARDIN|2|NONE|0|Oscar Gomez Soto|mateoj02@gmail.com|3002001025|NONE|NONE|5
+20216|Camila Castro Herrera|5|JARDIN|2|NONE|0|Ana Herrera Diaz|camilaj02@gmail.com|3002001026|NONE|NONE|5
+20217|Sebastian Martinez Pardo|4|JARDIN|2|NONE|0|Carlos Martinez Ruiz|sebastianj02@gmail.com|3002001027|NONE|NONE|5
+20218|Luciana Rios Vega|5|JARDIN|2|NONE|0|Patricia Vega Torres|lucianaj02@gmail.com|3002001028|NONE|NONE|5
+20219|Nicolas Gomez Silva|4|JARDIN|2|NONE|0|Henry Gomez Perez|nicolasj02@gmail.com|3002001029|NONE|NONE|5
+20310|Emma Ramirez Leon|5|JARDIN|2|NONE|0|Sandra Leon Ruiz|emmaj02@gmail.com|3002001030|NONE|NONE|5
+20411|Juan Camilo Herrera Ruiz|4|JARDIN|3|NONE|0|Luis Herrera Diaz|juanj03@gmail.com|3002001041|NONE|NONE|5
+20412|Maria Jose Vega Castro|5|JARDIN|3|NONE|0|Sandra Castro Perez|mariaj03@gmail.com|3002001042|NONE|NONE|5
+20413|Samuel Ortiz Leon|4|JARDIN|3|NONE|0|Carlos Ortiz Ruiz|samuelj03@gmail.com|3002001043|NONE|NONE|5
+20414|Valentina Ramirez Gomez|5|JARDIN|3|NONE|0|Patricia Gomez Diaz|valentinaj03@gmail.com|3002001044|NONE|NONE|5
+20415|Mateo Suarez Torres|4|JARDIN|3|NONE|0|Mario Suarez Perez|mateoj03@gmail.com|3002001045|NONE|NONE|5
+20416|Sofia Medina Ruiz|5|JARDIN|3|NONE|0|Liliana Ruiz Gomez|sofiaj03@gmail.com|3002001046|NONE|NONE|5
+20417|Daniel Navarro Perez|4|JARDIN|3|NONE|0|Jaime Navarro Ruiz|danielj03@gmail.com|3002001047|NONE|NONE|5
+20418|Camila Duarte Vega|5|JARDIN|3|NONE|0|Andrea Vega Torres|camilaj03@gmail.com|3002001048|NONE|NONE|5
+20419|Nicolas Herrera Gomez|4|JARDIN|3|NONE|0|Oscar Herrera Diaz|nicolasj03@gmail.com|3002001049|NONE|NONE|5
+20510|Emma Rios Castro|5|JARDIN|3|NONE|0|Sandra Castro Ruiz|emmaj03@gmail.com|3002001050|NONE|NONE|5
+31001|Mateo Andres Perez Gomez|5|TRANSICION|1|NONE|0|Carlos Perez Ruiz|mateot01@gmail.com|3003001001|NONE|NONE|5
+30102|Sofia Valentina Torres Diaz|6|TRANSICION|1|NONE|0|Ana Diaz Romero|sofiat01@gmail.com|3003001002|NONE|NONE|5
+30103|Samuel David Lopez Garcia|5|TRANSICION|1|NONE|0|Luis Lopez Perez|samuelt01@gmail.com|3003001003|NONE|NONE|5
+30014|Emma Ruiz Moreno|6|TRANSICION|1|NONE|0|Patricia Moreno Diaz|emmat01@gmail.com|3003001004|NONE|NONE|5
+30015|Thiago Castro Herrera|5|TRANSICION|1|NONE|0|Jorge Castro Ruiz|thiagot01@gmail.com|3003001005|NONE|NONE|5
+30016|Antonella Martinez Pardo|6|TRANSICION|1|NONE|0|Andrea Pardo Soto|antonellat01@gmail.com|3003001006|NONE|NONE|5
+30017|Martin Felipe Rios Vega|5|TRANSICION|1|NONE|0|Oscar Rios Marin|martint01@gmail.com|3003001007|NONE|NONE|5
+30018|Isabella Gomez Lara|6|TRANSICION|1|NONE|0|Sandra Lara Ruiz|isabellat01@gmail.com|3003001008|NONE|NONE|5
+30019|Nicolas Ramirez Torres|5|TRANSICION|1|NONE|0|Felipe Ramirez Diaz|nicolast01@gmail.com|3003001009|NONE|NONE|5
+30110|Gabriela Suarez Leon|6|TRANSICION|1|NONE|0|Martha Leon Soto|gabrielat01@gmail.com|3003001010|NONE|NONE|5
+30211|Juan Pablo Reyes Gomez|5|TRANSICION|2|NONE|0|Pedro Reyes Ruiz|juant02@gmail.com|3003001021|NONE|NONE|5
+30212|Valeria Acosta Diaz|6|TRANSICION|2|NONE|0|Martha Diaz Leon|valeriat02@gmail.com|3003001022|NONE|NONE|5
+30231|Samuel Torres Vega|5|TRANSICION|2|NONE|0|Luis Torres Perez|samuelt02@gmail.com|3003001023|NONE|NONE|5
+30241|Isabella Perez Ruiz|6|TRANSICION|2|NONE|0|Sandra Ruiz Castro|isabellat02@gmail.com|3003001024|NONE|NONE|5
+30251|Mateo Gomez Lara|5|TRANSICION|2|NONE|0|Oscar Gomez Soto|mateot02@gmail.com|3003001025|NONE|NONE|5
+30261|Camila Castro Herrera|6|TRANSICION|2|NONE|0|Ana Herrera Diaz|camilat02@gmail.com|3003001026|NONE|NONE|5
+30271|Sebastian Martinez Pardo|5|TRANSICION|2|NONE|0|Carlos Martinez Ruiz|sebastiant02@gmail.com|3003001027|NONE|NONE|5
+30281|Luciana Rios Vega|6|TRANSICION|2|NONE|0|Patricia Vega Torres|lucianat02@gmail.com|3003001028|NONE|NONE|5
+30291|Nicolas Gomez Silva|5|TRANSICION|2|NONE|0|Henry Gomez Perez|nicolast02@gmail.com|3003001029|NONE|NONE|5
+30310|Emma Ramirez Leon|6|TRANSICION|2|NONE|0|Sandra Leon Ruiz|emmat02@gmail.com|3003001030|NONE|NONE|5
+30141|Juan Camilo Herrera Ruiz|5|TRANSICION|3|NONE|0|Luis Herrera Diaz|juant03@gmail.com|3003001041|NONE|NONE|5
+30142|Maria Jose Vega Castro|6|TRANSICION|3|NONE|0|Sandra Castro Perez|mariat03@gmail.com|3003001042|NONE|NONE|5
+30143|Samuel Ortiz Leon|5|TRANSICION|3|NONE|0|Carlos Ortiz Ruiz|samuelt03@gmail.com|3003001043|NONE|NONE|5
+30144|Valentina Ramirez Gomez|6|TRANSICION|3|NONE|0|Patricia Gomez Diaz|valentinat03@gmail.com|3003001044|NONE|NONE|5
+30145|Mateo Suarez Torres|5|TRANSICION|3|NONE|0|Mario Suarez Perez|mateot03@gmail.com|3003001045|NONE|NONE|5
+30146|Sofia Medina Ruiz|6|TRANSICION|3|NONE|0|Liliana Ruiz Gomez|sofiat03@gmail.com|3003001046|NONE|NONE|5
+30147|Daniel Navarro Perez|5|TRANSICION|3|NONE|0|Jaime Navarro Ruiz|danielt03@gmail.com|3003001047|NONE|NONE|5
+30148|Camila Duarte Vega|6|TRANSICION|3|NONE|0|Andrea Vega Torres|camilat03@gmail.com|3003001048|NONE|NONE|5
+30149|Nicolas Herrera Gomez|5|TRANSICION|3|NONE|0|Oscar Herrera Diaz|nicolast03@gmail.com|3003001049|NONE|NONE|5
+30150|Emma Rios Castro|6|TRANSICION|3|NONE|0|Sandra Castro Ruiz|emmat03@gmail.com|3003001050|NONE|NONE|5
