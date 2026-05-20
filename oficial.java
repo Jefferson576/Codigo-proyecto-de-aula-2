@@ -76,8 +76,8 @@ class Estudiante {
   private int curso;
   private Map<Integer, List<Double>> notasPorCorte;
   private Map<String, Map<Integer, List<Double>>> notasPorMateria;
-  private Map<Integer, Integer> faltasPorMes;
-  private int totalFaltas;
+  private Map<String, Map<Integer, Integer>> faltasPorMateriaYMes;
+  private Map<String, Integer> totalFaltasPorMateria;
   private String nivelRiesgo;
   private String nombreAcudiente;
   private String correoAcudiente;
@@ -96,15 +96,15 @@ class Estudiante {
     this.telefonoAcudiente = telefonoAcudiente;
     this.notasPorCorte = new HashMap<>();
     this.notasPorMateria = new HashMap<>();
-    this.faltasPorMes = new HashMap<>();
-    this.totalFaltas = 0;
+    this.faltasPorMateriaYMes = new HashMap<>();
+    this.totalFaltasPorMateria = new HashMap<>();
     this.nivelRiesgo = "NORMAL";
     this.mesRegistro = java.time.LocalDate.now().getMonthValue();
   }
 
   public Estudiante(int id, String nombre, int edad, String grado, int curso, Map<Integer, List<Double>> notas,
-      Map<String, Map<Integer, List<Double>>> notasPorMateria, Map<Integer, Integer> faltasPorMes, int totalFaltas,
-      String nombreAcudiente,
+      Map<String, Map<Integer, List<Double>>> notasPorMateria, Map<String, Map<Integer, Integer>> faltasPorMateriaYMes,
+      Map<String, Integer> totalFaltasPorMateria, String nombreAcudiente,
       String correoAcudiente, String telefonoAcudiente, int mesRegistro) {
     this.id = id;
     this.nombre = nombre;
@@ -122,11 +122,17 @@ class Estudiante {
         this.notasPorMateria.put(entry.getKey(), cortes);
       }
     }
-    this.faltasPorMes = new HashMap<>();
-    if (faltasPorMes != null) {
-      this.faltasPorMes.putAll(faltasPorMes);
+    this.faltasPorMateriaYMes = new HashMap<>();
+    if (faltasPorMateriaYMes != null) {
+      for (Map.Entry<String, Map<Integer, Integer>> entry : faltasPorMateriaYMes.entrySet()) {
+        Map<Integer, Integer> meses = new HashMap<>(entry.getValue());
+        this.faltasPorMateriaYMes.put(entry.getKey(), meses);
+      }
     }
-    this.totalFaltas = totalFaltas;
+    this.totalFaltasPorMateria = new HashMap<>();
+    if (totalFaltasPorMateria != null) {
+      this.totalFaltasPorMateria.putAll(totalFaltasPorMateria);
+    }
     this.nombreAcudiente = nombreAcudiente;
     this.correoAcudiente = correoAcudiente;
     this.telefonoAcudiente = telefonoAcudiente;
@@ -158,36 +164,62 @@ class Estudiante {
     }
   }
 
-  public void agregarFaltas(int faltasNuevas) {
-    this.totalFaltas += faltasNuevas;
-    actualizarRiesgo();
-  }
-
-  public void agregarFaltasMes(int mes, int faltasNuevas) {
+  public void agregarFaltasMateriaMes(String materia, int mes, int faltasNuevas) {
     if (mes < 1 || mes > 12) {
       return;
     }
     if (faltasNuevas <= 0) {
       return;
     }
-    this.faltasPorMes.put(mes, this.faltasPorMes.getOrDefault(mes, 0) + faltasNuevas);
-    this.totalFaltas += faltasNuevas;
+    if (materia == null || materia.trim().isEmpty()) {
+      materia = "General";
+    }
+    String m = materia.trim();
+
+    this.faltasPorMateriaYMes.putIfAbsent(m, new HashMap<>());
+    this.faltasPorMateriaYMes.get(m).put(mes, this.faltasPorMateriaYMes.get(m).getOrDefault(mes, 0) + faltasNuevas);
+    this.totalFaltasPorMateria.put(m, this.totalFaltasPorMateria.getOrDefault(m, 0) + faltasNuevas);
     actualizarRiesgo();
   }
 
+  public void agregarFaltas(int faltasNuevas) {
+    agregarFaltasMateriaMes("General", java.time.LocalDate.now().getMonthValue(), faltasNuevas);
+  }
+
+  public void agregarFaltasMes(int mes, int faltasNuevas) {
+    agregarFaltasMateriaMes("General", mes, faltasNuevas);
+  }
+
   public int getFaltasMes(int mes) {
-    return faltasPorMes.getOrDefault(mes, 0);
+    int total = 0;
+    for (Map<Integer, Integer> faltasMes : faltasPorMateriaYMes.values()) {
+      total += faltasMes.getOrDefault(mes, 0);
+    }
+    return total;
+  }
+
+  public double getPromedioFaltasGeneral() {
+    if (totalFaltasPorMateria.isEmpty()) {
+      return 0.0;
+    }
+    int total = totalFaltasPorMateria.values().stream().mapToInt(Integer::intValue).sum();
+    return (double) total / totalFaltasPorMateria.size();
+  }
+
+  public int getTotalFaltas() {
+    return (int) Math.round(getPromedioFaltasGeneral());
   }
 
   public void actualizarRiesgo() {
     int materiasPerdidas = contarMateriasPerdidas();
     int estadoInasistencia = peorEstadoInasistencias();
+    double promedioFaltas = getPromedioFaltasGeneral();
 
-    if (materiasPerdidas >= 3 && (estadoInasistencia >= 2 || totalFaltas >= 8)) {
+    if (materiasPerdidas >= 3 && (estadoInasistencia >= 2 || promedioFaltas >= 8)) {
       this.nivelRiesgo = "RIESGO DE DESERCIÓN";
       return;
     }
-    if (materiasPerdidas >= 1 && (estadoInasistencia >= 1 || totalFaltas >= 2)) {
+    if (materiasPerdidas >= 1 && (estadoInasistencia >= 1 || promedioFaltas >= 2)) {
       this.nivelRiesgo = "ALERTA DE DESERCIÓN";
       return;
     }
@@ -197,7 +229,7 @@ class Estudiante {
       return;
     }
 
-    if (estadoInasistencia >= 1 || totalFaltas >= 5) {
+    if (estadoInasistencia >= 1 || promedioFaltas >= 5) {
       this.nivelRiesgo = "ALERTA DE ASISTENCIA";
       return;
     }
@@ -294,47 +326,71 @@ class Estudiante {
     int peor = 0;
     peor = Math.max(peor, peorEstadoMensual());
     peor = Math.max(peor, peorEstadoPorCorte());
-    peor = Math.max(peor, estadoPorAcumuladoSimple(totalFaltas, 1));
+    peor = Math.max(peor, estadoPorAcumuladoSimple((int) Math.round(getPromedioFaltasGeneral()), 1));
     return peor;
   }
 
   private int peorEstadoMensual() {
-    if (faltasPorMes == null || faltasPorMes.isEmpty()) {
+    if (faltasPorMateriaYMes == null || faltasPorMateriaYMes.isEmpty()) {
       return 0;
     }
     int peor = 0;
     for (int mes : MESES_CORTE_1) {
-      peor = Math.max(peor, estadoMensual(getFaltasMes(mes)));
+      peor = Math.max(peor, estadoMensual((int) Math.round(getPromedioFaltasMes(mes))));
     }
     for (int mes : MESES_CORTE_2) {
-      peor = Math.max(peor, estadoMensual(getFaltasMes(mes)));
+      peor = Math.max(peor, estadoMensual((int) Math.round(getPromedioFaltasMes(mes))));
     }
     for (int mes : MESES_CORTE_3) {
-      peor = Math.max(peor, estadoMensual(getFaltasMes(mes)));
+      peor = Math.max(peor, estadoMensual((int) Math.round(getPromedioFaltasMes(mes))));
     }
     return peor;
+  }
+
+  public double getPromedioFaltasMes(int mes) {
+    if (faltasPorMateriaYMes.isEmpty()) {
+      return 0.0;
+    }
+    int total = 0;
+    int materias = 0;
+    for (Map<Integer, Integer> faltasMes : faltasPorMateriaYMes.values()) {
+      if (faltasMes.containsKey(mes)) {
+        total += faltasMes.get(mes);
+        materias++;
+      }
+    }
+    return materias == 0 ? 0.0 : (double) total / materias;
   }
 
   private int peorEstadoPorCorte() {
-    if (faltasPorMes == null || faltasPorMes.isEmpty()) {
+    if (faltasPorMateriaYMes == null || faltasPorMateriaYMes.isEmpty()) {
       return 0;
     }
-    int c1 = sumarMeses(MESES_CORTE_1);
-    int c2 = sumarMeses(MESES_CORTE_2);
-    int c3 = sumarMeses(MESES_CORTE_3);
+    double c1 = promedioFaltasPorCorte(MESES_CORTE_1);
+    double c2 = promedioFaltasPorCorte(MESES_CORTE_2);
+    double c3 = promedioFaltasPorCorte(MESES_CORTE_3);
     int peor = 0;
-    peor = Math.max(peor, estadoPorAcumuladoSimple(c1, 3));
-    peor = Math.max(peor, estadoPorAcumuladoSimple(c2, 3));
-    peor = Math.max(peor, estadoPorAcumuladoSimple(c3, 4));
+    peor = Math.max(peor, estadoPorAcumuladoSimple((int) Math.round(c1), 3));
+    peor = Math.max(peor, estadoPorAcumuladoSimple((int) Math.round(c2), 3));
+    peor = Math.max(peor, estadoPorAcumuladoSimple((int) Math.round(c3), 4));
     return peor;
   }
 
-  private int sumarMeses(int[] meses) {
-    int sum = 0;
-    for (int m : meses) {
-      sum += getFaltasMes(m);
+  private double promedioFaltasPorCorte(int[] meses) {
+    if (faltasPorMateriaYMes.isEmpty()) {
+      return 0.0;
     }
-    return sum;
+    double totalPromedio = 0.0;
+    int materias = 0;
+    for (Map<Integer, Integer> faltasMes : faltasPorMateriaYMes.values()) {
+      int sum = 0;
+      for (int m : meses) {
+        sum += faltasMes.getOrDefault(m, 0);
+      }
+      totalPromedio += sum;
+      materias++;
+    }
+    return materias == 0 ? 0.0 : totalPromedio / materias;
   }
 
   private int estadoMensual(int faltas) {
@@ -402,10 +458,6 @@ class Estudiante {
 
   public Map<String, Map<Integer, List<Double>>> getNotasPorMateria() {
     return notasPorMateria;
-  }
-
-  public int getTotalFaltas() {
-    return totalFaltas;
   }
 
   public String getNivelRiesgo() {
@@ -486,7 +538,7 @@ class Estudiante {
   @Override
   public String toString() {
     return String.format("ID: %d | %-15s | Grado: %s-%d | Prom: %.2f | Faltas: %d | Riesgo: %s | Acudiente: %s",
-        id, nombre, grado, curso, getPromedioGeneral(), totalFaltas, nivelRiesgo, nombreAcudiente);
+        id, nombre, grado, curso, getPromedioGeneral(), getTotalFaltas(), nivelRiesgo, nombreAcudiente);
   }
 
   public int getMesRegistro() {
@@ -507,7 +559,7 @@ class Estudiante {
         .collect(Collectors.joining(";"));
 
     sb.append(notasData.isEmpty() ? "NONE" : notasData).append("|")
-        .append(totalFaltas).append("|").append(nombreAcudiente).append("|")
+        .append(getTotalFaltas()).append("|").append(nombreAcudiente).append("|")
         .append(correoAcudiente).append("|").append(telefonoAcudiente).append("|");
 
     String materiasData = notasPorMateria.entrySet().stream()
@@ -523,13 +575,21 @@ class Estudiante {
 
     sb.append(materiasData.isEmpty() ? "NONE" : materiasData).append("|");
 
-    String faltasMesData = faltasPorMes.entrySet().stream()
-        .filter(e -> e.getKey() != null && e.getValue() != null)
-        .filter(e -> e.getKey() >= 1 && e.getKey() <= 12 && e.getValue() >= 0)
-        .sorted((a, b) -> Integer.compare(a.getKey(), b.getKey()))
-        .map(e -> e.getKey() + "=" + e.getValue())
-        .collect(Collectors.joining(";"));
-    sb.append(faltasMesData.isEmpty() ? "NONE" : faltasMesData).append("|");
+    String faltasPorMateriaData = faltasPorMateriaYMes.entrySet().stream()
+        .filter(e -> e.getKey() != null && !e.getKey().trim().isEmpty())
+        .filter(e -> e.getValue() != null && !e.getValue().isEmpty())
+        .map(e -> {
+          String mesesData = e.getValue().entrySet().stream()
+              .filter(m -> m.getKey() != null && m.getValue() != null)
+              .filter(m -> m.getKey() >= 1 && m.getKey() <= 12 && m.getValue() >= 0)
+              .sorted((a, b) -> Integer.compare(a.getKey(), b.getKey()))
+              .map(m -> m.getKey() + "=" + m.getValue())
+              .collect(Collectors.joining(";"));
+          return e.getKey().trim() + "#" + mesesData;
+        })
+        .collect(Collectors.joining("±"));
+
+    sb.append(faltasPorMateriaData.isEmpty() ? "NONE" : faltasPorMateriaData).append("|");
     sb.append(mesRegistro);
 
     return sb.toString();
@@ -2426,20 +2486,25 @@ public class oficial {
       for (Estudiante e : cursoList) {
         List<Double> nuevas = new ArrayList<>();
         for (int i = 0; i < cant; i++) {
-          String v = JOptionPane.showInputDialog(this,
-              "Nota " + (i + 1) + " (1.0-5.0) para " + e.getNombre() + " (" + materia + "):");
-          if (v == null)
-            return;
-          try {
-            double n = Double.parseDouble(v.trim());
-            if (n < 1.0 || n > 5.0) {
-              JOptionPane.showMessageDialog(this, "Nota invalida (1.0-5.0).", "Error", JOptionPane.ERROR_MESSAGE);
+          boolean notaValida = false;
+          while (!notaValida) {
+            String v = JOptionPane.showInputDialog(this,
+                "Nota " + (i + 1) + " (1.0-5.0) para " + e.getNombre() + " (" + materia + "):");
+            if (v == null)
               return;
+            try {
+              double n = Double.parseDouble(v.trim());
+              if (n < 1.0 || n > 5.0) {
+                JOptionPane.showMessageDialog(this, "Nota invalida (1.0-5.0). Intente nuevamente.", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+              } else {
+                nuevas.add(n);
+                notaValida = true;
+              }
+            } catch (Exception ex) {
+              JOptionPane.showMessageDialog(this, "Nota invalida. Intente nuevamente.", "Error",
+                  JOptionPane.ERROR_MESSAGE);
             }
-            nuevas.add(n);
-          } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Nota invalida.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
           }
         }
         e.agregarNotasMateria(materia.trim(), corte, nuevas);
@@ -2477,20 +2542,25 @@ public class oficial {
         return;
       }
       for (Estudiante e : cursoList) {
-        String v = JOptionPane.showInputDialog(this,
-            "Faltas del mes (0-20) para " + e.getNombre() + " (" + materia + "):");
-        if (v == null)
-          return;
-        try {
-          int faltas = Integer.parseInt(v.trim());
-          if (faltas < 0 || faltas > 20) {
-            JOptionPane.showMessageDialog(this, "Faltas fuera de rango.", "Error", JOptionPane.ERROR_MESSAGE);
+        boolean asistenciaValida = false;
+        while (!asistenciaValida) {
+          String v = JOptionPane.showInputDialog(this,
+              "Faltas del mes (0-20) para " + e.getNombre() + " (" + materia + "):");
+          if (v == null)
             return;
+          try {
+            int faltas = Integer.parseInt(v.trim());
+            if (faltas < 0 || faltas > 20) {
+              JOptionPane.showMessageDialog(this, "Faltas fuera de rango (0-20). Intente nuevamente.", "Error",
+                  JOptionPane.ERROR_MESSAGE);
+            } else {
+              e.agregarFaltasMateriaMes(materia, mes, faltas);
+              asistenciaValida = true;
+            }
+          } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Valor invalido. Intente nuevamente.", "Error",
+                JOptionPane.ERROR_MESSAGE);
           }
-          e.agregarFaltasMes(mes, faltas);
-        } catch (Exception ex) {
-          JOptionPane.showMessageDialog(this, "Valor invalido.", "Error", JOptionPane.ERROR_MESSAGE);
-          return;
         }
       }
       guardarDatos();
@@ -3050,19 +3120,24 @@ public class oficial {
       for (Estudiante e : cursoList) {
         List<Double> nuevas = new ArrayList<>();
         for (int i = 0; i < cant; i++) {
-          String v = JOptionPane.showInputDialog(this, "Nota " + (i + 1) + " (1.0-5.0) para " + e.getNombre() + ":");
-          if (v == null)
-            return;
-          try {
-            double n = Double.parseDouble(v.trim());
-            if (n < 1.0 || n > 5.0) {
-              JOptionPane.showMessageDialog(this, "Nota invalida (1.0-5.0).", "Error", JOptionPane.ERROR_MESSAGE);
+          boolean notaValida = false;
+          while (!notaValida) {
+            String v = JOptionPane.showInputDialog(this, "Nota " + (i + 1) + " (1.0-5.0) para " + e.getNombre() + ":");
+            if (v == null)
               return;
+            try {
+              double n = Double.parseDouble(v.trim());
+              if (n < 1.0 || n > 5.0) {
+                JOptionPane.showMessageDialog(this, "Nota invalida (1.0-5.0). Intente nuevamente.", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+              } else {
+                nuevas.add(n);
+                notaValida = true;
+              }
+            } catch (Exception ex) {
+              JOptionPane.showMessageDialog(this, "Nota invalida. Intente nuevamente.", "Error",
+                  JOptionPane.ERROR_MESSAGE);
             }
-            nuevas.add(n);
-          } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Nota invalida.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
           }
         }
         e.agregarNotas(corte, nuevas);
@@ -3097,19 +3172,24 @@ public class oficial {
         return;
       }
       for (Estudiante e : cursoList) {
-        String v = JOptionPane.showInputDialog(this, "Faltas (0-" + diasMax + ") para " + e.getNombre() + ":");
-        if (v == null)
-          return;
-        try {
-          int faltas = Integer.parseInt(v.trim());
-          if (faltas < 0 || faltas > diasMax) {
-            JOptionPane.showMessageDialog(this, "Faltas fuera de rango.", "Error", JOptionPane.ERROR_MESSAGE);
+        boolean asistenciaValida = false;
+        while (!asistenciaValida) {
+          String v = JOptionPane.showInputDialog(this, "Faltas (0-" + diasMax + ") para " + e.getNombre() + ":");
+          if (v == null)
             return;
+          try {
+            int faltas = Integer.parseInt(v.trim());
+            if (faltas < 0 || faltas > diasMax) {
+              JOptionPane.showMessageDialog(this, "Faltas fuera de rango (0-" + diasMax + "). Intente nuevamente.",
+                  "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+              e.agregarFaltas(faltas);
+              asistenciaValida = true;
+            }
+          } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Valor invalido. Intente nuevamente.", "Error",
+                JOptionPane.ERROR_MESSAGE);
           }
-          e.agregarFaltas(faltas);
-        } catch (Exception ex) {
-          JOptionPane.showMessageDialog(this, "Valor invalido.", "Error", JOptionPane.ERROR_MESSAGE);
-          return;
         }
       }
       guardarDatos();
@@ -3656,18 +3736,59 @@ public class oficial {
         if (p.length >= 11 && !p[10].equals("NONE")) {
           notasMateria = parseNotasPorMateria(p[10]);
         }
-        Map<Integer, Integer> faltasMes = new HashMap<>();
+        Map<String, Map<Integer, Integer>> faltasPorMateriaYMes = new HashMap<>();
+        Map<String, Integer> totalFaltasPorMateria = new HashMap<>();
         if (p.length >= 12 && !p[11].equals("NONE")) {
-          faltasMes = parseFaltasPorMes(p[11]);
+          try {
+            faltasPorMateriaYMes = parseFaltasPorMateria(p[11]);
+            for (Map.Entry<String, Map<Integer, Integer>> entry : faltasPorMateriaYMes.entrySet()) {
+              int total = entry.getValue().values().stream().mapToInt(Integer::intValue).sum();
+              totalFaltasPorMateria.put(entry.getKey(), total);
+            }
+          } catch (Exception e) {
+            Map<Integer, Integer> faltasMes = parseFaltasPorMes(p[11]);
+            faltasPorMateriaYMes.put("General", faltasMes);
+            int total = faltasMes.values().stream().mapToInt(Integer::intValue).sum();
+            totalFaltasPorMateria.put("General", total);
+          }
         }
         int mesRegistro = p.length >= 13 ? Integer.parseInt(p[12]) : java.time.LocalDate.now().getMonthValue();
         estudiantes.add(new Estudiante(Integer.parseInt(p[0]), p[1], Integer.parseInt(p[2]),
-            p[3], Integer.parseInt(p[4]), notasMap, notasMateria, faltasMes, Integer.parseInt(p[6]), p[7], p[8], p[9],
+            p[3], Integer.parseInt(p[4]), notasMap, notasMateria, faltasPorMateriaYMes, totalFaltasPorMateria, p[7],
+            p[8], p[9],
             mesRegistro));
       }
     } catch (Exception e) {
       System.out.println("Aviso: Formato de datos actualizado.");
     }
+  }
+
+  private static Map<String, Map<Integer, Integer>> parseFaltasPorMateria(String data) {
+    Map<String, Map<Integer, Integer>> faltas = new HashMap<>();
+    if (data == null || data.trim().isEmpty())
+      return faltas;
+    String[] materias = data.split("±");
+    for (String m : materias) {
+      String[] kv = m.split("#");
+      if (kv.length != 2)
+        continue;
+      String materia = kv[0].trim();
+      Map<Integer, Integer> mesMap = new HashMap<>();
+      String[] mesEntries = kv[1].split(";");
+      for (String me : mesEntries) {
+        String[] parts = me.split("=");
+        if (parts.length != 2)
+          continue;
+        try {
+          int mes = Integer.parseInt(parts[0]);
+          int valor = Integer.parseInt(parts[1]);
+          mesMap.put(mes, valor);
+        } catch (Exception e) {
+        }
+      }
+      faltas.put(materia, mesMap);
+    }
+    return faltas;
   }
 
   private static void cargarProfesoresYAsignaciones() {

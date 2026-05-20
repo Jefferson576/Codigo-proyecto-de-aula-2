@@ -2,3 +2,351 @@
 1|101|Lengua Castellana|andresg
 1|101|Inglés|camilar
 1|101|Tecnología e Informática|camilar
+6|601|Inglés|andresg
+6|602|Inglés|andresg
+6|603|Inglés|andresg
+7|701|Inglés|andresg
+7|702|Inglés|andresg
+7|703|Inglés|andresg
+8|801|Inglés|andresg
+8|802|Inglés|andresg
+8|803|Inglés|andresg
+9|901|Inglés|andresg
+9|902|Inglés|andresg
+9|903|Inglés|andresg
+10|1001|Inglés|andresg
+10|1002|Inglés|andresg
+10|1003|Inglés|andresg
+11|1101|Inglés|andresg
+11|1102|Inglés|andresg
+11|1103|Inglés|andresg
+6|601|Ciencias Sociales|mariap
+6|602|Ciencias Sociales|mariap
+6|603|Ciencias Sociales|mariap
+7|701|Ciencias Sociales|mariap
+7|702|Ciencias Sociales|mariap
+7|703|Ciencias Sociales|mariap
+8|801|Ciencias Sociales|mariap
+8|802|Ciencias Sociales|mariap
+8|803|Ciencias Sociales|mariap
+9|901|Ciencias Sociales|mariap
+9|902|Ciencias Sociales|mariap
+9|903|Ciencias Sociales|mariap
+10|1001|Ciencias Sociales|mariap
+10|1002|Ciencias Sociales|mariap
+10|1003|Ciencias Sociales|mariap
+11|1101|Ciencias Sociales|mariap
+11|1102|Ciencias Sociales|mariap
+11|1103|Ciencias Sociales|mariap
+1|101|Ciencias Sociales|mariap
+1|102|Ciencias Sociales|mariap
+1|103|Ciencias Sociales|mariap
+2|201|Ciencias Sociales|mariap
+2|202|Ciencias Sociales|mariap
+2|203|Ciencias Sociales|mariap
+3|301|Ciencias Sociales|mariap
+3|302|Ciencias Sociales|mariap
+3|303|Ciencias Sociales|mariap
+4|401|Ciencias Sociales|mariap
+4|402|Ciencias Sociales|mariap
+4|403|Ciencias Sociales|mariap
+5|501|Ciencias Sociales|mariap
+5|502|Ciencias Sociales|mariap
+5|503|Ciencias Sociales|mariap
+6|601|Matemáticas|carlost
+6|602|Matemáticas|carlost
+6|603|Matemáticas|carlost
+7|701|Matemáticas|carlost
+7|702|Matemáticas|carlost
+7|703|Matemáticas|carlost
+8|801|Matemáticas|carlost
+8|802|Matemáticas|carlost
+8|803|Matemáticas|carlost
+9|901|Matemáticas|carlost
+9|902|Matemáticas|carlost
+9|903|Matemáticas|carlost
+10|1001|Matemáticas|carlost
+10|1002|Matemáticas|carlost
+10|1003|Matemáticas|carlost
+11|1101|Matemáticas|carlost
+11|1102|Matemáticas|carlost
+11|1103|Matemáticas|carlost
+6|601|Lengua Castellana|laurac
+6|602|Lengua Castellana|laurac
+6|603|Lengua Castellana|laurac
+7|701|Lengua Castellana|laurac
+7|702|Lengua Castellana|laurac
+7|703|Lengua Castellana|laurac
+8|801|Lengua Castellana|laurac
+8|802|Lengua Castellana|laurac
+8|803|Lengua Castellana|laurac
+9|901|Lengua Castellana|laurac
+9|903|Lengua Castellana|laurac
+10|1001|Lengua Castellana|laurac
+10|1002|Lengua Castellana|laurac
+10|1003|Lengua Castellana|laurac
+11|1101|Lengua Castellana|laurac
+11|1102|Lengua Castellana|laurac
+11|1103|Lengua Castellana|laurac
+6|601|Ciencias Naturales|juanr
+6|602|Ciencias Naturales|juanr
+6|603|Ciencias Naturales|juanr
+7|701|Ciencias Naturales|juanr
+7|703|Ciencias Naturales|juanr
+7|702|Ciencias Naturales|juanr
+8|801|Ciencias Naturales|juanr
+8|802|Ciencias Naturales|juanr
+8|803|Ciencias Naturales|juanr
+9|901|Ciencias Naturales|juanr
+9|902|Ciencias Naturales|juanr
+9|903|Ciencias Naturales|juanr
+10|1001|Ciencias Naturales|juanr
+10|1002|Ciencias Naturales|juanr
+10|1003|Ciencias Naturales|juanr
+11|1101|Ciencias Naturales|juanr
+11|1102|Ciencias Naturales|juanr
+11|1103|Ciencias Naturales|juanr
+6|601|Ética y Valores|danielam
+6|602|Ética y Valores|danielam
+6|603|Ética y Valores|danielam
+7|701|Ética y Valores|danielam
+7|702|Ética y Valores|danielam
+7|703|Ética y Valores|danielam
+8|801|Ética y Valores|danielam
+8|802|Ética y Valores|danielam
+8|803|Ética y Valores|danielam
+9|901|Ética y Valores|danielam
+9|902|Ética y Valores|danielam
+9|903|Ética y Valores|danielam
+10|1001|Ética y Valores|danielam
+10|1002|Ética y Valores|danielam
+10|1003|Ética y Valores|danielam
+11|1101|Ética y Valores|danielam
+11|1102|Ética y Valores|danielam
+11|1103|Ética y Valores|danielam
+1|102|Tecnología e Informática|sebastianv
+1|103|Tecnología e Informática|sebastianv
+2|201|Tecnología e Informática|sebastianv
+2|202|Tecnología e Informática|sebastianv
+2|203|Tecnología e Informática|sebastianv
+3|301|Tecnología e Informática|sebastianv
+3|302|Tecnología e Informática|sebastianv
+3|303|Tecnología e Informática|sebastianv
+4|401|Tecnología e Informática|sebastianv
+4|402|Tecnología e Informática|sebastianv
+4|403|Tecnología e Informática|sebastianv
+5|501|Tecnología e Informática|sebastianv
+5|501|Tecnología e Informática|sebastianv
+5|502|Tecnología e Informática|sebastianv
+5|503|Tecnología e Informática|sebastianv
+6|601|Tecnología e Informática|sebastianv
+6|602|Tecnología e Informática|sebastianv
+6|603|Tecnología e Informática|sebastianv
+7|701|Tecnología e Informática|sebastianv
+7|702|Tecnología e Informática|sebastianv
+7|703|Tecnología e Informática|sebastianv
+8|801|Tecnología e Informática|sebastianv
+8|802|Tecnología e Informática|sebastianv
+8|803|Tecnología e Informática|sebastianv
+9|901|Tecnología e Informática|sebastianv
+9|902|Tecnología e Informática|sebastianv
+9|903|Tecnología e Informática|sebastianv
+10|1001|Tecnología e Informática|sebastianv
+10|1002|Tecnología e Informática|sebastianv
+10|1003|Tecnología e Informática|sebastianv
+11|1101|Tecnología e Informática|sebastianv
+11|1102|Tecnología e Informática|sebastianv
+11|1103|Tecnología e Informática|sebastianv
+1|101|Religión|camilar
+1|102|Religión|camilar
+1|103|Religión|camilar
+2|201|Religión|camilar
+2|202|Religión|camilar
+2|203|Religión|camilar
+3|301|Religión|camilar
+3|302|Religión|camilar
+3|303|Religión|camilar
+4|401|Religión|camilar
+4|402|Religión|camilar
+4|403|Religión|camilar
+5|501|Religión|camilar
+5|502|Religión|camilar
+5|503|Religión|camilar
+6|601|Religión|camilar
+6|602|Religión|camilar
+6|603|Religión|camilar
+7|701|Religión|camilar
+7|702|Religión|camilar
+7|703|Religión|camilar
+8|801|Religión|camilar
+8|802|Religión|camilar
+8|803|Religión|camilar
+9|901|Religión|camilar
+9|902|Religión|camilar
+9|903|Religión|camilar
+10|1001|Religión|camilar
+10|1002|Religión|camilar
+10|1003|Religión|camilar
+11|1101|Religión|camilar
+11|1102|Religión|camilar
+11|1103|Religión|camilar
+1|101|Educación Artística|felipeh
+1|102|Educación Artística|felipeh
+1|103|Educación Artística|felipeh
+2|201|Educación Artística|felipeh
+2|202|Educación Artística|felipeh
+2|203|Educación Artística|felipeh
+3|301|Educación Artística|felipeh
+3|302|Educación Artística|felipeh
+3|303|Educación Artística|felipeh
+4|401|Educación Artística|felipeh
+4|402|Educación Artística|felipeh
+4|403|Educación Artística|felipeh
+5|501|Educación Artística|felipeh
+5|502|Educación Artística|felipeh
+5|503|Educación Artística|felipeh
+6|601|Educación Artística|felipeh
+6|602|Educación Artística|felipeh
+6|603|Educación Artística|felipeh
+7|701|Educación Artística|felipeh
+7|702|Educación Artística|felipeh
+7|703|Educación Artística|felipeh
+8|801|Educación Artística|felipeh
+8|802|Educación Artística|felipeh
+8|803|Educación Artística|felipeh
+9|901|Educación Artística|felipeh
+9|902|Educación Artística|felipeh
+9|903|Educación Artística|felipeh
+10|1001|Educación Artística|felipeh
+10|1002|Educación Artística|felipeh
+10|1003|Educación Artística|felipeh
+11|1101|Educación Artística|felipeh
+11|1102|Educación Artística|felipeh
+11|1103|Educación Artística|felipeh
+6|601|Educación Física|nicolasd
+6|602|Educación Física|nicolasd
+6|603|Educación Física|nicolasd
+7|701|Educación Física|nicolasd
+7|702|Educación Física|nicolasd
+7|703|Educación Física|nicolasd
+8|801|Educación Física|nicolasd
+8|802|Educación Física|nicolasd
+8|803|Educación Física|nicolasd
+9|901|Educación Física|nicolasd
+9|902|Educación Física|nicolasd
+9|903|Educación Física|nicolasd
+10|1001|Educación Física|nicolasd
+10|1002|Educación Física|nicolasd
+10|1003|Educación Física|nicolasd
+11|1101|Educación Física|nicolasd
+11|1102|Educación Física|nicolasd
+11|1103|Educación Física|nicolasd
+1|102|Matemáticas|miguelp
+1|103|Matemáticas|miguelp
+2|201|Matemáticas|miguelp
+2|202|Matemáticas|miguelp
+2|203|Matemáticas|miguelp
+3|301|Matemáticas|miguelp
+3|302|Matemáticas|miguelp
+3|303|Matemáticas|miguelp
+4|401|Matemáticas|miguelp
+4|402|Matemáticas|miguelp
+4|403|Matemáticas|miguelp
+5|501|Matemáticas|miguelp
+5|502|Matemáticas|miguelp
+5|503|Matemáticas|miguelp
+1|101|Ciencias Naturales|valentinag
+1|102|Ciencias Naturales|valentinag
+1|103|Ciencias Naturales|valentinag
+2|201|Ciencias Naturales|valentinag
+2|203|Ciencias Naturales|valentinag
+2|202|Ciencias Naturales|valentinag
+3|301|Ciencias Naturales|valentinag
+3|302|Ciencias Naturales|valentinag
+3|303|Ciencias Naturales|valentinag
+4|401|Ciencias Naturales|valentinag
+4|402|Ciencias Naturales|valentinag
+4|403|Ciencias Naturales|valentinag
+5|501|Ciencias Naturales|valentinag
+5|502|Ciencias Naturales|valentinag
+5|503|Ciencias Naturales|valentinag
+jardin|1|Inglés|rebecasu
+jardin|2|Inglés|rebecasu
+transicion|1|Inglés|rebecasu
+trancision|1|Inglés|rebecasu
+transicion|2|Inglés|rebecasu
+1|101|Inglés|rebecasu
+1|102|Inglés|rebecasu
+1|103|Inglés|rebecasu
+2|201|Inglés|rebecasu
+2|202|Inglés|rebecasu
+2|203|Inglés|rebecasu
+3|301|Inglés|rebecasu
+3|302|Inglés|rebecasu
+3|303|Inglés|rebecasu
+4|401|Inglés|rebecasu
+4|402|Inglés|rebecasu
+4|403|Inglés|rebecasu
+5|501|Inglés|rebecasu
+5|502|Inglés|rebecasu
+5|503|Inglés|rebecasu
+jardin|1|Lengua Castellana|paulac
+jardin|2|Lengua Castellana|paulac
+transicion|1|Lengua Castellana|paulac
+transicion|2|Lengua Castellana|paulac
+1|102|Lengua Castellana|paulac
+1|103|Lengua Castellana|paulac
+2|201|Lengua Castellana|paulac
+2|202|Lengua Castellana|paulac
+2|203|Lengua Castellana|paulac
+3|301|Lengua Castellana|paulac
+3|302|Lengua Castellana|paulac
+3|303|Lengua Castellana|paulac
+4|401|Lengua Castellana|paulac
+4|402|Lengua Castellana|paulac
+4|403|Lengua Castellana|paulac
+5|501|Lengua Castellana|paulac
+5|502|Lengua Castellana|paulac
+5|503|Lengua Castellana|paulac
+jardin|1|Ética y Valores|alejandrol
+jardin|2|Ética y Valores|alejandrol
+transicion|1|Ética y Valores|alejandrol
+transicion|2|Ética y Valores|alejandrol
+1|101|Ética y Valores|alejandrol
+1|102|Ética y Valores|alejandrol
+1|103|Ética y Valores|alejandrol
+2|201|Ética y Valores|alejandrol
+2|202|Ética y Valores|alejandrol
+2|203|Ética y Valores|alejandrol
+3|301|Ética y Valores|alejandrol
+3|302|Ética y Valores|alejandrol
+3|303|Ética y Valores|alejandrol
+4|401|Ética y Valores|alejandrol
+4|402|Ética y Valores|alejandrol
+4|403|Ética y Valores|alejandrol
+5|501|Ética y Valores|alejandrol
+5|502|Ética y Valores|alejandrol
+5|503|Ética y Valores|alejandrol
+jardin|1|Educación Física|sofiam
+jardin|2|Educación Física|sofiam
+transicion|1|Educación Física|sofiam
+transicion|2|Educación Física|sofiam
+1|101|Educación Física|sofiam
+1|102|Educación Física|sofiam
+1|103|Educación Física|sofiam
+2|201|Educación Física|sofiam
+2|202|Educación Física|sofiam
+2|203|Educación Física|sofiam
+3|301|Educación Física|sofiam
+3|302|Educación Física|sofiam
+3|303|Educación Física|sofiam
+4|401|Educación Física|sofiam
+4|402|Educación Física|sofiam
+4|403|Educación Física|sofiam
+5|501|Educación Física|sofiam
+5|502|Educación Física|sofiam
+5|503|Educación Física|sofiam
+jardin|1|Ciencias Naturales|sarar
+jardin|2|Ciencias Naturales|sarar
+transicion|1|Ciencias Naturales|sarar
+transicion|2|Ciencias Naturales|sarar
